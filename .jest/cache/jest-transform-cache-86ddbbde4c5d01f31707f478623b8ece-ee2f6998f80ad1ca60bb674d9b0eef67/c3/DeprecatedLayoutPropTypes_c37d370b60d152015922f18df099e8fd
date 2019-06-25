@@ -1,0 +1,191 @@
+8a3f7f17ddb62915fda06802fa39f6b3
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+var LayoutPropTypes = {
+  display: require('prop-types').oneOf(['none', 'flex']),
+  width: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  height: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  start: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  end: require('prop-types').oneOfType([require('prop-types').number, require('prop-types').string]),
+  top: require('prop-types').oneOfType([require('prop-types').number, require('prop-types').string]),
+  left: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  right: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  bottom: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  minWidth: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  maxWidth: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  minHeight: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  maxHeight: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  margin: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  marginVertical: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  marginHorizontal: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  marginTop: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  marginBottom: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  marginLeft: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  marginRight: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  marginStart: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  marginEnd: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  padding: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  paddingVertical: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  paddingHorizontal: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  paddingTop: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  paddingBottom: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  paddingLeft: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  paddingRight: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  paddingStart: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  paddingEnd: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  borderWidth: require('prop-types').number,
+  borderTopWidth: require('prop-types').number,
+  borderStartWidth: require('prop-types').number,
+  borderEndWidth: require('prop-types').number,
+  borderRightWidth: require('prop-types').number,
+  borderBottomWidth: require('prop-types').number,
+  borderLeftWidth: require('prop-types').number,
+  position: require('prop-types').oneOf(['absolute', 'relative']),
+  flexDirection: require('prop-types').oneOf([
+  'row',
+  'row-reverse',
+  'column',
+  'column-reverse']),
+
+  flexWrap: require('prop-types').oneOf(['wrap', 'nowrap', 'wrap-reverse']),
+  justifyContent: require('prop-types').oneOf([
+  'flex-start',
+  'flex-end',
+  'center',
+  'space-between',
+  'space-around',
+  'space-evenly']),
+
+  alignItems: require('prop-types').oneOf([
+  'flex-start',
+  'flex-end',
+  'center',
+  'stretch',
+  'baseline']),
+
+  alignSelf: require('prop-types').oneOf([
+  'auto',
+  'flex-start',
+  'flex-end',
+  'center',
+  'stretch',
+  'baseline']),
+
+  alignContent: require('prop-types').oneOf([
+  'flex-start',
+  'flex-end',
+  'center',
+  'stretch',
+  'space-between',
+  'space-around']),
+
+  overflow: require('prop-types').oneOf(['visible', 'hidden', 'scroll']),
+  flex: require('prop-types').number,
+  flexGrow: require('prop-types').number,
+  flexShrink: require('prop-types').number,
+  flexBasis: require('prop-types').oneOfType([
+  require('prop-types').number,
+  require('prop-types').string]),
+
+  aspectRatio: require('prop-types').number,
+  zIndex: require('prop-types').number,
+  direction: require('prop-types').oneOf(['inherit', 'ltr', 'rtl']) };
+
+
+module.exports = LayoutPropTypes;

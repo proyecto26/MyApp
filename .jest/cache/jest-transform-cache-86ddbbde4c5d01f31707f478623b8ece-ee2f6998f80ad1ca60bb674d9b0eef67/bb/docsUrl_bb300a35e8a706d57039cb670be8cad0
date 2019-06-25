@@ -1,0 +1,4 @@
+ef4ab62bc7760787fd70e2b9df12c5cc
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.default = docsUrl;function docsUrl(path) {
+  return "https://reactnavigation.org/docs/" + path;
+}

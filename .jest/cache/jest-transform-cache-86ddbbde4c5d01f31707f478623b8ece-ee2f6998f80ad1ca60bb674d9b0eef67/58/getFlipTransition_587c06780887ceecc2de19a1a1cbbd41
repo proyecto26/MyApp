@@ -1,0 +1,20 @@
+400bbb8168a11b89e6a8eea95f1c760b
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.getFlipTransition = void 0;var _Types = require("../Types");
+
+var getFlipTransition = function getFlipTransition(transitionInfo) {var
+  progress = transitionInfo.progress,start = transitionInfo.start,end = transitionInfo.end,direction = transitionInfo.direction;
+  var flipTo = '90deg';
+  var flipToSwap = "-" + flipTo;
+  var flipStart = '0deg';
+
+  var flipInterpolation = progress.interpolate({
+    inputRange: [0, start, end, 1],
+    outputRange: direction === _Types.RouteDirection.from ?
+    [flipStart, flipStart, flipTo, flipTo] :
+    [flipToSwap, flipToSwap, flipStart, flipStart] });
+
+
+  return {
+    transform: [{ rotateX: flipInterpolation }] };
+
+};exports.getFlipTransition = getFlipTransition;

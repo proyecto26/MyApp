@@ -1,0 +1,26 @@
+b2c39e08b7e153fdf8b1b2a79b0c95bb
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.getHorizontalTransition = void 0;var _Types = require("../Types");
+
+var getHorizontalTransition = function getHorizontalTransition(transitionInfo) {
+  if (!transitionInfo || transitionInfo.metrics === undefined) {return {};}var
+
+  start = transitionInfo.start,end = transitionInfo.end,dimensions = transitionInfo.dimensions;
+
+  var startPosition = 0;
+  var endPosition = 0;
+
+  if (transitionInfo.direction === _Types.RouteDirection.from) {
+    startPosition = 0;
+    endPosition = -(dimensions.width + 25);
+  } else if (transitionInfo.direction === _Types.RouteDirection.to) {
+    startPosition = dimensions.width + 25;
+    endPosition = 0;
+  }
+
+  var transitionProgress = transitionInfo.progress.interpolate({
+    inputRange: [0, start, end, 1],
+    outputRange: [startPosition, startPosition, endPosition, endPosition] });
+
+
+  return { transform: [{ translateX: transitionProgress }] };
+};exports.getHorizontalTransition = getHorizontalTransition;

@@ -1,0 +1,111 @@
+00e357a269020dc424148518f88bdf70
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.getAnchoredElements = void 0;var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/objectSpread"));var _react = _interopRequireDefault(require("react"));
+var _reactNative = require("react-native");
+
+var _TransitionItem = _interopRequireDefault(require("../TransitionItem"));
+var _Utils = require("../Utils");
+
+var getAnchoredElements = function getAnchoredElements(sharedElements, getInterpolationFunction) {
+  var retVal = [];
+  sharedElements.forEach(function (p) {
+    if (p.toItem.anchors && p.toItem.anchors.length > 0) {
+      p.toItem.anchors.forEach(function (a) {
+        var scale = p.fromItem.scaleRelativeTo(p.toItem);
+        var scaleOp = p.toItem.scaleRelativeTo(p.fromItem);
+
+        retVal.push(createAnchoredView(a, p.toItem, p.fromItem,
+        getInterpolationFunction, scale, scaleOp));
+      });
+    }
+  });
+  return retVal;
+};exports.getAnchoredElements = getAnchoredElements;
+
+var createAnchoredView = function createAnchoredView(anchor, to,
+from, getInterpolationFunction, scale, scaleOp) {
+  var interpolator = getInterpolationFunction(true);
+
+  var scaleX = interpolator.interpolate({
+    inputRange: [0, 1],
+    outputRange: [scale.x, 1] });
+
+
+  var scaleY = interpolator.interpolate({
+    inputRange: [0, 1],
+    outputRange: [scale.y, 1] });
+
+
+  var main0center = { x: from.metrics.x + from.metrics.width / 2,
+    y: from.metrics.y + from.metrics.height / 2 };
+
+  var main1center = { x: to.metrics.x + to.metrics.width / 2,
+    y: to.metrics.y + to.metrics.height / 2 };
+
+  var element1center = { x: anchor.metrics.x + anchor.metrics.width / 2,
+    y: anchor.metrics.y + anchor.metrics.height / 2 };
+
+  var element1offset = { x: element1center.x - main1center.x,
+    y: element1center.y - main1center.y };
+
+  var element0offset = { x: element1offset.x * scale.x,
+    y: element1offset.y * scale.y };
+
+  var element0center = { x: main0center.x + element0offset.x,
+    y: main0center.y + element0offset.y };
+
+  var elementmove = { x: element0center.x - element1center.x,
+    y: element0center.y - element1center.y };
+
+  var translateX = interpolator.interpolate({
+    inputRange: [0, 1],
+    outputRange: [elementmove.x, 0] });
+
+
+  var translateY = interpolator.interpolate({
+    inputRange: [0, 1],
+    outputRange: [elementmove.y, 0] });
+
+
+  var transformStyle = { transform:
+    [{ translateX: translateX }, { translateY: translateY }, { scaleX: scaleX }, { scaleY: scaleY }] };
+
+
+  var fadeStyle = { opacity: interpolator.interpolate({
+      inputRange: [0, 0.15, 1],
+      outputRange: [0, 1, 1] }) };
+
+
+  var positionStyle = {
+    position: 'absolute',
+    left: anchor.metrics.x,
+    top: anchor.metrics.y,
+    width: anchor.metrics.width,
+    height: anchor.metrics.height };
+
+
+  var nativeStyles = [transformStyle, positionStyle, fadeStyle];
+
+  var element = _react.default.Children.only(anchor.reactElement.props.children);
+  var key = "an-" + anchor.name + anchor.route;
+  var props = (0, _objectSpread2.default)({}, element.props, { __index: to.index });
+  var component = _react.default.createElement(element.type, (0, _objectSpread2.default)({}, props, { key: key }));
+  var retVal = (0, _Utils.createAnimatedWrapper)({ component: component, nativeStyles: nativeStyles });
+  return retVal;
+};
+
+var ptToString = function ptToString(p) {return "x: " + p.x + " y: " + p.y;};
+
+var styles = _reactNative.StyleSheet.create({
+  anchorElement: {
+
+
+    position: 'absolute',
+    margin: 0,
+    marginVertical: 0,
+    marginHorizontal: 0,
+    marginTop: 0,
+    marginBottom: 0,
+    marginLeft: 0,
+    marginRight: 0,
+    marginStart: 0,
+    marginEnd: 0 } });

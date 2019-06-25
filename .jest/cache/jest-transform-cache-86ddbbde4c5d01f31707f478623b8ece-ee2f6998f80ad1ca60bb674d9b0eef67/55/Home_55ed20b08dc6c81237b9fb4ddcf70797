@@ -1,0 +1,29 @@
+d4b7051ca96344f12aaec2340a551b7b
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));var _react = _interopRequireWildcard(require("react"));
+
+
+
+var _components = require("../components");var _jsxFileName = "/Users/jdnichollsc/dev/react-native/Randomuser-me/src/screens/Home.tsx";var
+
+HomeScreen = function (_Component) {(0, _inherits2.default)(HomeScreen, _Component);function HomeScreen() {(0, _classCallCheck2.default)(this, HomeScreen);return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(HomeScreen).apply(this, arguments));}(0, _createClass2.default)(HomeScreen, [{ key: "render", value: function render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+      return (
+        _react.default.createElement(_components.PlayButton, { __source: { fileName: _jsxFileName, lineNumber: 23 } }));
+
+    } }]);return HomeScreen;}(_react.Component);HomeScreen.navigationOptions = function (_ref) {var navigation = _ref.navigation;return { title: navigation.getParam('title', 'RandomUserMe'), headerStyle: { backgroundColor: '#593693' }, headerTintColor: '#fff', headerTitleStyle: { fontWeight: 'bold' } };};var _default =
+
+
+HomeScreen;exports.default = _default;

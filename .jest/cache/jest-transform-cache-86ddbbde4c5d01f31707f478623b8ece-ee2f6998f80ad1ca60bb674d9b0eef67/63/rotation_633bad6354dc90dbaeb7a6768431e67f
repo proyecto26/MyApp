@@ -1,0 +1,119 @@
+7ec9df1b0616714e263c5ae3b57b2958
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.radToDeg = exports.degToRad = exports.getQuadrant = exports.getBoundingBox = exports.rotatePoint = exports.getOriginalRect = void 0;
+var _Metrics = require("../Types/Metrics");
+
+
+
+
+
+
+
+var getOriginalRect = function getOriginalRect(params) {
+  if (params.theta === 0) {
+    return params.boundingBox;
+  }var _params$boundingBox =
+
+  params.boundingBox,x = _params$boundingBox.x,y = _params$boundingBox.y,width = _params$boundingBox.width,height = _params$boundingBox.height;
+
+  if (params.skipWidth) {
+    var cx = x + (Math.cos(params.theta) * width - Math.sin(params.theta) * height) / 2;
+    var cy = y + (Math.sin(params.theta) * width + Math.cos(params.theta) * height) / 2;
+    var p0 = rotatePoint({ x: x, y: y, cx: cx, cy: cy, theta: params.theta });
+    return { x: Math.round(p0.x), y: Math.round(p0.y), width: width, height: height };
+  }
+
+  var theta = -1 * params.theta;
+  var cos = Math.cos(theta);
+  var sin = Math.sin(theta);
+
+  if (Math.abs(Math.abs(sin) - Math.abs(cos)) <= Number.EPSILON) {
+    theta = small + theta;
+    cos = Math.cos(theta);
+    sin = Math.sin(theta);
+  }
+
+
+  var quad = getQuadrant(theta);
+  var a = 1 / (Math.pow(cos, 2) - Math.pow(sin, 2));
+
+  var aw = 1 * width * cos;
+  var bw = height * sin;
+  var nw = quad === 0 || quad === 2 ? a * (aw - bw) : a * (aw + bw);
+
+  var ah = -1 * width * sin;
+  var bh = height * cos;
+  var nh = quad === 0 || quad === 2 ? a * (ah + bh) : a * (ah - bh);
+
+  var retVal = {
+    x: Math.round(x + (width - Math.abs(nw)) * 0.5),
+    y: Math.round(y + (height - Math.abs(nh)) * 0.5),
+    width: Math.abs(Math.round(nw)),
+    height: Math.abs(Math.round(nh)) };
+
+  return retVal;
+};exports.getOriginalRect = getOriginalRect;
+
+
+
+
+
+
+
+
+var rotatePoint = function rotatePoint(params) {var
+  x = params.x,y = params.y,cx = params.cx,cy = params.cy,theta = params.theta;
+
+  var cos = Math.cos(theta);
+  var sin = Math.sin(theta);
+  var nx = cos * (x - cx) + sin * (y - cy) + cx;
+  var ny = cos * (y - cy) - sin * (x - cx) + cy;
+  return { x: nx, y: ny };
+};exports.rotatePoint = rotatePoint;
+
+
+
+
+
+var getBoundingBox = function getBoundingBox(params) {var _params$rect =
+  params.rect,x = _params$rect.x,y = _params$rect.y,width = _params$rect.width,height = _params$rect.height;var
+  theta = params.theta;
+
+  var cx = x + width / 2;
+  var cy = y + height / 2;
+
+  var tl = rotatePoint({ x: x, y: y, cx: cx, cy: cy, theta: theta });
+  var bl = rotatePoint({ x: x, y: y + height, cx: cx, cy: cy, theta: theta });
+  var tr = rotatePoint({ x: x + width, y: y, cx: cx, cy: cy, theta: theta });
+  var br = rotatePoint({ x: x + width, y: y + height, cx: cx, cy: cy, theta: theta });
+
+  var minX = Math.min(tl.x, bl.x, tr.x, br.x);
+  var maxX = Math.max(tl.x, bl.x, tr.x, br.x);
+  var minY = Math.min(tl.y, bl.y, tr.y, br.y);
+  var maxY = Math.max(tl.y, bl.y, tr.y, br.y);
+
+  return {
+    x: minX,
+    y: minY,
+    width: maxX - minX,
+    height: maxY - minY };
+
+};exports.getBoundingBox = getBoundingBox;
+
+var getQuadrant = function getQuadrant(theta) {
+  var angle = theta * 180 / Math.PI;
+  var normangle = angle % 360;
+  if (normangle < 0) {
+    normangle += 360;
+  }
+  var p = normangle / 360;
+  if (p >= 0 && p <= 0.25) return 0;
+  if (p > 0.25 && p <= 0.5) return 1;
+  if (p > 0.5 && p <= 0.75) return 2;
+  if (p > 0.75 && p <= 1) return 3;
+  return -1;
+};exports.getQuadrant = getQuadrant;
+
+var degToRad = function degToRad(deg) {return deg * Math.PI / 180;};exports.degToRad = degToRad;
+var radToDeg = function radToDeg(rad) {return rad * 180 / Math.PI;};exports.radToDeg = radToDeg;
+
+var small = degToRad(0.00000001);

@@ -1,0 +1,1 @@
+{"version":3,"sources":["InterpolatorResult.js"],"names":[],"mappings":"AAAA","sourcesContent":["import { StyleSheet } from 'react-native';\n\nexport type InterpolatorResult = {\n  nativeAnimationStyles: StyleSheet.Styles,\n  animationStyles: StyleSheet.Styles\n}\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.ts"],"names":["images","logo","require"],"mappings":";;;;AAAA,IAAMA,MAAM,GAAG;AACbC,EAAAA,IAAI,EAAEC,OAAO,CAAC,YAAD;AADA,CAAf;eAIeF,M","sourcesContent":["const images = {\n  logo: require('./logo.png'),\n}\n\nexport default images"]}

@@ -1,0 +1,170 @@
+1ed5b0a3c139fd46d3010216ebff4c04
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+
+
+var _uniqueId = 1;var
+
+
+
+AnimatedNode = function () {require("@babel/runtime/helpers/createClass")(AnimatedNode, [{ key: "__attach", value: function __attach()
+
+
+    {} }, { key: "__detach", value: function __detach()
+    {
+      if (this.__isNative && this.__nativeTag != null) {
+        require('../NativeAnimatedHelper').API.dropAnimatedNode(this.__nativeTag);
+        this.__nativeTag = undefined;
+      }
+    } }, { key: "__getValue", value: function __getValue()
+    {} }, { key: "__getAnimatedValue", value: function __getAnimatedValue()
+    {
+      return this.__getValue();
+    } }, { key: "__addChild", value: function __addChild(
+    child) {} }, { key: "__removeChild", value: function __removeChild(
+    child) {} }, { key: "__getChildren", value: function __getChildren()
+    {
+      return [];
+    } }]);
+
+
+
+
+
+  function AnimatedNode() {require("@babel/runtime/helpers/classCallCheck")(this, AnimatedNode);
+    this._listeners = {};
+  }require("@babel/runtime/helpers/createClass")(AnimatedNode, [{ key: "__makeNative", value: function __makeNative()
+
+    {
+      if (!this.__isNative) {
+        throw new Error('This node cannot be made a "native" animated node');
+      }
+
+      if (this.hasListeners()) {
+        this._startListeningToNativeValueUpdates();
+      }
+    } }, { key: "addListener", value: function addListener(
+
+
+
+
+
+
+
+
+    callback) {
+      var id = String(_uniqueId++);
+      this._listeners[id] = callback;
+      if (this.__isNative) {
+        this._startListeningToNativeValueUpdates();
+      }
+      return id;
+    } }, { key: "removeListener", value: function removeListener(
+
+
+
+
+
+
+
+    id) {
+      delete this._listeners[id];
+      if (this.__isNative && !this.hasListeners()) {
+        this._stopListeningForNativeValueUpdates();
+      }
+    } }, { key: "removeAllListeners", value: function removeAllListeners()
+
+
+
+
+
+
+    {
+      this._listeners = {};
+      if (this.__isNative) {
+        this._stopListeningForNativeValueUpdates();
+      }
+    } }, { key: "hasListeners", value: function hasListeners()
+
+    {
+      return !!Object.keys(this._listeners).length;
+    } }, { key: "_startListeningToNativeValueUpdates", value: function _startListeningToNativeValueUpdates()
+
+    {var _this = this;
+      if (this.__nativeAnimatedValueListener) {
+        return;
+      }
+
+      require('../NativeAnimatedHelper').API.startListeningToAnimatedNodeValue(this.__getNativeTag());
+      this.__nativeAnimatedValueListener = require('../NativeAnimatedHelper').nativeEventEmitter.addListener(
+      'onAnimatedValueUpdate',
+      function (data) {
+        if (data.tag !== _this.__getNativeTag()) {
+          return;
+        }
+        _this._onAnimatedValueUpdateReceived(data.value);
+      });
+
+    } }, { key: "_onAnimatedValueUpdateReceived", value: function _onAnimatedValueUpdateReceived(
+
+    value) {
+      this.__callListeners(value);
+    } }, { key: "__callListeners", value: function __callListeners(
+
+    value) {
+      for (var _key in this._listeners) {
+        this._listeners[_key]({ value: value });
+      }
+    } }, { key: "_stopListeningForNativeValueUpdates", value: function _stopListeningForNativeValueUpdates()
+
+    {
+      if (!this.__nativeAnimatedValueListener) {
+        return;
+      }
+
+      this.__nativeAnimatedValueListener.remove();
+      this.__nativeAnimatedValueListener = null;
+      require('../NativeAnimatedHelper').API.stopListeningToAnimatedNodeValue(this.__getNativeTag());
+    } }, { key: "__getNativeTag", value: function __getNativeTag()
+
+    {
+      require('../NativeAnimatedHelper').assertNativeAnimatedModule();
+      require('invariant')(
+      this.__isNative,
+      'Attempt to get native tag from node not marked as "native"');
+
+      if (this.__nativeTag == null) {
+        var nativeTag = require('../NativeAnimatedHelper').generateNewNodeTag();
+        require('../NativeAnimatedHelper').API.createAnimatedNode(
+        nativeTag,
+        this.__getNativeConfig());
+
+        this.__nativeTag = nativeTag;
+      }
+      return this.__nativeTag;
+    } }, { key: "__getNativeConfig", value: function __getNativeConfig()
+    {
+      throw new Error(
+      'This JS animated node type cannot be used as native animated node');
+
+    } }, { key: "toJSON", value: function toJSON()
+    {
+      return this.__getValue();
+    } }]);return AnimatedNode;}();
+
+
+module.exports = AnimatedNode;

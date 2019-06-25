@@ -1,0 +1,21 @@
+91b1197a2927bf962e47751dfb696bcd
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.getRotationFromStyle = void 0;var _reactNative = require("react-native");
+
+function isNumber(n) {return !Number.isNaN(parseFloat(n)) && !Number.isNaN(n - 0);}
+
+var getRotationFromStyle = function getRotationFromStyle(style) {
+  if (!style) return {};
+  var flattenedStyle = style;
+  if (isNumber(style)) {
+    flattenedStyle = _reactNative.StyleSheet.flatten(style);
+  }
+  var rotationInfo = flattenedStyle.transform ? {
+    rotate: flattenedStyle.transform.find(function (i) {return i.rotate;}),
+    rotateX: flattenedStyle.transform.find(function (i) {return i.rotateX;}),
+    rotateY: flattenedStyle.transform.find(function (i) {return i.rotateY;}) } :
+  {};
+
+  if (rotationInfo === {}) return {};
+
+  return rotationInfo;
+};exports.getRotationFromStyle = getRotationFromStyle;

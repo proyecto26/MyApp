@@ -1,0 +1,194 @@
+56e2270314df6dc926fffa972bac94de
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function attachNativeEvent(
+viewRef,
+eventName,
+argMapping)
+{
+
+
+  var eventMappings = [];
+
+  var traverse = function traverse(value, path) {
+    if (value instanceof require('./nodes/AnimatedValue')) {
+      value.__makeNative();
+
+      eventMappings.push({
+        nativeEventPath: path,
+        animatedValueTag: value.__getNativeTag() });
+
+    } else if (typeof value === 'object') {
+      for (var _key in value) {
+        traverse(value[_key], path.concat(_key));
+      }
+    }
+  };
+
+  require('invariant')(
+  argMapping[0] && argMapping[0].nativeEvent,
+  'Native driven events only support animated values contained inside `nativeEvent`.');
+
+
+
+  traverse(argMapping[0].nativeEvent, []);
+
+  var viewTag = require('ReactNative').findNodeHandle(viewRef);
+
+  eventMappings.forEach(function (mapping) {
+    require('./NativeAnimatedHelper').API.addAnimatedEventToView(
+    viewTag,
+    eventName,
+    mapping);
+
+  });
+
+  return {
+    detach: function detach() {
+      eventMappings.forEach(function (mapping) {
+        require('./NativeAnimatedHelper').API.removeAnimatedEventFromView(
+        viewTag,
+        eventName,
+        mapping.animatedValueTag);
+
+      });
+    } };
+
+}var
+
+AnimatedEvent = function () {
+
+
+
+
+
+
+
+
+  function AnimatedEvent(argMapping) {var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};require("@babel/runtime/helpers/classCallCheck")(this, AnimatedEvent);this._listeners = [];
+    this._argMapping = argMapping;
+    if (config.listener) {
+      this.__addListener(config.listener);
+    }
+    this._callListeners = this._callListeners.bind(this);
+    this._attachedEvent = null;
+    this.__isNative = require('./NativeAnimatedHelper').shouldUseNativeDriver(config);
+
+    if (__DEV__) {
+      this._validateMapping();
+    }
+  }require("@babel/runtime/helpers/createClass")(AnimatedEvent, [{ key: "__addListener", value: function __addListener(
+
+    callback) {
+      this._listeners.push(callback);
+    } }, { key: "__removeListener", value: function __removeListener(
+
+    callback) {
+      this._listeners = this._listeners.filter(function (listener) {return listener !== callback;});
+    } }, { key: "__attach", value: function __attach(
+
+    viewRef, eventName) {
+      require('invariant')(
+      this.__isNative,
+      'Only native driven events need to be attached.');
+
+
+      this._attachedEvent = attachNativeEvent(
+      viewRef,
+      eventName,
+      this._argMapping);
+
+    } }, { key: "__detach", value: function __detach(
+
+    viewTag, eventName) {
+      require('invariant')(
+      this.__isNative,
+      'Only native driven events need to be detached.');
+
+
+      this._attachedEvent && this._attachedEvent.detach();
+    } }, { key: "__getHandler", value: function __getHandler()
+
+    {var _this = this;
+      if (this.__isNative) {
+        return this._callListeners;
+      }
+
+      return function () {for (var _len = arguments.length, args = new Array(_len), _key2 = 0; _key2 < _len; _key2++) {args[_key2] = arguments[_key2];}
+        var traverse = function traverse(recMapping, recEvt, key) {
+          if (typeof recEvt === 'number' && recMapping instanceof require('./nodes/AnimatedValue')) {
+            recMapping.setValue(recEvt);
+          } else if (typeof recMapping === 'object') {
+            for (var mappingKey in recMapping) {
+
+
+
+              traverse(recMapping[mappingKey], recEvt[mappingKey], mappingKey);
+            }
+          }
+        };
+
+        if (!_this.__isNative) {
+          _this._argMapping.forEach(function (mapping, idx) {
+            traverse(mapping, args[idx], 'arg' + idx);
+          });
+        }
+        _this._callListeners.apply(_this, args);
+      };
+    } }, { key: "_callListeners", value: function _callListeners()
+
+    {for (var _len2 = arguments.length, args = new Array(_len2), _key3 = 0; _key3 < _len2; _key3++) {args[_key3] = arguments[_key3];}
+      this._listeners.forEach(function (listener) {return listener.apply(void 0, args);});
+    } }, { key: "_validateMapping", value: function _validateMapping()
+
+    {
+      var traverse = function traverse(recMapping, recEvt, key) {
+        if (typeof recEvt === 'number') {
+          require('invariant')(
+          recMapping instanceof require('./nodes/AnimatedValue'),
+          'Bad mapping of type ' +
+          typeof recMapping +
+          ' for key ' +
+          key +
+          ', event value must map to AnimatedValue');
+
+          return;
+        }
+        require('invariant')(
+        typeof recMapping === 'object',
+        'Bad mapping of type ' + typeof recMapping + ' for key ' + key);
+
+        require('invariant')(
+        typeof recEvt === 'object',
+        'Bad event of type ' + typeof recEvt + ' for key ' + key);
+
+        for (var mappingKey in recMapping) {
+          traverse(recMapping[mappingKey], recEvt[mappingKey], mappingKey);
+        }
+      };
+    } }]);return AnimatedEvent;}();
+
+
+module.exports = { AnimatedEvent: AnimatedEvent, attachNativeEvent: attachNativeEvent };

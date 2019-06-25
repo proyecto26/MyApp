@@ -1,0 +1,39 @@
+68b1ae911f625930642e0bc1b0fe6f35
+
+
+
+
+
+
+
+
+
+'use strict';
+
+var mockNativeFunction = function mockNativeFunction(methodName) {
+  var warned = false;
+  return function () {
+    if (warned) {
+      return;
+    }
+    warned = true;
+    console.warn(
+    'Calling .' +
+    methodName +
+    '() in the test renderer environment is not supported. Instead, mock ' +
+    'out your components that use findNodeHandle with replacements that ' +
+    "don't rely on the native environment.");
+
+  };
+};
+
+var MockNativeMethods = {
+  measure: mockNativeFunction('measure'),
+  measureInWindow: mockNativeFunction('measureInWindow'),
+  measureLayout: mockNativeFunction('measureLayout'),
+  setNativeProps: mockNativeFunction('setNativeProps'),
+  focus: mockNativeFunction('focus'),
+  blur: mockNativeFunction('blur') };
+
+
+module.exports = MockNativeMethods;

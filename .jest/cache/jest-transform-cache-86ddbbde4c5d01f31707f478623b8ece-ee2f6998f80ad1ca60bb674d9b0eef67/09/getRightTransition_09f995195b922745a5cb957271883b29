@@ -1,0 +1,29 @@
+ef272c739d69a4bd0ed4ef50ebb5ab6e
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.getRightTransition = void 0;var _Types = require("../Types");
+
+var getRightTransition = function getRightTransition(transitionSpecification) {
+  if (!transitionSpecification || transitionSpecification.metrics === undefined) {return {};}var
+
+  start = transitionSpecification.start,end = transitionSpecification.end,boundingbox = transitionSpecification.boundingbox,dimensions = transitionSpecification.dimensions;var
+  x = boundingbox.x;
+
+  var distanceValue = dimensions.width - (x - 25);
+  var startValue = 0;
+  var endValue = distanceValue;
+
+  if (transitionSpecification.direction === _Types.RouteDirection.to) {
+    startValue = distanceValue;
+    endValue = 0;
+  }
+
+  var progress = transitionSpecification.progress.interpolate({
+    inputRange: [0, start, end, 1],
+    outputRange: [startValue, startValue, endValue, endValue] });
+
+
+  return {
+    transform: [{
+      translateX: progress }] };
+
+
+};exports.getRightTransition = getRightTransition;

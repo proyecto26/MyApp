@@ -1,0 +1,100 @@
+a441d443330740b2d22bde89c3816a9a
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var React = _interopRequireWildcard(require("react"));
+
+var _reactNative = require("react-native");
+
+var _reactNativeGestureHandler = require("react-native-gesture-handler");
+
+var _jsxFileName = "/Users/brentvatne/coding/react-navigation-stack/src/views/BorderlessButton.tsx";
+
+var AnimatedBaseButton = _reactNative.Animated.createAnimatedComponent(_reactNativeGestureHandler.BaseButton);
+
+var BorderlessButton = function (_React$Component) {
+  (0, _inherits2.default)(BorderlessButton, _React$Component);
+
+  function BorderlessButton() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    (0, _classCallCheck2.default)(this, BorderlessButton);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(BorderlessButton)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this.opacity = new _reactNative.Animated.Value(1);
+
+    _this.handleActiveStateChange = function (active) {
+      if (_reactNative.Platform.OS !== 'android') {
+        _reactNative.Animated.spring(_this.opacity, {
+          stiffness: 1000,
+          damping: 500,
+          mass: 3,
+          overshootClamping: true,
+          restDisplacementThreshold: 0.01,
+          restSpeedThreshold: 0.01,
+          toValue: active ? _this.props.activeOpacity : 1,
+          useNativeDriver: true
+        }).start();
+      }
+
+      _this.props.onActiveStateChange && _this.props.onActiveStateChange(active);
+    };
+
+    return _this;
+  }
+
+  (0, _createClass2.default)(BorderlessButton, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          children = _this$props.children,
+          style = _this$props.style,
+          enabled = _this$props.enabled,
+          rest = (0, _objectWithoutProperties2.default)(_this$props, ["children", "style", "enabled"]);
+      return React.createElement(AnimatedBaseButton, (0, _extends2.default)({}, rest, {
+        onActiveStateChange: this.handleActiveStateChange,
+        style: [style, _reactNative.Platform.OS === 'ios' && enabled && {
+          opacity: this.opacity
+        }],
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40
+        }
+      }), children);
+    }
+  }]);
+  return BorderlessButton;
+}(React.Component);
+
+exports.default = BorderlessButton;
+BorderlessButton.defaultProps = {
+  activeOpacity: 0.3,
+  borderless: true
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJvcmRlcmxlc3NCdXR0b24udHN4Il0sIm5hbWVzIjpbIkFuaW1hdGVkQmFzZUJ1dHRvbiIsIkFuaW1hdGVkIiwiQmFzZUJ1dHRvbiIsIkJvcmRlcmxlc3NCdXR0b24iLCJSZWFjdCIsIkNvbXBvbmVudCIsImRlZmF1bHRQcm9wcyIsImFjdGl2ZU9wYWNpdHkiLCJib3JkZXJsZXNzIiwib3BhY2l0eSIsImhhbmRsZUFjdGl2ZVN0YXRlQ2hhbmdlIiwiUGxhdGZvcm0iLCJzdGlmZm5lc3MiLCJkYW1waW5nIiwibWFzcyIsIm92ZXJzaG9vdENsYW1waW5nIiwicmVzdERpc3BsYWNlbWVudFRocmVzaG9sZCIsInJlc3RTcGVlZFRocmVzaG9sZCIsInRvVmFsdWUiLCJhY3RpdmUiLCJ1c2VOYXRpdmVEcml2ZXIiLCJjaGlsZHJlbiIsInN0eWxlIiwiZW5hYmxlZCIsInJlc3QiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsSUFBQSxLQUFBLEdBQUEsdUJBQUEsQ0FBQSxPQUFBLENBQUEsT0FBQSxDQUFBLENBQUE7O0FBQ0EsSUFBQSxZQUFBLEdBQUEsT0FBQSxDQUFBLGNBQUEsQ0FBQTs7QUFDQSxJQUFBLDBCQUFBLEdBQUEsT0FBQSxDQUFBLDhCQUFBLENBQUE7Ozs7QUFFQSxJQUFNQSxrQkFBa0IsR0FBR0MsWUFBQUEsQ0FBQUEsUUFBQUEsQ0FBQUEsdUJBQUFBLENBQWlDQywwQkFBQUEsQ0FBNUQsVUFBMkJELENBQTNCOztBQU1xQkUsSUFBQUEsZ0I7Ozs7Ozs7Ozs7Ozs7OztVQU1YTSxPLEdBQVUsSUFBSVIsWUFBQUEsQ0FBQUEsUUFBQUEsQ0FBSixLQUFBLENBQUEsQ0FBQSxDOztVQUVWUyx1QixHQUEwQixVQUFBLE1BQUEsRUFBcUI7QUFDckQsVUFBSUMsWUFBQUEsQ0FBQUEsUUFBQUEsQ0FBQUEsRUFBQUEsS0FBSixTQUFBLEVBQStCO0FBQzdCVixRQUFBQSxZQUFBQSxDQUFBQSxRQUFBQSxDQUFBQSxNQUFBQSxDQUFnQixLQUFBLENBQWhCQSxPQUFBQSxFQUE4QjtBQUM1QlcsVUFBQUEsU0FBUyxFQURtQixJQUFBO0FBRTVCQyxVQUFBQSxPQUFPLEVBRnFCLEdBQUE7QUFHNUJDLFVBQUFBLElBQUksRUFId0IsQ0FBQTtBQUk1QkMsVUFBQUEsaUJBQWlCLEVBSlcsSUFBQTtBQUs1QkMsVUFBQUEseUJBQXlCLEVBTEcsSUFBQTtBQU01QkMsVUFBQUEsa0JBQWtCLEVBTlUsSUFBQTtBQU81QkMsVUFBQUEsT0FBTyxFQUFFQyxNQUFNLEdBQUcsS0FBQSxDQUFBLEtBQUEsQ0FBSCxhQUFBLEdBUGEsQ0FBQTtBQVE1QkMsVUFBQUEsZUFBZSxFQVJqQm5CO0FBQThCLFNBQTlCQSxFQUFBQSxLQUFBQTtBQVlGOztBQUFBLE1BQUEsS0FBQSxDQUFBLEtBQUEsQ0FBQSxtQkFBQSxJQUFrQyxLQUFBLENBQUEsS0FBQSxDQUFBLG1CQUFBLENBQWxDLE1BQWtDLENBQWxDOzs7Ozs7Ozs2QkFHTztBQUFBLFVBQUEsV0FBQSxHQUN1QyxLQUR2QyxLQUFBO0FBQUEsVUFDQ29CLFFBREQsR0FBQSxXQUFBLENBQUEsUUFBQTtBQUFBLFVBQ1dDLEtBRFgsR0FBQSxXQUFBLENBQUEsS0FBQTtBQUFBLFVBQ2tCQyxPQURsQixHQUFBLFdBQUEsQ0FBQSxPQUFBO0FBQUEsVUFDOEJDLElBRDlCLEdBQUEsQ0FBQSxHQUFBLHlCQUFBLENBQUEsT0FBQSxFQUFBLFdBQUEsRUFBQSxDQUFBLFVBQUEsRUFBQSxPQUFBLEVBQUEsU0FBQSxDQUFBLENBQUE7QUFHUCxhQUNFLEtBQUEsQ0FBQSxhQUFBLENBQUEsa0JBQUEsRUFBQSxDQUFBLEdBQUEsU0FBQSxDQUFBLE9BQUEsRUFBQSxFQUFBLEVBQUEsSUFBQSxFQUFBO0FBRUUsUUFBQSxtQkFBbUIsRUFBRSxLQUZ2Qix1QkFBQTtBQUdFLFFBQUEsS0FBSyxFQUFFLENBQUEsS0FBQSxFQUVMYixZQUFBQSxDQUFBQSxRQUFBQSxDQUFBQSxFQUFBQSxLQUFBQSxLQUFBQSxJQUFBQSxPQUFBQSxJQUFvQztBQUFFRixVQUFBQSxPQUFPLEVBQUUsS0FMbkQ7QUFLd0MsU0FGL0IsQ0FIVDtBQUFBLFFBQUEsUUFBQSxFQUFBO0FBQUEsVUFBQSxRQUFBLEVBQUEsWUFBQTtBQUFBLFVBQUEsVUFBQSxFQUFBO0FBQUE7QUFBQSxPQUFBLENBQUEsRUFERixRQUNFLENBREY7Ozs7RUE1QjBDTCxLQUFLLENBQUNDLFMsQ0FBL0JGOzs7QUFBQUEsZ0IsQ0FDWkcsWUFEWUgsR0FDRztBQUNwQkksRUFBQUEsYUFBYSxFQURPLEdBQUE7QUFFcEJDLEVBQUFBLFVBQVUsRUFGVTtBQUFBLENBREhMIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICogYXMgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgQW5pbWF0ZWQsIFBsYXRmb3JtIH0gZnJvbSAncmVhY3QtbmF0aXZlJztcbmltcG9ydCB7IEJhc2VCdXR0b24gfSBmcm9tICdyZWFjdC1uYXRpdmUtZ2VzdHVyZS1oYW5kbGVyJztcblxuY29uc3QgQW5pbWF0ZWRCYXNlQnV0dG9uID0gQW5pbWF0ZWQuY3JlYXRlQW5pbWF0ZWRDb21wb25lbnQoQmFzZUJ1dHRvbik7XG5cbnR5cGUgUHJvcHMgPSBSZWFjdC5Db21wb25lbnRQcm9wczx0eXBlb2YgQmFzZUJ1dHRvbj4gJiB7XG4gIGFjdGl2ZU9wYWNpdHk6IG51bWJlcjtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEJvcmRlcmxlc3NCdXR0b24gZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQ8UHJvcHM+IHtcbiAgc3RhdGljIGRlZmF1bHRQcm9wcyA9IHtcbiAgICBhY3RpdmVPcGFjaXR5OiAwLjMsXG4gICAgYm9yZGVybGVzczogdHJ1ZSxcbiAgfTtcblxuICBwcml2YXRlIG9wYWNpdHkgPSBuZXcgQW5pbWF0ZWQuVmFsdWUoMSk7XG5cbiAgcHJpdmF0ZSBoYW5kbGVBY3RpdmVTdGF0ZUNoYW5nZSA9IChhY3RpdmU6IGJvb2xlYW4pID0+IHtcbiAgICBpZiAoUGxhdGZvcm0uT1MgIT09ICdhbmRyb2lkJykge1xuICAgICAgQW5pbWF0ZWQuc3ByaW5nKHRoaXMub3BhY2l0eSwge1xuICAgICAgICBzdGlmZm5lc3M6IDEwMDAsXG4gICAgICAgIGRhbXBpbmc6IDUwMCxcbiAgICAgICAgbWFzczogMyxcbiAgICAgICAgb3ZlcnNob290Q2xhbXBpbmc6IHRydWUsXG4gICAgICAgIHJlc3REaXNwbGFjZW1lbnRUaHJlc2hvbGQ6IDAuMDEsXG4gICAgICAgIHJlc3RTcGVlZFRocmVzaG9sZDogMC4wMSxcbiAgICAgICAgdG9WYWx1ZTogYWN0aXZlID8gdGhpcy5wcm9wcy5hY3RpdmVPcGFjaXR5IDogMSxcbiAgICAgICAgdXNlTmF0aXZlRHJpdmVyOiB0cnVlLFxuICAgICAgfSkuc3RhcnQoKTtcbiAgICB9XG5cbiAgICB0aGlzLnByb3BzLm9uQWN0aXZlU3RhdGVDaGFuZ2UgJiYgdGhpcy5wcm9wcy5vbkFjdGl2ZVN0YXRlQ2hhbmdlKGFjdGl2ZSk7XG4gIH07XG5cbiAgcmVuZGVyKCkge1xuICAgIGNvbnN0IHsgY2hpbGRyZW4sIHN0eWxlLCBlbmFibGVkLCAuLi5yZXN0IH0gPSB0aGlzLnByb3BzO1xuXG4gICAgcmV0dXJuIChcbiAgICAgIDxBbmltYXRlZEJhc2VCdXR0b25cbiAgICAgICAgey4uLnJlc3R9XG4gICAgICAgIG9uQWN0aXZlU3RhdGVDaGFuZ2U9e3RoaXMuaGFuZGxlQWN0aXZlU3RhdGVDaGFuZ2V9XG4gICAgICAgIHN0eWxlPXtbXG4gICAgICAgICAgc3R5bGUsXG4gICAgICAgICAgUGxhdGZvcm0uT1MgPT09ICdpb3MnICYmIGVuYWJsZWQgJiYgeyBvcGFjaXR5OiB0aGlzLm9wYWNpdHkgfSxcbiAgICAgICAgXX1cbiAgICAgID5cbiAgICAgICAge2NoaWxkcmVufVxuICAgICAgPC9BbmltYXRlZEJhc2VCdXR0b24+XG4gICAgKTtcbiAgfVxufVxuIl19

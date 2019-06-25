@@ -1,0 +1,11 @@
+05337f0b301c8523b01682939b499fef
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.NavigationDirection = exports.RouteDirection = void 0;var RouteDirection = {
+  unknown: 0,
+  from: 1,
+  to: 2 };exports.RouteDirection = RouteDirection;
+
+
+var NavigationDirection = {
+  Unknown: 0,
+  forward: 1,
+  back: -1 };exports.NavigationDirection = NavigationDirection;

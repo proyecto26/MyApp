@@ -1,0 +1,26 @@
+0e6d2cf65e3fc03a3a71f2e9a465a791
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+var DeprecatedShadowPropTypesIOS = {
+  shadowColor: require('DeprecatedColorPropType'),
+  shadowOffset: require('prop-types').shape({
+    width: require('prop-types').number,
+    height: require('prop-types').number }),
+
+  shadowOpacity: require('prop-types').number,
+  shadowRadius: require('prop-types').number };
+
+
+module.exports = DeprecatedShadowPropTypesIOS;

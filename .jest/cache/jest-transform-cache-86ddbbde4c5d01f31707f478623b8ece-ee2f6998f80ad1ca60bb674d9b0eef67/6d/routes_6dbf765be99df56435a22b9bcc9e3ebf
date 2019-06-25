@@ -1,0 +1,31 @@
+47554080ce31e607c0d4864f90b4110d
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _reactNavigation = require("react-navigation");
+var _reactNavigationFluidTransitions = require("react-navigation-fluid-transitions");
+var _screens = require("./screens");
+
+
+
+
+var FluidNavigator = (0, _reactNavigationFluidTransitions.createFluidNavigator)(
+{
+  UserList: _screens.UserListScreen },
+
+{
+  defaultNavigationOptions: {
+    gesturesEnabled: true,
+    header: null } });
+
+
+
+
+var AppNavigator = (0, _reactNavigation.createStackNavigator)(
+{
+  Home: _screens.HomeScreen,
+  FluidNavigator: FluidNavigator },
+
+{
+  initialRouteName: 'Home' });var _default =
+
+
+
+(0, _reactNavigation.createAppContainer)(AppNavigator);exports.default = _default;

@@ -1,0 +1,50 @@
+15519cdeebfbec0bd5dfc32e9b43a84b
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.getRotationInterpolator = void 0;var _reactNative = require("react-native");
+var _InterpolatorSpecification = require("../Types/InterpolatorSpecification");
+var _Utils = require("../Utils");
+
+var getRotationInterpolator = function getRotationInterpolator(spec) {
+  var fromStyle = spec.from.style;
+  var toStyle = spec.to.style;
+
+  if ((!fromStyle || !fromStyle.transform) && (
+  !toStyle || !toStyle.transform)) return {};
+
+  var rotateFrom = (0, _Utils.getRotationFromStyle)(fromStyle);
+  var rotateTo = (0, _Utils.getRotationFromStyle)(toStyle);
+
+  if (rotateFrom === {} && rotateTo === {}) return {};
+
+  var retVal = [];
+  var interpolator = spec.getInterpolation(true);
+
+  if (rotateFrom.rotate || rotateTo.rotate) {
+    retVal.push({ rotate: interpolator.interpolate({
+        inputRange: [0, 1],
+        outputRange: [
+        rotateFrom.rotate ? rotateFrom.rotate.rotate : '0deg',
+        rotateTo.rotate ? rotateTo.rotate.rotate : '0deg'] }) });
+
+  }
+
+  if (rotateFrom.rotateX || rotateTo.rotateX) {
+    retVal.push({ rotateX: interpolator.interpolate({
+        inputRange: [0, 1],
+        outputRange: [rotateFrom.rotateX ? rotateFrom.rotateX.rotateX : '0deg',
+        rotateTo.rotateX ? rotateTo.rotateX.rotateX : '0deg'] }) });
+
+  }
+
+  if (rotateFrom.rotateY || rotateTo.rotateY) {
+    retVal.push({ rotateY: interpolator.interpolate({
+        inputRange: [0, 1],
+        outputRange: [rotateFrom.rotateY ? rotateFrom.rotateY.rotateY : '0deg',
+        rotateTo.rotateY ? rotateTo.rotateY.rotateY : '0deg'] }) });
+
+  }
+
+  if (retVal.length === 0) return {};
+  var transform = [];
+  retVal.forEach(function (r) {return transform.push(r);});
+  return { nativeAnimationStyles: { transform: transform } };
+};exports.getRotationInterpolator = getRotationInterpolator;

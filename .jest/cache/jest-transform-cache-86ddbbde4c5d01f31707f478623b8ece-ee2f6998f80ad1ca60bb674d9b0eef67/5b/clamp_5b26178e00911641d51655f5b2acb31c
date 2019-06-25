@@ -1,0 +1,2 @@
+ed34f7a574f21f9da39cff4caabadf3d
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = clamp;function clamp(min, value, max) {if (value < min) {return min;}if (value > max) {return max;}return value;}

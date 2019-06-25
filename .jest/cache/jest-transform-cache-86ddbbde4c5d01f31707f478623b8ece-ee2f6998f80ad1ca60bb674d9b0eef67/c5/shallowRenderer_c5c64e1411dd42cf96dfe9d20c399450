@@ -1,0 +1,208 @@
+4bae4e9ff55d14258fd43bbeacde7aa5
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/objectSpread"));var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ShallowRenderer = function () {
+
+
+
+
+  function ShallowRenderer() {(0, _classCallCheck2.default)(this, ShallowRenderer);
+    this._context = null;
+    this._element = null;
+    this._instance = null;
+    this._newState = null;
+    this._rendered = null;
+    this._rendering = false;
+    this._forcedUpdate = false;
+    this._updater = new Updater(this);
+  }(0, _createClass2.default)(ShallowRenderer, [{ key: "getMountedInstance", value: function getMountedInstance()
+
+    {
+      return this._instance;
+    } }, { key: "getRenderOutput", value: function getRenderOutput()
+
+    {
+      return this._rendered;
+    } }, { key: "render", value: function render(
+
+    element) {var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : require('fbjs/lib/emptyObject');
+      if (this._rendering) {
+        return;
+      }
+
+      this._rendering = true;
+      this._element = element;
+      this._context = context;
+
+      if (this._instance) {
+        this._updateClassComponent(element.props, context);
+      } else if (shouldConstruct(element.type)) {
+        this._instance = new element.type(
+        element.props,
+        context,
+        this._updater);
+
+
+        if (element.type.hasOwnProperty('contextTypes')) {
+          currentlyValidatingElement = element;
+          currentlyValidatingElement = null;
+        }
+        this._mountClassComponent(element.props, context);
+      } else if (typeof element.type === 'function') {
+        this._rendered = element.type(element.props, context);
+      } else {
+        this._rendered = element.type.render(element.props, context);
+      }
+
+      this._rendering = false;
+
+      return this.getRenderOutput();
+    } }, { key: "unmount", value: function unmount()
+
+    {
+      if (this._instance) {
+        if (typeof this._instance.componentWillUnmount === 'function') {
+          this._instance.componentWillUnmount();
+        }
+      }
+
+      this._context = null;
+      this._element = null;
+      this._newState = null;
+      this._rendered = null;
+      this._instance = null;
+    } }, { key: "_mountClassComponent", value: function _mountClassComponent(
+
+    props, context) {
+      this._instance.context = context;
+      this._instance.props = props;
+      this._instance.state = this._instance.state || require('fbjs/lib/emptyObject');
+      this._instance.updater = this._updater;
+
+      if (typeof this._instance.componentWillMount === 'function') {
+        var beforeState = this._newState;
+
+        this._instance.componentWillMount();
+
+
+        if (beforeState !== this._newState) {
+          this._instance.state = this._newState || require('fbjs/lib/emptyObject');
+        }
+      }
+
+      this._rendered = this._instance.render();
+
+
+    } }, { key: "_updateClassComponent", value: function _updateClassComponent(
+
+    props, context) {
+      var oldProps = this._instance.props;
+
+      if (
+      oldProps !== props &&
+      typeof this._instance.componentWillReceiveProps === 'function')
+      {
+        this._instance.componentWillReceiveProps(props, context);
+      }
+
+
+
+      var state = this._newState || this._instance.state || require('fbjs/lib/emptyObject');
+
+      if (typeof this._instance.shouldComponentUpdate === 'function') {
+        if (
+        this._forcedUpdate ||
+        this._instance.shouldComponentUpdate(props, state, context) === false)
+        {
+          this._instance.context = context;
+          this._instance.props = props;
+          this._instance.state = state;
+          this._forcedUpdate = false;
+
+          return;
+        }
+      }
+
+      if (typeof this._instance.componentWillUpdate === 'function') {
+        this._instance.componentWillUpdate(props, state, context);
+      }
+
+      this._instance.context = context;
+      this._instance.props = props;
+      this._instance.state = state;
+
+      this._rendered = this._instance.render();
+
+
+    } }]);return ShallowRenderer;}();ShallowRenderer.createRenderer = function () {return new ShallowRenderer();};var
+
+
+Updater = function () {
+  function Updater(renderer) {(0, _classCallCheck2.default)(this, Updater);
+    this._renderer = renderer;
+  }(0, _createClass2.default)(Updater, [{ key: "isMounted", value: function isMounted(
+
+    publicInstance) {
+      return !!this._renderer._element;
+    } }, { key: "enqueueForceUpdate", value: function enqueueForceUpdate(
+
+    publicInstance, callback, callerName) {
+      this._renderer._forcedUpdate = true;
+      this._renderer.render(this._renderer._element, this._renderer._context);
+
+      if (typeof callback === 'function') {
+        callback.call(publicInstance);
+      }
+    } }, { key: "enqueueReplaceState", value: function enqueueReplaceState(
+
+    publicInstance, completeState, callback, callerName) {
+      this._renderer._newState = completeState;
+      this._renderer.render(this._renderer._element, this._renderer._context);
+
+      if (typeof callback === 'function') {
+        callback.call(publicInstance);
+      }
+    } }, { key: "enqueueSetState", value: function enqueueSetState(
+
+    publicInstance, partialState, callback, callerName) {
+      var currentState = this._renderer._newState || publicInstance.state;
+
+      if (typeof partialState === 'function') {
+        partialState = partialState(currentState, publicInstance.props);
+      }
+
+      this._renderer._newState = (0, _objectSpread2.default)({},
+      currentState,
+      partialState);
+
+
+      this._renderer.render(this._renderer._element, this._renderer._context);
+
+      if (typeof callback === 'function') {
+        callback.call(publicInstance);
+      }
+    } }]);return Updater;}();
+
+
+var currentlyValidatingElement = null;
+
+function shouldConstruct(Component) {
+  return !!(Component.prototype && Component.prototype.isReactComponent);
+}var _default =
+
+ShallowRenderer;exports.default = _default;

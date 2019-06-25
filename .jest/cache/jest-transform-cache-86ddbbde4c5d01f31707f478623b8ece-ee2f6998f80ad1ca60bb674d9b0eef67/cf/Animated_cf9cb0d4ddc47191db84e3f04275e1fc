@@ -1,0 +1,39 @@
+808af232876000cde3ce205da243befe
+
+
+
+
+
+
+
+
+
+
+'use strict';var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/objectSpread"));
+
+var _Platform = _interopRequireDefault(require("Platform"));
+
+var AnimatedImplementation = _Platform.default.isTesting ?
+require('AnimatedMock') :
+require('AnimatedImplementation');
+
+module.exports = (0, _objectSpread2.default)({
+  get FlatList() {
+    return require('AnimatedFlatList');
+  },
+  get Image() {
+    return require('AnimatedImage');
+  },
+  get ScrollView() {
+    return require('AnimatedScrollView');
+  },
+  get SectionList() {
+    return require('AnimatedSectionList');
+  },
+  get Text() {
+    return require('AnimatedText');
+  },
+  get View() {
+    return require('AnimatedView');
+  } },
+AnimatedImplementation);

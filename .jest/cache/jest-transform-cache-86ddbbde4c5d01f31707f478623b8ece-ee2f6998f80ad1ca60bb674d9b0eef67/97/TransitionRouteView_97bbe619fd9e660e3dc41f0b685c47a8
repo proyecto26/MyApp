@@ -1,0 +1,56 @@
+426e92477de0f5ff9709585e145a6b5d
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));var React = _interopRequireWildcard(require("react"));
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _reactNative = require("react-native");
+var _reactNativeScreens = require("react-native-screens");var _jsxFileName = "/Users/jdnichollsc/dev/react-native/Randomuser-me/node_modules/react-navigation-fluid-transitions/TransitionRouteView.js";
+
+var EPS = 1e-5;var
+
+
+
+
+
+
+
+
+TransitionRouteView = function (_React$Component) {(0, _inherits2.default)(TransitionRouteView, _React$Component);function TransitionRouteView() {(0, _classCallCheck2.default)(this, TransitionRouteView);return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(TransitionRouteView).apply(this, arguments));}(0, _createClass2.default)(TransitionRouteView, [{ key: "componentDidMount", value: function componentDidMount()
+
+
+
+
+
+
+
+
+    {var
+      onSceneReady = this.context.onSceneReady;var
+      sceneKey = this.props.sceneKey;
+      if (!onSceneReady || !sceneKey) return;
+      onSceneReady(sceneKey);
+    } }, { key: "getChildContext", value: function getChildContext()
+
+    {var
+      route = this.props.route;
+      return {
+        route: route };
+
+    } }, { key: "render", value: function render()
+
+    {var _this$props =
+      this.props,style = _this$props.style,children = _this$props.children,isActive = _this$props.isActive,position = _this$props.position,index = _this$props.index;
+      var numericPosition = position.__getValue();
+      var active = isActive || (
+      numericPosition >= index - 1 && numericPosition <= index + 1 ? 1 : 0);
+
+      return (
+        React.createElement(_reactNativeScreens.Screen, {
+          style: style,
+          active: active ? 1 : 0, __source: { fileName: _jsxFileName, lineNumber: 45 } },
+
+        children));
+
+
+    } }]);return TransitionRouteView;}(React.Component);TransitionRouteView.childContextTypes = { route: _propTypes.default.string };TransitionRouteView.contextTypes = { onSceneReady: _propTypes.default.func };var _default =
+
+
+TransitionRouteView;exports.default = _default;

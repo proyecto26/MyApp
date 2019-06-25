@@ -1,0 +1,148 @@
+f2cc3e8161fb0edfd011f413ea2d81d0
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+
+var eventEmitter = new (require('EventEmitter'))();
+var dimensionsInitialized = false;
+var dimensions = {};var
+Dimensions = function () {function Dimensions() {require("@babel/runtime/helpers/classCallCheck")(this, Dimensions);}require("@babel/runtime/helpers/createClass")(Dimensions, null, [{ key: "set", value: function set(
+
+
+
+
+
+
+    dims) {
+
+
+
+      if (dims && dims.windowPhysicalPixels) {
+
+        dims = JSON.parse(JSON.stringify(dims));
+
+        var windowPhysicalPixels = dims.windowPhysicalPixels;
+        dims.window = {
+          width: windowPhysicalPixels.width / windowPhysicalPixels.scale,
+          height: windowPhysicalPixels.height / windowPhysicalPixels.scale,
+          scale: windowPhysicalPixels.scale,
+          fontScale: windowPhysicalPixels.fontScale };
+
+        if (require('Platform').OS === 'android') {
+
+          var screenPhysicalPixels = dims.screenPhysicalPixels;
+          dims.screen = {
+            width: screenPhysicalPixels.width / screenPhysicalPixels.scale,
+            height: screenPhysicalPixels.height / screenPhysicalPixels.scale,
+            scale: screenPhysicalPixels.scale,
+            fontScale: screenPhysicalPixels.fontScale };
+
+
+
+          delete dims.screenPhysicalPixels;
+        } else {
+          dims.screen = dims.window;
+        }
+
+        delete dims.windowPhysicalPixels;
+      }
+
+      require("@babel/runtime/helpers/extends")(dimensions, dims);
+      if (dimensionsInitialized) {
+
+        eventEmitter.emit('change', {
+          window: dimensions.window,
+          screen: dimensions.screen });
+
+      } else {
+        dimensionsInitialized = true;
+      }
+    } }, { key: "get", value: function get(
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    dim) {
+      require('invariant')(dimensions[dim], 'No dimension set for key ' + dim);
+      return dimensions[dim];
+    } }, { key: "addEventListener", value: function addEventListener(
+
+
+
+
+
+
+
+
+
+    type, handler) {
+      require('invariant')(
+      type === 'change',
+      'Trying to subscribe to unknown event: "%s"',
+      type);
+
+      eventEmitter.addListener(type, handler);
+    } }, { key: "removeEventListener", value: function removeEventListener(
+
+
+
+
+    type, handler) {
+      require('invariant')(
+      type === 'change',
+      'Trying to remove listener for unknown event: "%s"',
+      type);
+
+      eventEmitter.removeListener(type, handler);
+    } }]);return Dimensions;}();
+
+
+var dims =
+global.nativeExtensions &&
+global.nativeExtensions.DeviceInfo &&
+global.nativeExtensions.DeviceInfo.Dimensions;
+var nativeExtensionsEnabled = true;
+if (!dims) {
+  var DeviceInfo = require('DeviceInfo');
+  dims = DeviceInfo.Dimensions;
+  nativeExtensionsEnabled = false;
+}
+
+require('invariant')(
+dims,
+'Either DeviceInfo native extension or DeviceInfo Native Module must be registered');
+
+Dimensions.set(dims);
+if (!nativeExtensionsEnabled) {
+  require('RCTDeviceEventEmitter').addListener('didUpdateDimensions', function (update) {
+    Dimensions.set(update);
+  });
+}
+
+module.exports = Dimensions;

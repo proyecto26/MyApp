@@ -1,0 +1,2 @@
+824fca563772780188b8c50ed739022b
+jest.mock('./RNGestureHandlerModule');

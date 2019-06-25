@@ -1,0 +1,85 @@
+bf0c9116f1e36d910aaf3b701c93bcaf
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+var TransformMatrixPropType = function TransformMatrixPropType(
+props,
+propName,
+componentName)
+{
+  if (props[propName]) {
+    return new Error(
+    'The transformMatrix style property is deprecated. ' +
+    'Use `transform: [{ matrix: ... }]` instead.');
+
+  }
+};
+
+var DecomposedMatrixPropType = function DecomposedMatrixPropType(
+props,
+propName,
+componentName)
+{
+  if (props[propName]) {
+    return new Error(
+    'The decomposedMatrix style property is deprecated. ' +
+    'Use `transform: [...]` instead.');
+
+  }
+};
+
+var DeprecatedTransformPropTypes = {
+  transform: require('prop-types').arrayOf(
+  require('prop-types').oneOfType([
+  require('prop-types').shape({ perspective: require('prop-types').number }),
+  require('prop-types').shape({ rotate: require('prop-types').string }),
+  require('prop-types').shape({ rotateX: require('prop-types').string }),
+  require('prop-types').shape({ rotateY: require('prop-types').string }),
+  require('prop-types').shape({ rotateZ: require('prop-types').string }),
+  require('prop-types').shape({ scale: require('prop-types').number }),
+  require('prop-types').shape({ scaleX: require('prop-types').number }),
+  require('prop-types').shape({ scaleY: require('prop-types').number }),
+  require('prop-types').shape({ translateX: require('prop-types').number }),
+  require('prop-types').shape({ translateY: require('prop-types').number }),
+  require('prop-types').shape({ skewX: require('prop-types').string }),
+  require('prop-types').shape({ skewY: require('prop-types').string })])),
+
+
+  transformMatrix: TransformMatrixPropType,
+  decomposedMatrix: DecomposedMatrixPropType,
+  scaleX: require('deprecatedPropType')(
+  require('prop-types').number,
+  'Use the transform prop instead.'),
+
+  scaleY: require('deprecatedPropType')(
+  require('prop-types').number,
+  'Use the transform prop instead.'),
+
+  rotation: require('deprecatedPropType')(
+  require('prop-types').number,
+  'Use the transform prop instead.'),
+
+  translateX: require('deprecatedPropType')(
+  require('prop-types').number,
+  'Use the transform prop instead.'),
+
+  translateY: require('deprecatedPropType')(
+  require('prop-types').number,
+  'Use the transform prop instead.') };
+
+
+
+module.exports = DeprecatedTransformPropTypes;

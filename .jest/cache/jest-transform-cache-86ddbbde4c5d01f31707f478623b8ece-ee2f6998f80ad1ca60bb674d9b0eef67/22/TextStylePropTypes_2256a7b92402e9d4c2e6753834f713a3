@@ -1,0 +1,124 @@
+9dba565f296ed65a72c51d746922e5fb
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+var TextStylePropTypes = require("@babel/runtime/helpers/objectSpread")({}, require('DeprecatedViewStylePropTypes'), {
+
+
+  color: require('DeprecatedColorPropType'),
+  fontFamily: require('prop-types').string,
+  fontSize: require('prop-types').number,
+  fontStyle: require('prop-types').oneOf(['normal', 'italic']),
+
+
+
+
+
+  fontWeight: require('prop-types').oneOf([
+  'normal',
+  'bold',
+  '100',
+  '200',
+  '300',
+  '400',
+  '500',
+  '600',
+  '700',
+  '800',
+  '900']),
+
+
+
+
+  fontVariant: require('prop-types').arrayOf(
+  require('prop-types').oneOf([
+  'small-caps',
+  'oldstyle-nums',
+  'lining-nums',
+  'tabular-nums',
+  'proportional-nums'])),
+
+
+  textShadowOffset: require('prop-types').shape({
+    width: require('prop-types').number,
+    height: require('prop-types').number }),
+
+  textShadowRadius: require('prop-types').number,
+  textShadowColor: require('DeprecatedColorPropType'),
+
+
+
+  letterSpacing: require('prop-types').number,
+  lineHeight: require('prop-types').number,
+
+
+
+
+  textAlign: require('prop-types').oneOf([
+  'auto',
+  'left',
+  'right',
+  'center',
+  'justify']),
+
+
+
+
+  textAlignVertical: require('prop-types').oneOf([
+  'auto',
+  'top',
+  'bottom',
+  'center']),
+
+
+
+
+
+
+
+  includeFontPadding: require('prop-types').bool,
+  textDecorationLine: require('prop-types').oneOf([
+  'none',
+  'underline',
+  'line-through',
+  'underline line-through']),
+
+
+
+
+  textDecorationStyle: require('prop-types').oneOf([
+  'solid',
+  'double',
+  'dotted',
+  'dashed']),
+
+
+
+
+  textDecorationColor: require('DeprecatedColorPropType'),
+  textTransform: require('prop-types').oneOf([
+  'none',
+  'capitalize',
+  'uppercase',
+  'lowercase']),
+
+
+
+
+  writingDirection: require('prop-types').oneOf(['auto', 'ltr', 'rtl']) });
+
+
+module.exports = TextStylePropTypes;

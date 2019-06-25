@@ -1,0 +1,11 @@
+c5def8a259390469038c05095939fcd5
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var strings = {
+  home: {}
+};
+var _default = strings;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LnRzIl0sIm5hbWVzIjpbInN0cmluZ3MiLCJob21lIl0sIm1hcHBpbmdzIjoiOzs7O0FBQUEsSUFBTUEsT0FBTyxHQUFHO0FBQ2RDLEVBQUFBLElBQUksRUFBRTtBQURRLENBQWhCO2VBTWVELE8iLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBzdHJpbmdzID0ge1xuICBob21lOiB7XG4gICAgXG4gIH1cbn1cblxuZXhwb3J0IGRlZmF1bHQgc3RyaW5ncyJdfQ==

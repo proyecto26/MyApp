@@ -1,0 +1,10 @@
+9c24b6013a30ece9c56ebcc3e208704f
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = docsUrl;
+
+function docsUrl(path) {
+  return "https://reactnavigation.org/docs/" + path;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRvY3NVcmwuanMiXSwibmFtZXMiOlsiZG9jc1VybCIsInBhdGgiXSwibWFwcGluZ3MiOiI7Ozs7O0FBQWUsU0FBU0EsT0FBVCxDQUFpQkMsSUFBakIsRUFBdUI7QUFDcEMsK0NBQTJDQSxJQUEzQztBQUNEIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gZG9jc1VybChwYXRoKSB7XG4gIHJldHVybiBgaHR0cHM6Ly9yZWFjdG5hdmlnYXRpb24ub3JnL2RvY3MvJHtwYXRofWA7XG59Il19

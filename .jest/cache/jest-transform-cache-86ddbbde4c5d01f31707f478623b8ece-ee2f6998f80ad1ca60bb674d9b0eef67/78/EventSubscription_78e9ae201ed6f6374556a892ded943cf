@@ -1,0 +1,41 @@
+cfc888d831164d8a996d643b3129c8b2
+
+
+
+
+
+
+
+
+
+
+'use strict';var
+
+
+
+
+
+
+
+EventSubscription = function () {
+
+
+
+
+
+
+
+
+  function EventSubscription(subscriber) {require("@babel/runtime/helpers/classCallCheck")(this, EventSubscription);
+    this.subscriber = subscriber;
+  }require("@babel/runtime/helpers/createClass")(EventSubscription, [{ key: "remove", value: function remove()
+
+
+
+
+    {
+      this.subscriber.removeSubscription(this);
+    } }]);return EventSubscription;}();
+
+
+module.exports = EventSubscription;

@@ -1,0 +1,47 @@
+c05423585c451966fe2b47541414ccb6
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));var _react = _interopRequireDefault(require("react"));
+var _reactNative = require("react-native");var _jsxFileName = "/Users/jdnichollsc/dev/react-native/Randomuser-me/node_modules/@react-navigation/native/dist/createKeyboardAwareNavigator.js";var _default =
+
+function _default(Navigator, navigatorConfig) {var _class, _temp;return _temp = _class = function (_React$Component) {(0, _inherits2.default)(KeyboardAwareNavigator, _React$Component);function KeyboardAwareNavigator() {var _getPrototypeOf2;var _this;(0, _classCallCheck2.default)(this, KeyboardAwareNavigator);for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}_this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf2.default)(KeyboardAwareNavigator)).call.apply(_getPrototypeOf2, [this].concat(args)));_this.
+
+
+      _previouslyFocusedTextInput = null;_this.
+
+
+
+
+
+      _handleGestureBegin = function () {
+        _this._previouslyFocusedTextInput = _reactNative.TextInput.State.currentlyFocusedField();
+        if (_this._previouslyFocusedTextInput) {
+          _reactNative.TextInput.State.blurTextInput(_this._previouslyFocusedTextInput);
+        }
+        _this.props.onGestureBegin && _this.props.onGestureBegin();
+      };_this.
+
+      _handleGestureCanceled = function () {
+        if (_this._previouslyFocusedTextInput) {
+          _reactNative.TextInput.State.focusTextInput(_this._previouslyFocusedTextInput);
+        }
+        _this.props.onGestureCanceled && _this.props.onGestureCanceled();
+      };_this.
+
+      _handleGestureEnd = function () {
+        _this._previouslyFocusedTextInput = null;
+        _this.props.onGestureFinish && _this.props.onGestureFinish();
+      };_this.
+
+      _handleTransitionStart = function (transitionProps, prevTransitionProps) {
+
+
+
+        if (transitionProps.index !== prevTransitionProps.index) {
+          var currentField = _reactNative.TextInput.State.currentlyFocusedField();
+          if (currentField) {
+            _reactNative.TextInput.State.blurTextInput(currentField);
+          }
+        }
+
+        var onTransitionStart = _this.props.onTransitionStart || navigatorConfig.onTransitionStart;
+        onTransitionStart && onTransitionStart(transitionProps, prevTransitionProps);
+      };return _this;}(0, _createClass2.default)(KeyboardAwareNavigator, [{ key: "render", value: function render() {return _react.default.createElement(Navigator, (0, _extends2.default)({}, this.props, { onGestureBegin: this._handleGestureBegin, onGestureCanceled: this._handleGestureCanceled, onGestureEnd: this._handleGestureEnd, onTransitionStart: this._handleTransitionStart, __source: { fileName: _jsxFileName, lineNumber: 10 } }));} }]);return KeyboardAwareNavigator;}(_react.default.Component), _class.router = Navigator.router, _class.navigationOptions = Navigator.navigationOptions, _temp;};exports.default = _default;

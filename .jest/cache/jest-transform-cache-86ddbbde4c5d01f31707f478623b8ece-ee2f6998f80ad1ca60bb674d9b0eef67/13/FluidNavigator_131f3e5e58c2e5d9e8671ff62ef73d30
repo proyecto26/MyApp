@@ -1,0 +1,5 @@
+2b7445fd63bf4d508beb7297676fec59
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _createFluidNavigator = _interopRequireDefault(require("./createFluidNavigator"));var _default =
+
+function _default(routeConfigMap) {var stackConfig = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};return (0, _createFluidNavigator.default)(
+  routeConfigMap, stackConfig);};exports.default = _default;

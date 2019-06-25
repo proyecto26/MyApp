@@ -1,0 +1,26 @@
+0eaeae2df4d645fc573f5da5c5fc54b0
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.mergeStyles = void 0;var _reactNative = require("react-native");
+
+var mergeStyles = function mergeStyles(styles) {
+  var retVal = { transform: [] };
+  styles.forEach(function (style) {
+    if (style) {
+      var flattenedStyle = style;
+      if (isNumber(flattenedStyle)) {flattenedStyle = _reactNative.StyleSheet.flatten(flattenedStyle);}
+
+      Object.keys(flattenedStyle).forEach(function (key) {
+        if (flattenedStyle[key] && flattenedStyle[key] instanceof Array) {
+          var a = flattenedStyle[key];
+          if (!retVal[key]) retVal[key] = [];
+          a.forEach(function (i) {return retVal[key].push(i);});
+        } else if (flattenedStyle[key]) {
+          retVal[key] = flattenedStyle[key];
+        }
+      });
+    }
+  });
+
+  return retVal;
+};exports.mergeStyles = mergeStyles;
+
+function isNumber(n) {return !Number.isNaN(parseFloat(n)) && !Number.isNaN(n - 0);}

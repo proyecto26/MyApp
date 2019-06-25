@@ -1,0 +1,31 @@
+d134416f17547cf0ce71830459741db6
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.registerInterpolator = registerInterpolator;exports.initInterpolatorTypes = initInterpolatorTypes;exports.getInterpolatorTypes = getInterpolatorTypes;var _getPositionInterpolator = require("./getPositionInterpolator");
+var _getScaleInterpolator = require("./getScaleInterpolator");
+var _getRotationInterpolator = require("./getRotationInterpolator");
+var _getBorderInterpolator = require("./getBorderInterpolator");
+var _getBackgroundInterpolator = require("./getBackgroundInterpolator");
+
+
+
+
+
+
+var interpolators = [];
+
+
+function registerInterpolator(name,
+interpolatorFunction) {
+  interpolators.push({ name: name, interpolatorFunction: interpolatorFunction });
+}
+
+function initInterpolatorTypes() {
+  registerInterpolator('background', _getBackgroundInterpolator.getBackgroundInterpolator);
+  registerInterpolator('borderRadius', _getBorderInterpolator.getBorderInterpolator);
+  registerInterpolator('position', _getPositionInterpolator.getPositionInterpolator);
+  registerInterpolator('scale', _getScaleInterpolator.getScaleInterpolator);
+  registerInterpolator('rotation', _getRotationInterpolator.getRotationInterpolator);
+}
+
+function getInterpolatorTypes() {
+  return interpolators;
+}

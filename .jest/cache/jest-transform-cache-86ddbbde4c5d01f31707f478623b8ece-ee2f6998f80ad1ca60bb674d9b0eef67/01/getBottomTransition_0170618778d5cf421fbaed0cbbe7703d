@@ -1,0 +1,26 @@
+7fa50264d2acab1f51097688dd16a900
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.getBottomTransition = void 0;var _Types = require("../Types");
+
+var getBottomTransition = function getBottomTransition(transitionSpecification) {
+  if (!transitionSpecification || transitionSpecification.metrics === undefined) {
+    return {};
+  }var
+  start = transitionSpecification.start,end = transitionSpecification.end,boundingbox = transitionSpecification.boundingbox,dimensions = transitionSpecification.dimensions;var
+  y = boundingbox.y;
+
+  var distanceValue = dimensions.height - y;
+  var startValue = 0;
+  var endValue = distanceValue;
+
+  if (transitionSpecification.direction === _Types.RouteDirection.to) {
+    startValue = distanceValue;
+    endValue = 0;
+  }
+
+  var progress = transitionSpecification.progress.interpolate({
+    inputRange: [0, start, end, 1],
+    outputRange: [startValue, startValue, endValue, endValue] });
+
+
+  return { transform: [{ translateY: progress }] };
+};exports.getBottomTransition = getBottomTransition;

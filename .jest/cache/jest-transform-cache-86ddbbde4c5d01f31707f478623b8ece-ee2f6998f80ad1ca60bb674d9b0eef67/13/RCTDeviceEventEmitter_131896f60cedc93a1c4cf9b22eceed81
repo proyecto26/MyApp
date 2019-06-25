@@ -1,0 +1,85 @@
+327d61f19b4b813e2918f849f2224229
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+function checkNativeEventModule(eventType) {
+  if (eventType) {
+    if (eventType.lastIndexOf('statusBar', 0) === 0) {
+      throw new Error(
+      '`' +
+      eventType +
+      '` event should be registered via the StatusBarIOS module');
+
+    }
+    if (eventType.lastIndexOf('keyboard', 0) === 0) {
+      throw new Error(
+      '`' +
+      eventType +
+      '` event should be registered via the Keyboard module');
+
+    }
+    if (eventType === 'appStateDidChange' || eventType === 'memoryWarning') {
+      throw new Error(
+      '`' +
+      eventType +
+      '` event should be registered via the AppState module');
+
+    }
+  }
+}var
+
+
+
+
+
+RCTDeviceEventEmitter = function (_EventEmitter) {require("@babel/runtime/helpers/inherits")(RCTDeviceEventEmitter, _EventEmitter);
+
+
+  function RCTDeviceEventEmitter() {var _this;require("@babel/runtime/helpers/classCallCheck")(this, RCTDeviceEventEmitter);
+    var sharedSubscriber = new (require('EventSubscriptionVendor'))();
+    _this = require("@babel/runtime/helpers/possibleConstructorReturn")(this, require("@babel/runtime/helpers/getPrototypeOf")(RCTDeviceEventEmitter).call(this, sharedSubscriber));
+    _this.sharedSubscriber = sharedSubscriber;return _this;
+  }require("@babel/runtime/helpers/createClass")(RCTDeviceEventEmitter, [{ key: "addListener", value: function addListener(
+
+
+    eventType,
+    listener,
+    context)
+    {
+      if (__DEV__) {
+        checkNativeEventModule(eventType);
+      }
+      return require("@babel/runtime/helpers/get")(require("@babel/runtime/helpers/getPrototypeOf")(RCTDeviceEventEmitter.prototype), "addListener", this).call(this, eventType, listener, context);
+    } }, { key: "removeAllListeners", value: function removeAllListeners(
+
+    eventType) {
+      if (__DEV__) {
+        checkNativeEventModule(eventType);
+      }
+      require("@babel/runtime/helpers/get")(require("@babel/runtime/helpers/getPrototypeOf")(RCTDeviceEventEmitter.prototype), "removeAllListeners", this).call(this, eventType);
+    } }, { key: "removeSubscription", value: function removeSubscription(
+
+    subscription) {
+      if (subscription.emitter !== this) {
+        subscription.emitter.removeSubscription(subscription);
+      } else {
+        require("@babel/runtime/helpers/get")(require("@babel/runtime/helpers/getPrototypeOf")(RCTDeviceEventEmitter.prototype), "removeSubscription", this).call(this, subscription);
+      }
+    } }]);return RCTDeviceEventEmitter;}(require('EventEmitter'));
+
+
+module.exports = new RCTDeviceEventEmitter();

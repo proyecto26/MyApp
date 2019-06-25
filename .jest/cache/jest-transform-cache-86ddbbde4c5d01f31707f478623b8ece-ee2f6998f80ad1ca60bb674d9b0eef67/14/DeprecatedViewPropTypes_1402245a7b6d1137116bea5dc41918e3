@@ -1,0 +1,404 @@
+4f8889d68f4ef78fbdb4cde00039b793
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var stylePropType = require('DeprecatedStyleSheetPropType')(require('DeprecatedViewStylePropTypes'));
+
+
+
+module.exports = require("@babel/runtime/helpers/objectSpread")({
+
+
+
+
+
+
+  accessible: require('prop-types').bool,
+
+
+
+
+
+
+
+
+  accessibilityLabel: require('prop-types').node,
+
+
+
+
+
+
+
+
+
+  accessibilityHint: require('prop-types').string,
+
+
+
+
+
+
+  accessibilityActions: require('prop-types').arrayOf(require('prop-types').string),
+
+
+
+
+
+
+  accessibilityIgnoresInvertColors: require('prop-types').bool,
+
+
+
+
+
+
+
+
+
+  accessibilityComponentType: require('prop-types').oneOf(require('DeprecatedViewAccessibility').DeprecatedAccessibilityComponentTypes),
+
+
+
+
+
+
+  accessibilityRole: require('prop-types').oneOf(require('DeprecatedViewAccessibility').DeprecatedAccessibilityRoles),
+
+
+
+
+  accessibilityStates: require('prop-types').arrayOf(
+  require('prop-types').oneOf(require('DeprecatedViewAccessibility').DeprecatedAccessibilityStates)),
+
+
+
+
+
+
+
+
+
+  accessibilityLiveRegion: require('prop-types').oneOf(['none', 'polite', 'assertive']),
+
+
+
+
+
+
+
+
+
+
+  importantForAccessibility: require('prop-types').oneOf([
+  'auto',
+  'yes',
+  'no',
+  'no-hide-descendants']),
+
+
+
+
+
+
+
+
+
+
+
+
+  accessibilityTraits: require('prop-types').oneOfType([
+  require('prop-types').oneOf(require('DeprecatedViewAccessibility').DeprecatedAccessibilityTraits),
+  require('prop-types').arrayOf(require('prop-types').oneOf(require('DeprecatedViewAccessibility').DeprecatedAccessibilityTraits))]),
+
+
+
+
+
+
+
+
+
+
+
+  accessibilityViewIsModal: require('prop-types').bool,
+
+
+
+
+
+
+
+
+
+  accessibilityElementsHidden: require('prop-types').bool,
+
+
+
+
+
+
+
+  onAccessibilityAction: require('prop-types').func,
+
+
+
+
+
+
+
+  onAccessibilityTap: require('prop-types').func,
+
+
+
+
+
+
+
+  onMagicTap: require('prop-types').func,
+
+
+
+
+
+
+
+
+  testID: require('prop-types').string,
+
+
+
+
+
+
+
+
+  nativeID: require('prop-types').string,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  onResponderGrant: require('prop-types').func,
+
+
+
+
+
+
+
+
+
+  onResponderMove: require('prop-types').func,
+
+
+
+
+
+
+
+
+
+
+  onResponderReject: require('prop-types').func,
+
+
+
+
+
+
+
+
+
+  onResponderRelease: require('prop-types').func,
+
+
+
+
+
+
+
+
+
+
+
+
+  onResponderTerminate: require('prop-types').func,
+
+
+
+
+
+
+
+
+
+
+  onResponderTerminationRequest: require('prop-types').func,
+
+
+
+
+
+
+
+
+
+  onStartShouldSetResponder: require('prop-types').func,
+
+
+
+
+
+
+
+
+
+
+  onStartShouldSetResponderCapture: require('prop-types').func,
+
+
+
+
+
+
+
+
+
+
+  onMoveShouldSetResponder: require('prop-types').func,
+
+
+
+
+
+
+
+
+
+
+  onMoveShouldSetResponderCapture: require('prop-types').func,
+
+
+
+
+
+
+
+
+
+
+
+
+  hitSlop: require('DeprecatedEdgeInsetsPropType'),
+
+
+
+
+
+
+
+
+
+
+
+
+  onLayout: require('prop-types').func,
+
+
+
+
+
+
+  pointerEvents: require('prop-types').oneOf(['box-none', 'none', 'box-only', 'auto']),
+
+
+
+
+  style: stylePropType,
+
+
+
+
+
+
+
+
+
+
+
+  removeClippedSubviews: require('prop-types').bool,
+
+
+
+
+
+
+
+
+
+  renderToHardwareTextureAndroid: require('prop-types').bool,
+
+
+
+
+
+
+
+
+  shouldRasterizeIOS: require('prop-types').bool,
+
+
+
+
+
+
+
+
+
+
+
+  collapsable: require('prop-types').bool,
+
+
+
+
+
+
+
+
+
+  needsOffscreenAlphaCompositing: require('prop-types').bool }, require('PlatformViewPropTypes'));

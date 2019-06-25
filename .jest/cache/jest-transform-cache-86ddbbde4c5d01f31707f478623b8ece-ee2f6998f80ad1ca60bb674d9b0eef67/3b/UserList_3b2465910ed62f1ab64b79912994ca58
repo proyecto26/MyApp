@@ -1,0 +1,16 @@
+055a1440fb73267c6f73c9d559d0ebf1
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _react = _interopRequireDefault(require("react"));
+var _containers = require("../containers");
+var _hooks = require("../hooks");var _jsxFileName = "/Users/jdnichollsc/dev/react-native/Randomuser-me/src/screens/UserList.tsx";
+
+var UserListScreen = function UserListScreen() {
+
+  var items = (0, _hooks.useUserList)();
+  console.log(items);
+
+  return (
+    _react.default.createElement(_containers.CustomListContainer, { items: items, __source: { fileName: _jsxFileName, lineNumber: 11 } }));
+
+};var _default =
+
+UserListScreen;exports.default = _default;

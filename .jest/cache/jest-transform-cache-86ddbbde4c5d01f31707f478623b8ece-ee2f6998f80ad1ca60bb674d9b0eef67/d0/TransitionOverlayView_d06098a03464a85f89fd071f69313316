@@ -1,0 +1,235 @@
+ed5755e6f6591797571d1c98766072e4
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));var _react = _interopRequireDefault(require("react"));
+var _reactNative = require("react-native");
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _lodash = _interopRequireDefault(require("lodash.sortby"));
+
+var _TransitionItem = _interopRequireDefault(require("./TransitionItem"));
+var _Types = require("./Types");
+var Constants = _interopRequireWildcard(require("./TransitionConstants"));
+
+var _Transitions = require("./Transitions");
+var _Interpolators = require("./Interpolators");
+var _utilities = require("./Utils/utilities");var _jsxFileName = "/Users/jdnichollsc/dev/react-native/Randomuser-me/node_modules/react-navigation-fluid-transitions/TransitionOverlayView.js";
+
+(0, _Transitions.initTransitionTypes)();
+(0, _Interpolators.initInterpolatorTypes)();var
+
+
+
+
+
+
+
+
+
+
+
+TransitionOverlayView = function (_React$Component) {(0, _inherits2.default)(TransitionOverlayView, _React$Component);
+  function TransitionOverlayView(props, context) {var _this;(0, _classCallCheck2.default)(this, TransitionOverlayView);
+    _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(TransitionOverlayView).call(this, props, context));
+    _this._isMounted = false;
+    _this.getInterpolation = _this.getInterpolation.bind((0, _assertThisInitialized2.default)(_this));return _this;
+  }(0, _createClass2.default)(TransitionOverlayView, [{ key: "render", value: function render()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {var _this$props =
+      this.props,fromRoute = _this$props.fromRoute,toRoute = _this$props.toRoute;var _this$props2 =
+      this.props,transitionElements = _this$props2.transitionElements,sharedElements = _this$props2.sharedElements;
+      var from = fromRoute;
+      var to = toRoute;
+      transitionElements = transitionElements ? transitionElements.
+      filter(function (i) {return !i.inline && (i.route === from || i.route === to);}) : [];
+
+      sharedElements = sharedElements ? sharedElements.
+      filter(function (p) {return (p.fromItem.route === from || p.fromItem.route === to) && (
+        p.toItem.route === from || p.toItem.route === to);}) : [];
+
+      var transitionContext = this.getTransitionContext(transitionElements);
+      if (!transitionContext || !this.getMetricsReady() ||
+      sharedElements.length === 0 && transitionElements.length === 0) {
+        return _react.default.createElement(_reactNative.View, { style: styles.overlay, pointerEvents: "none", __source: { fileName: _jsxFileName, lineNumber: 69 } });
+      }
+
+      this._interpolation = null;
+      this._nativeInterpolation = null;
+
+      var transitionViews = (0, _Transitions.getTransitionElements)(transitionElements, transitionContext);
+      var sharedElementViews = (0, _Interpolators.getSharedElements)(sharedElements, this.getInterpolation);
+      var anchoredViews = (0, _Interpolators.getAnchoredElements)(sharedElements, this.getInterpolation);
+
+      var views = [].concat((0, _toConsumableArray2.default)(transitionViews), (0, _toConsumableArray2.default)(sharedElementViews), (0, _toConsumableArray2.default)(anchoredViews));
+      views = (0, _lodash.default)(views, 'props.index');
+
+      return (
+        _react.default.createElement(_reactNative.Animated.View, {
+          style: [
+          styles.overlay,
+          this.getVisibilityStyle()],
+
+          pointerEvents: "none", __source: { fileName: _jsxFileName, lineNumber: 83 } },
+
+        views));
+
+
+    } }, { key: "getVisibilityStyle", value: function getVisibilityStyle()
+
+    {var
+      getTransitionProgress = this.context.getTransitionProgress;var
+      index = this.props.index;
+
+      if (!getTransitionProgress) return {};
+      var progress = getTransitionProgress();
+      if (!progress) return { opacity: 0 };
+
+      var inputRange = [index - 1, index - 1 + Constants.OP, index - Constants.OP, index];
+      var outputRange = [0, 1, 1, 0];
+      var visibility = progress.interpolate({ inputRange: inputRange, outputRange: outputRange });
+
+      return { opacity: visibility };
+    } }, { key: "getMetricsReady", value: function getMetricsReady()
+
+    {
+      var metricsReady = true;var _this$props3 =
+      this.props,transitionElements = _this$props3.transitionElements,sharedElements = _this$props3.sharedElements;
+      if (transitionElements) {
+        transitionElements.forEach(function (item) {
+          if (!item.metrics) {
+            metricsReady = false;
+          }
+        });
+      }
+
+      if (sharedElements) {
+        sharedElements.forEach(function (pair) {
+          if (!pair.toItem.metrics || !pair.fromItem.metrics) {
+            metricsReady = false;
+          }
+          if (pair.fromItem && pair.fromItem.anchors) {
+            for (var n = 0; n < pair.fromItem.anchors.length; n++) {
+              if (!pair.fromItem.anchors[n].metrics) {
+                metricsReady = false;
+                break;
+              }
+            }
+          }
+          if (pair.toItem && pair.toItem.anchors) {
+            for (var _n = 0; _n < pair.toItem.anchors.length; _n++) {
+              if (!pair.toItem.anchors[_n].metrics) {
+                metricsReady = false;
+                break;
+              }
+            }
+          }
+        });
+      }
+      return metricsReady;
+    } }, { key: "getInterpolation", value: function getInterpolation(
+
+    useNativeDriver) {var _this$context =
+      this.context,getTransitionProgress = _this$context.getTransitionProgress,getIndex = _this$context.getIndex;
+      if (!getTransitionProgress || !getIndex) return null;
+
+      var index = getIndex();
+      var inputRange = [index - 1, index, index + 1];
+
+      if (useNativeDriver && !this._nativeInterpolation) {
+        this._nativeInterpolation = getTransitionProgress(true).interpolate({
+          inputRange: inputRange, outputRange: [0, 1, 0] });
+
+      } else if (!useNativeDriver && !this._interpolation) {
+        this._interpolation = getTransitionProgress(false).interpolate({
+          inputRange: inputRange, outputRange: [0, 1, 0] });
+
+      }
+
+      if (useNativeDriver) return this._nativeInterpolation;
+      return this._interpolation;
+    } }, { key: "getTransitionContext", value: function getTransitionContext(
+
+    transitionElements) {var _this$context2 =
+
+      this.context,getDirectionForRoute = _this$context2.getDirectionForRoute,getIndex = _this$context2.getIndex,getDirection = _this$context2.getDirection,getRoutes = _this$context2.getRoutes,getTransitionProgress = _this$context2.getTransitionProgress;
+
+      if (!transitionElements || !getDirectionForRoute || !getDirection ||
+      !getRoutes || !getIndex || !getTransitionProgress) {
+        return null;
+      }
+
+      var delayCountFrom = transitionElements.
+      filter(function (item) {return getDirectionForRoute(item.name, item.route) === _Types.RouteDirection.from;}).
+      reduce(function (prevValue, item) {return item.delay ? prevValue + 1 : prevValue;}, 0);
+
+      var delayCountTo = transitionElements.
+      filter(function (item) {return getDirectionForRoute(item.name, item.route) === _Types.RouteDirection.to;}).
+      reduce(function (prevValue, item) {return item.delay ? prevValue + 1 : prevValue;}, 0);
+
+      var navDirection = getDirection();
+      var delayIndexFrom = 0;
+      var delayIndexTo = Math.max(0, delayCountTo - 1);
+      var delayFromFactor = 1;
+      var delayToFactor = -1;
+
+      return {
+        delayCountFrom: delayCountFrom,
+        delayCountTo: delayCountTo,
+        navDirection: navDirection,
+        delayIndexFrom: delayIndexFrom,
+        delayIndexTo: delayIndexTo,
+        delayToFactor: delayToFactor,
+        delayFromFactor: delayFromFactor,
+        getDirectionForRoute: getDirectionForRoute,
+        getIndex: getIndex,
+        getTransitionProgress: getTransitionProgress,
+        getRoutes: getRoutes };
+
+    } }, { key: "componentDidMount", value: function componentDidMount()
+
+    {
+      this._isMounted = true;
+    } }, { key: "componentWillUnmount", value: function componentWillUnmount()
+
+    {
+      this._isMounted = false;
+    } }]);return TransitionOverlayView;}(_react.default.Component);TransitionOverlayView.
+
+contextTypes = {
+  getTransitionProgress: _propTypes.default.func,
+  getDirectionForRoute: _propTypes.default.func,
+  getDirection: _propTypes.default.func,
+  getIndex: _propTypes.default.func,
+  getRoutes: _propTypes.default.func };
+
+
+
+var styles = _reactNative.StyleSheet.create({
+  overlay: {
+    position: 'absolute',
+
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0 } });var _default =
+
+
+
+TransitionOverlayView;exports.default = _default;

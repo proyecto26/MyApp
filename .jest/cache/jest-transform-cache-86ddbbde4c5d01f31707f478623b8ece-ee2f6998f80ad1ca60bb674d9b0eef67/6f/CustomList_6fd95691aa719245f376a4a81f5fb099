@@ -1,0 +1,70 @@
+7a5f9a99e862eae303852db730198b48
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _react = _interopRequireDefault(require("react"));
+var _reactNative = require("react-native");var _jsxFileName = "/Users/jdnichollsc/dev/react-native/Randomuser-me/src/containers/CustomList.tsx";
+
+
+
+
+
+
+var CustomListContainer = function CustomListContainer(props) {var
+  data = props.data;
+
+  var itemWidth = 100;
+
+  var onLayout = function onLayout(event) {var
+    width = event.nativeEvent.layout.width;
+    var numColumns = Math.floor(width / itemWidth);
+
+  };
+
+  return (
+    _react.default.createElement(_reactNative.View, { style: styles.container, onLayout: onLayout, __source: { fileName: _jsxFileName, lineNumber: 21 } },
+    _react.default.createElement(_reactNative.FlatList, {
+      data: data,
+      horizontal: false,
+      alwaysBounceVertical: true,
+      directionalLockEnabled: true,
+      showsVerticalScrollIndicator: false,
+      contentContainerStyle: { margin: 0 },
+      renderItem: function renderItem(_ref) {var item = _ref.item;return (
+          _react.default.createElement(_reactNative.TouchableOpacity, {
+            key: item.id,
+            style: styles.row, __source: { fileName: _jsxFileName, lineNumber: 30 } },
+
+          _react.default.createElement(_reactNative.View, { style: styles.textContainer, __source: { fileName: _jsxFileName, lineNumber: 34 } },
+          _react.default.createElement(_reactNative.Text, { __source: { fileName: _jsxFileName, lineNumber: 35 } }, "User List"))));}, __source: { fileName: _jsxFileName, lineNumber: 22 } })));
+
+
+
+
+
+
+};
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    flex: 1 },
+
+  row: {
+    margin: 10,
+    padding: 10,
+    backgroundColor: '#ECECEC',
+    borderColor: '#CCC',
+    borderWidth: _reactNative.StyleSheet.hairlineWidth,
+    shadowColor: '#EEE',
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.4,
+    flexDirection: 'row',
+    elevation: 3 },
+
+  textContainer: {
+    flexDirection: 'column',
+    marginLeft: 18,
+    flex: 1,
+    justifyContent: 'center' } });var _default =
+
+
+
+CustomListContainer;exports.default = _default;

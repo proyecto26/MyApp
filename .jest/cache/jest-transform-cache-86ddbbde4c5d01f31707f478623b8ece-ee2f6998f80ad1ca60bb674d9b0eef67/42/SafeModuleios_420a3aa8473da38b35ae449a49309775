@@ -1,0 +1,2 @@
+be2f50fc8cacd2b65e77d2499119420a
+module.exports = require('./NativeSafeModule');

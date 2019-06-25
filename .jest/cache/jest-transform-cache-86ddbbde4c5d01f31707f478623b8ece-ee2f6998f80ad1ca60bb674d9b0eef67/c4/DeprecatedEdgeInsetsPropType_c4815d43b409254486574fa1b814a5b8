@@ -1,0 +1,23 @@
+b6f7a46efccdd24f1e0dac56ecf212cd
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+var DeprecatedEdgeInsetsPropType = require('prop-types').shape({
+  top: require('prop-types').number,
+  left: require('prop-types').number,
+  bottom: require('prop-types').number,
+  right: require('prop-types').number });
+
+
+module.exports = DeprecatedEdgeInsetsPropType;

@@ -1,0 +1,38 @@
+e23852df9e78b59f3b2a692734481526
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+
+
+
+
+
+function deprecatedPropType(
+propType,
+explanation)
+{
+  return function validate(props, propName, componentName) {
+
+    if (
+    !require('UIManager').getViewManagerConfig(componentName) &&
+    props[propName] !== undefined)
+    {
+      console.warn("`" +
+      propName + "` supplied to `" + componentName + "` has been deprecated. " + explanation);
+
+    }for (var _len = arguments.length, rest = new Array(_len > 3 ? _len - 3 : 0), _key = 3; _key < _len; _key++) {rest[_key - 3] = arguments[_key];}
+
+    return propType.apply(void 0, [props, propName, componentName].concat(rest));
+  };
+}
+
+module.exports = deprecatedPropType;

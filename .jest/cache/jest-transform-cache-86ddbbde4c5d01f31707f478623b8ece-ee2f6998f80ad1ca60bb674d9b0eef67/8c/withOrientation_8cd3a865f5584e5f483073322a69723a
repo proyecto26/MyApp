@@ -1,0 +1,84 @@
+9b7a71b49b1e827937ac6b184249d726
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+exports.isOrientationLandscape = void 0;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactNative = require("react-native");
+
+var _hoistNonReactStatics = _interopRequireDefault(require("hoist-non-react-statics"));
+
+var isOrientationLandscape = function isOrientationLandscape(_ref) {
+  var width = _ref.width,
+      height = _ref.height;
+  return width > height;
+};
+
+exports.isOrientationLandscape = isOrientationLandscape;
+
+function _default(WrappedComponent) {
+  var withOrientation = function (_React$Component) {
+    (0, _inherits2.default)(withOrientation, _React$Component);
+
+    function withOrientation() {
+      var _this;
+
+      (0, _classCallCheck2.default)(this, withOrientation);
+      _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(withOrientation).call(this));
+
+      _this.handleOrientationChange = function (_ref2) {
+        var window = _ref2.window;
+        var isLandscape = isOrientationLandscape(window);
+
+        _this.setState({
+          isLandscape: isLandscape
+        });
+      };
+
+      var _isLandscape = isOrientationLandscape(_reactNative.Dimensions.get('window'));
+
+      _this.state = {
+        isLandscape: _isLandscape
+      };
+      return _this;
+    }
+
+    (0, _createClass2.default)(withOrientation, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        _reactNative.Dimensions.addEventListener('change', this.handleOrientationChange);
+      }
+    }, {
+      key: "componentWillUnmount",
+      value: function componentWillUnmount() {
+        _reactNative.Dimensions.removeEventListener('change', this.handleOrientationChange);
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        return _react.default.createElement(WrappedComponent, (0, _extends2.default)({}, this.props, this.state));
+      }
+    }]);
+    return withOrientation;
+  }(_react.default.Component);
+
+  return (0, _hoistNonReactStatics.default)(withOrientation, WrappedComponent);
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndpdGhPcmllbnRhdGlvbi5qcyJdLCJuYW1lcyI6WyJpc09yaWVudGF0aW9uTGFuZHNjYXBlIiwid2lkdGgiLCJoZWlnaHQiLCJXcmFwcGVkQ29tcG9uZW50Iiwid2l0aE9yaWVudGF0aW9uIiwiaGFuZGxlT3JpZW50YXRpb25DaGFuZ2UiLCJ3aW5kb3ciLCJpc0xhbmRzY2FwZSIsInNldFN0YXRlIiwiRGltZW5zaW9ucyIsImdldCIsInN0YXRlIiwiYWRkRXZlbnRMaXN0ZW5lciIsInJlbW92ZUV2ZW50TGlzdGVuZXIiLCJwcm9wcyIsIlJlYWN0IiwiQ29tcG9uZW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBOztBQUNBOztBQUNBOztBQUVPLElBQU1BLHNCQUFzQixHQUFHLFNBQXpCQSxzQkFBeUI7QUFBQSxNQUFHQyxLQUFILFFBQUdBLEtBQUg7QUFBQSxNQUFVQyxNQUFWLFFBQVVBLE1BQVY7QUFBQSxTQUF1QkQsS0FBSyxHQUFHQyxNQUEvQjtBQUFBLENBQS9COzs7O0FBRVEsa0JBQVVDLGdCQUFWLEVBQTRCO0FBQUEsTUFDbkNDLGVBRG1DO0FBQUE7O0FBRXZDLCtCQUFjO0FBQUE7O0FBQUE7QUFDWjs7QUFEWSxZQWVkQyx1QkFmYyxHQWVZLGlCQUFnQjtBQUFBLFlBQWJDLE1BQWEsU0FBYkEsTUFBYTtBQUN4QyxZQUFNQyxXQUFXLEdBQUdQLHNCQUFzQixDQUFDTSxNQUFELENBQTFDOztBQUNBLGNBQUtFLFFBQUwsQ0FBYztBQUFFRCxVQUFBQSxXQUFXLEVBQVhBO0FBQUYsU0FBZDtBQUNELE9BbEJhOztBQUdaLFVBQU1BLFlBQVcsR0FBR1Asc0JBQXNCLENBQUNTLHdCQUFXQyxHQUFYLENBQWUsUUFBZixDQUFELENBQTFDOztBQUNBLFlBQUtDLEtBQUwsR0FBYTtBQUFFSixRQUFBQSxXQUFXLEVBQVhBO0FBQUYsT0FBYjtBQUpZO0FBS2I7O0FBUHNDO0FBQUE7QUFBQSwwQ0FTbkI7QUFDbEJFLGdDQUFXRyxnQkFBWCxDQUE0QixRQUE1QixFQUFzQyxLQUFLUCx1QkFBM0M7QUFDRDtBQVhzQztBQUFBO0FBQUEsNkNBYWhCO0FBQ3JCSSxnQ0FBV0ksbUJBQVgsQ0FBK0IsUUFBL0IsRUFBeUMsS0FBS1IsdUJBQTlDO0FBQ0Q7QUFmc0M7QUFBQTtBQUFBLCtCQXNCOUI7QUFDUCxlQUFPLDZCQUFDLGdCQUFELDZCQUFzQixLQUFLUyxLQUEzQixFQUFzQyxLQUFLSCxLQUEzQyxFQUFQO0FBQ0Q7QUF4QnNDO0FBQUE7QUFBQSxJQUNYSSxlQUFNQyxTQURLOztBQTJCekMsU0FBTyxtQ0FBb0JaLGVBQXBCLEVBQXFDRCxnQkFBckMsQ0FBUDtBQUNEIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IERpbWVuc2lvbnMgfSBmcm9tICdyZWFjdC1uYXRpdmUnO1xuaW1wb3J0IGhvaXN0Tm9uUmVhY3RTdGF0aWMgZnJvbSAnaG9pc3Qtbm9uLXJlYWN0LXN0YXRpY3MnO1xuXG5leHBvcnQgY29uc3QgaXNPcmllbnRhdGlvbkxhbmRzY2FwZSA9ICh7IHdpZHRoLCBoZWlnaHQgfSkgPT4gd2lkdGggPiBoZWlnaHQ7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIChXcmFwcGVkQ29tcG9uZW50KSB7XG4gIGNsYXNzIHdpdGhPcmllbnRhdGlvbiBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgY29uc3RydWN0b3IoKSB7XG4gICAgICBzdXBlcigpO1xuXG4gICAgICBjb25zdCBpc0xhbmRzY2FwZSA9IGlzT3JpZW50YXRpb25MYW5kc2NhcGUoRGltZW5zaW9ucy5nZXQoJ3dpbmRvdycpKTtcbiAgICAgIHRoaXMuc3RhdGUgPSB7IGlzTGFuZHNjYXBlIH07XG4gICAgfVxuXG4gICAgY29tcG9uZW50RGlkTW91bnQoKSB7XG4gICAgICBEaW1lbnNpb25zLmFkZEV2ZW50TGlzdGVuZXIoJ2NoYW5nZScsIHRoaXMuaGFuZGxlT3JpZW50YXRpb25DaGFuZ2UpO1xuICAgIH1cblxuICAgIGNvbXBvbmVudFdpbGxVbm1vdW50KCkge1xuICAgICAgRGltZW5zaW9ucy5yZW1vdmVFdmVudExpc3RlbmVyKCdjaGFuZ2UnLCB0aGlzLmhhbmRsZU9yaWVudGF0aW9uQ2hhbmdlKTtcbiAgICB9XG5cbiAgICBoYW5kbGVPcmllbnRhdGlvbkNoYW5nZSA9ICh7IHdpbmRvdyB9KSA9PiB7XG4gICAgICBjb25zdCBpc0xhbmRzY2FwZSA9IGlzT3JpZW50YXRpb25MYW5kc2NhcGUod2luZG93KTtcbiAgICAgIHRoaXMuc2V0U3RhdGUoeyBpc0xhbmRzY2FwZSB9KTtcbiAgICB9O1xuXG4gICAgcmVuZGVyKCkge1xuICAgICAgcmV0dXJuIDxXcmFwcGVkQ29tcG9uZW50IHsuLi50aGlzLnByb3BzfSB7Li4udGhpcy5zdGF0ZX0gLz47XG4gICAgfVxuICB9XG5cbiAgcmV0dXJuIGhvaXN0Tm9uUmVhY3RTdGF0aWMod2l0aE9yaWVudGF0aW9uLCBXcmFwcGVkQ29tcG9uZW50KTtcbn0iXX0=

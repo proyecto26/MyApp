@@ -1,0 +1,29 @@
+360337b592513f90f0d21b9ad8240ad3
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.compareSharedElements = exports.compareTransitionElements = void 0;var compareTransitionElements = function compareTransitionElements(e1, e2) {
+  if (!e1 && !e2) return true;
+  if (!e1 && e2 || e1 && !e2) return false;
+  if (e1.length !== e2.length) return false;
+  for (var i = 0; i < e1.length; i++) {
+    var i1 = e1[i];
+    var i2 = e2[i];
+    if (i1.name !== i2.name || i1.route !== i2.route) {
+      return false;
+    }
+  }
+  return true;
+};exports.compareTransitionElements = compareTransitionElements;
+
+var compareSharedElements = function compareSharedElements(e1, e2) {
+  if (!e1 && !e2) return true;
+  if (!e1 && e2 || e1 && !e2) return false;
+  if (e1.length !== e2.length) return false;
+  for (var i = 0; i < e1.length; i++) {
+    var p1 = e1[i];
+    var p2 = e2[i];
+    if (p1.fromItem.name !== p2.fromItem.name || p1.fromItem.route !== p2.fromItem.route ||
+    p1.toItem.name !== p2.toItem.name || p1.toItem.route !== p2.toItem.route) {
+      return false;
+    }
+  }
+  return true;
+};exports.compareSharedElements = compareSharedElements;

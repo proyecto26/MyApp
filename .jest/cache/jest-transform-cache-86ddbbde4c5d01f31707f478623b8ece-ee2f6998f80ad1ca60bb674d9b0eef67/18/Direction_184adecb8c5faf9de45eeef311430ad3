@@ -1,0 +1,18 @@
+9f5561d7f8713b1f71bb6602b52b35d3
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.NavigationDirection = exports.RouteDirection = void 0;
+var RouteDirection = {
+  unknown: 0,
+  from: 1,
+  to: 2
+};
+exports.RouteDirection = RouteDirection;
+var NavigationDirection = {
+  Unknown: 0,
+  forward: 1,
+  back: -1
+};
+exports.NavigationDirection = NavigationDirection;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkRpcmVjdGlvbi5qcyJdLCJuYW1lcyI6WyJSb3V0ZURpcmVjdGlvbiIsInVua25vd24iLCJmcm9tIiwidG8iLCJOYXZpZ2F0aW9uRGlyZWN0aW9uIiwiVW5rbm93biIsImZvcndhcmQiLCJiYWNrIl0sIm1hcHBpbmdzIjoiOzs7O0FBQU8sSUFBTUEsY0FBYyxHQUFHO0FBQzVCQyxFQUFBQSxPQUFPLEVBQUUsQ0FEbUI7QUFFNUJDLEVBQUFBLElBQUksRUFBRSxDQUZzQjtBQUc1QkMsRUFBQUEsRUFBRSxFQUFFO0FBSHdCLENBQXZCOztBQU1BLElBQU1DLG1CQUFtQixHQUFHO0FBQ2pDQyxFQUFBQSxPQUFPLEVBQUUsQ0FEd0I7QUFFakNDLEVBQUFBLE9BQU8sRUFBRSxDQUZ3QjtBQUdqQ0MsRUFBQUEsSUFBSSxFQUFFLENBQUM7QUFIMEIsQ0FBNUIiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgUm91dGVEaXJlY3Rpb24gPSB7XG4gIHVua25vd246IDAsXG4gIGZyb206IDEsXG4gIHRvOiAyLFxufTtcblxuZXhwb3J0IGNvbnN0IE5hdmlnYXRpb25EaXJlY3Rpb24gPSB7XG4gIFVua25vd246IDAsXG4gIGZvcndhcmQ6IDEsXG4gIGJhY2s6IC0xLFxufTtcbiJdfQ==

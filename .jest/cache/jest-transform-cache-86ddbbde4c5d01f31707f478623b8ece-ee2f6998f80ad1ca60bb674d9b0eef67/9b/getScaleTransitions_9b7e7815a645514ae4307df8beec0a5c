@@ -1,0 +1,22 @@
+c240d41c5f0e7c89de150f3911f828a4
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.getScaleTransition = void 0;var _reactNative = require("react-native");
+var _Types = require("../Types");
+
+var getScaleTransition = function getScaleTransition(transitionInfo) {
+
+  var startPosition = transitionInfo.direction === _Types.RouteDirection.from ? 1 : 0.005;
+  var endPosition = transitionInfo.direction === _Types.RouteDirection.from ? 0.005 : 1;
+
+  if (_reactNative.Platform.OS === 'ios') {
+    startPosition = transitionInfo.direction === _Types.RouteDirection.from ? 1 : 0;
+    endPosition = transitionInfo.direction === _Types.RouteDirection.from ? 0 : 1;
+  }var
+
+  progress = transitionInfo.progress,start = transitionInfo.start,end = transitionInfo.end;
+  var scaleInterpolation = progress.interpolate({
+    inputRange: [0, start, end, 1],
+    outputRange: [startPosition, startPosition, endPosition, endPosition] });
+
+
+  return { transform: [{ scale: scaleInterpolation }] };
+};exports.getScaleTransition = getScaleTransition;

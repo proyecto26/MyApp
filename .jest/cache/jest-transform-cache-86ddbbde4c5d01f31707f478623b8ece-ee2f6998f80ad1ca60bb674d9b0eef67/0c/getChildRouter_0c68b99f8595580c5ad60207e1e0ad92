@@ -1,0 +1,2 @@
+8f197b4c81744d82d9e9d41a56d3cd8e
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = getChildRouter;function getChildRouter(router, routeName) {if (router.childRouters && router.childRouters[routeName]) {return router.childRouters[routeName];}var Component = router.getComponentForRouteName(routeName);return Component.router;}
