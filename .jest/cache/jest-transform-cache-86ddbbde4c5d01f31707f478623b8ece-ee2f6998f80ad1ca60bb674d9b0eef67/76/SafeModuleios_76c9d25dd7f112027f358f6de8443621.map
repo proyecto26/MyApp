@@ -1,1 +1,0 @@
-{"version":3,"sources":["SafeModule.ios.js"],"names":["module","exports","require"],"mappings":"AAAAA,MAAM,CAACC,OAAP,GAAeC,OAAO,CAAC,oBAAD,CAAtB","sourcesContent":["module.exports=require('./NativeSafeModule');"]}

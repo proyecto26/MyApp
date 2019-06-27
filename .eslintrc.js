@@ -7,7 +7,16 @@ module.exports = {
   "extends": ["eslint:recommended", "plugin:react-native/all"],
   "globals": {
     "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+    "SharedArrayBuffer": "readonly",
+    "require": false,
+    "module": false,
+    "Promise": false,
+    "device": false,
+    "element": false,
+    "jasmine": false,
+    "by": false,
+    "Set": false,
+    "fetch": true
   },
   "parser": "babel-eslint",
   "parserOptions": {

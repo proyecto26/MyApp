@@ -8,7 +8,10 @@ import App from '../App';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
+import { mount } from 'enzyme'
+import { render } from 'react-native-testing-library'
 
 it('renders correctly', () => {
-  renderer.create(<App />);
+  const rendered = renderer.create(<App />).toJSON();
+  expect(rendered).toBeTruthy();
 });

@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.ts"],"names":["strings","home"],"mappings":";;;;AAAA,IAAMA,OAAO,GAAG;AACdC,EAAAA,IAAI,EAAE;AADQ,CAAhB;eAMeD,O","sourcesContent":["const strings = {\n  home: {\n    \n  }\n}\n\nexport default strings"]}

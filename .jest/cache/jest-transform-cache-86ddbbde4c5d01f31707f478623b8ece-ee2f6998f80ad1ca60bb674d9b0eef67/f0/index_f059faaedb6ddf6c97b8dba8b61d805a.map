@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;AAOA","sourcesContent":["export {\n  initTransitionTypes,\n  registerTransitionType,\n  getTransitionType,\n}\n  from './TransitionTypes';\n\nexport { getTransitionElements } from './getTransitionElements';\n"]}

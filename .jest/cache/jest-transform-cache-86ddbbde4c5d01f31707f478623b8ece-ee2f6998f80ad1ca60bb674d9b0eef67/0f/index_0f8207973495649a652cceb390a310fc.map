@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.ts"],"names":["animations","playButton","require"],"mappings":";;;;AAAA,IAAMA,UAAU,GAAG;AACjBC,EAAAA,UAAU,EAAEC,OAAO,CAAC,oBAAD;AADF,CAAnB;eAIeF,U","sourcesContent":["const animations = {\n  playButton: require('./play-button.json'),\n}\n\nexport default animations"]}

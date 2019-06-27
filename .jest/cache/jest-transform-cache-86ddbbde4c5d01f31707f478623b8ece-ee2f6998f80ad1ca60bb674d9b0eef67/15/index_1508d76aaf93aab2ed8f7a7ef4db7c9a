@@ -1,8 +1,0 @@
-a776626fba3371525fffb48cb70bba4f
-"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var strings = {
-  home: {} };var _default =
-
-
-
-
-strings;exports.default = _default;
