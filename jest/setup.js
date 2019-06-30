@@ -1,4 +1,4 @@
-import 'react-native'
+// import 'react-native'
 import 'jest-enzyme'
 import 'react-native-mock-render/mock'
 import Enzyme from 'enzyme'

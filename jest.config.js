@@ -4,11 +4,13 @@ module.exports = {
   ...defaults,
   verbose: true,
   preset: 'react-native',
+  testEnvironment: 'node',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transform: {
     ...defaults.transform,
+    "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
     "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
-    "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    // "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
   },
   testPathIgnorePatterns: [
     "\\.snap$",

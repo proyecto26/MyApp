@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-exception-handler')
     implementation project(':react-native-restart')
     implementation project(':react-native-reanimated')
     implementation project(':lottie-react-native')

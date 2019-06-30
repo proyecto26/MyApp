@@ -25,7 +25,7 @@ const FluidNavigator = createFluidNavigator(
   }
 )
 
-const StackNavigator = createStackNavigator(
+const MainNavigator = createStackNavigator(
   {
     home: { screen: HomeScreen },
   }
@@ -33,11 +33,11 @@ const StackNavigator = createStackNavigator(
 
 const AppNavigator = createAnimatedSwitchNavigator(
   {
-    StackNavigator: { screen: StackNavigator },
+    Main: { screen: MainNavigator },
     FluidNavigator,
   },
   {
-    initialRouteName: 'StackNavigator',
+    initialRouteName: 'Main',
     transition: ScreenTransition
   }
 )

@@ -9,8 +9,16 @@
  */
 
 import React, {Component} from 'react'
-// import AppContainer from './routes'
+import { setNativeExceptionHandler } from "react-native-exception-handler"
+
+import AppContainer from './routes'
 import { ErrorContainer } from './containers'
+
+setNativeExceptionHandler(errorMessage => {
+  if (__DEV__) {
+    console.log(`Error: ${errorMessage}`)
+  }
+})
 
 export default class App extends Component {
 
@@ -27,7 +35,11 @@ export default class App extends Component {
   }
 
   render() {
-    // const { hasError } = this.state
-    return <ErrorContainer />
+    const { hasError } = this.state
+    return hasError ? (
+      <ErrorContainer />
+    ) : (
+      <AppContainer />
+    )
   }
 }
