@@ -8,7 +8,7 @@ A React Native client wrapper for http://randomuser.me with React Native
 I believe in Unicorns 🦄
 Support [me](http://www.paypal.me/jdnichollsc/2), if you do too.
 
-# Happy coding
+## Happy coding
 Made with <3
 
 <img width="150px" src="http://phaser.azurewebsites.net/assets/nicholls.png" align="right">
