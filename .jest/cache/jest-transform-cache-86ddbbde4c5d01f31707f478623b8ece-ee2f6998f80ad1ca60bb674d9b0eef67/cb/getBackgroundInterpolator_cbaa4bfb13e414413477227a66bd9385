@@ -1,9 +1,0 @@
-2a9f4b6d4531e3544874d7895042a897
-"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.getBackgroundInterpolator = void 0;var _reactNative = require("react-native");
-var _InterpolatorSpecification = require("../Types/InterpolatorSpecification");
-var _getStyleInterpolator = require("./getStyleInterpolator");
-
-var getBackgroundInterpolator = function getBackgroundInterpolator(spec) {
-  var backgroundColor = (0, _getStyleInterpolator.getStyleInterpolator)('backgroundColor', 'transparent', false, spec);
-  return { animationStyles: { backgroundColor: backgroundColor } };
-};exports.getBackgroundInterpolator = getBackgroundInterpolator;

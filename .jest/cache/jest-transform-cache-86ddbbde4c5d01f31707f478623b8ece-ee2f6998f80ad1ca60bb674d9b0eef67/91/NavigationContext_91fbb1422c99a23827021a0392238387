@@ -1,2 +1,0 @@
-a9fc8329b1f0c89aca8be1456b533a2d
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _react = require("@babel/runtime/helpers/interopRequireDefault")(require("react"));var NavigationContext = _react.default.createContext(undefined);var _default = NavigationContext;exports.default = _default;

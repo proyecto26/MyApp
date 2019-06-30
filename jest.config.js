@@ -35,7 +35,6 @@ module.exports = {
       '@react-native-community',
       'react-navigation-animated-switch',
       'react-native-gesture-handler',
-      'react-navigation.*',
       '@react-navigation.*'
     ].join('|')})/`
   ],

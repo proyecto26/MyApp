@@ -1,6 +1,0 @@
-1f3f371257dfcbe22dc06e837cd93dd1
-
-module.exports = {
-  create: require('./SafeModule'),
-  module: require('./SafeModule'),
-  component: require('./SafeComponent') };

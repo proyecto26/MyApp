@@ -1,4 +1,0 @@
-22d395a47694e65475a10cd89a71c706
-"use strict";var _reactNative = require("react-native");
-var _Metrics = require("./Metrics");
-var _Direction = require("./Direction");
