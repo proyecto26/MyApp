@@ -9,7 +9,7 @@
  */
 
 import React, {Component} from 'react'
-import AppContainer from './routes'
+// import AppContainer from './routes'
 import { ErrorContainer } from './containers'
 
 export default class App extends Component {
@@ -27,11 +27,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { hasError } = this.state
-    return hasError ? (
-      <ErrorContainer />
-    ) : (
-      <AppContainer />
-    )
+    // const { hasError } = this.state
+    return <ErrorContainer />
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Button, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import LottieView from 'lottie-react-native'
 // import RNRestart from 'react-native-restart'
 import { View as AnimatableView } from 'react-native-animatable'

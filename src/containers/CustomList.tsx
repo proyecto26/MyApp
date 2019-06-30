@@ -31,7 +31,7 @@ const CustomListContainer: React.SFC<Props> = ({ items, style }) => {
         contentContainerStyle={{ margin: 0 }}
         keyExtractor={({ id }, index) => (id || index).toString()}
         renderItem={({ item, index }) =>
-          <View key={index} style={styles.row}>
+          <View key={item.id + index} style={styles.row}>
             <Transition appear={'top'} delay>
               <View style={styles.textContainer}>
                 <Text style={styles.text}>jdhhd dkjdhbdhdhd ud dg dgdgdh dghd djh d</Text>

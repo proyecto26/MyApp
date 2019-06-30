@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Transition } from 'react-navigation-fluid-transitions'
 import { NavigationScreenProps } from 'react-navigation'
-import { StyleSheet, View } from 'react-native'
+// import { Transition } from 'react-navigation-fluid-transitions'
+// import { StyleSheet, View } from 'react-native'
 import { PlayButton } from '../components'
+
 
 class HomeScreen extends Component {
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {

@@ -1,23 +1,55 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "isolatedModules": false,
-    "jsx": "react",
-    "lib": ["es6"],
-    "moduleResolution": "node",
-    "noEmit": true,
-    "strict": true,
-    "target": "esnext",
-    "noImplicitAny": true,
+    "baseUrl": "./",
+    "declaration": true,                  /* Generates corresponding '.d.ts' file. */
+    "outDir": "./lib",                    /* Redirect output structure to the directory. */
+    "strict": true,                       /* Enable all strict type-checking options. */
+    "jsx": "react",                       /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
+    "target": "esnext",                   /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
+    "module": "commonjs",                 /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+    "moduleResolution": "node",           /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "allowSyntheticDefaultImports": true, /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+    "noImplicitAny": true,                /* Raise error on expressions and declarations with an implied 'any' type. */
+    "experimentalDecorators": true,       /* Enables experimental support for ES7 decorators. */
+    "preserveConstEnums": true,           /* Keep enums even if costant (ie: you may wish readability on development code) */
+    "sourceMap": true,                    /* Generates corresponding '.map' file. */
+    "strictNullChecks": true,             /* Enable strict null checks. */
+    "skipLibCheck": true,                 /* Skip type checking of all declaration files (*.d.ts). */
+    "noUnusedLocals": true,               /* Report errors on unused locals. */
+    "noUnusedParameters": true,           /* Report errors on unused parameters. */
+    "noImplicitReturns": true,            /* Report error when not all code paths in function return a value. */
+    "noImplicitUseStrict": false,         /* Do not emit "use strict" directives in module output. */
+    "noStrictGenericChecks": false,       /* Disable strict checking of generic signatures in function types. */
+    "noImplicitThis": true,               /* Raise error on 'this' expressions with an implied 'any' type. */
+    "importHelpers": false,               /* Import emit helpers from 'tslib'. */
+    "alwaysStrict": true,                 /* Parse in strict mode and emit "use strict" for each source file. */
+    "forceConsistentCasingInFileNames": true, /* Disallow inconsistently-cased references to the same file. */
+    "strictFunctionTypes": true,          /* Enable strict checking of function types. */
+    "resolveJsonModule": true,            /* Include modules imported with .json extension. */
+    "noFallthroughCasesInSwitch": true,   /* Report errors for fallthrough cases in switch statement. */
+    "strictPropertyInitialization": false,/* Enable strict checking of property initialization in classes. */
+    "lib": [                              /* Specify library files to be included in the compilation. */
+      "es6"
+    ],
+    // "typeRoots": [                        /* List of folders to include type definitions from.  */
+    //   "./node_modules/@types",
+    //   "./@types"
+    // ],
+    "allowUnreachableCode": false,        /* Do not report errors on unreachable code. */
+    "allowUnusedLabels": false,           /* Do not report errors on unused labels. */
+    "esModuleInterop": true,              /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    "types": [                            /* List of names of type definitions to include.  */
+      "react", 
+      "react-native", 
+      "jest"
+    ],
     "pretty": true,
-    "resolveJsonModule": true,
-    "module": "commonjs",
-    "types": ["jest"],
-    "skipLibCheck": true,
-    "sourceMap": true
+    "removeComments": false,
+    "isolatedModules": true               /* Transpile each file as a separate module (similar to “ts.transpileModule”). */
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "node_modules",
     "babel.config.js",

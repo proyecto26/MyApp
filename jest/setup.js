@@ -1,14 +1,15 @@
 import 'react-native'
 import 'jest-enzyme'
+import 'react-native-mock-render/mock'
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 /**
  * Set up DOM in node.js environment for Enzyme to mount to
  */
-const { JSDOM } = require('jsdom')
+import { JSDOM } from 'jsdom'
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>')
-const { window } = jsdom
+const { window: { document } } = jsdom
 
 function copyProps(src, target) {
   Object.defineProperties(target, {
@@ -19,8 +20,8 @@ function copyProps(src, target) {
 
 global.fetch = require('jest-fetch-mock')
 global.fetchMock = global.fetch
-global.window = window
-global.document = window.document
+global.document = document
+global.window = document.defaultView
 global.navigator = {
   userAgent: 'node.js'
 }
@@ -63,3 +64,11 @@ jest.mock('react-native-reanimated', () => {
     },
   }
 })
+
+const realError = console.error
+console.error = (...x) => {
+  if (x[0].startsWith('Warning:')) {
+    return;
+  }
+  realError(...x)
+}

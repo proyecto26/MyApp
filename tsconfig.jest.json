@@ -2,6 +2,7 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "jsx": "react",
-    "module": "commonjs"
+    "target": "esnext",
+    "esModuleInterop": true
   }
 }

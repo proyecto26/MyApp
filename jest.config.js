@@ -7,20 +7,24 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transform: {
     ...defaults.transform,
+    "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
     "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
   },
+  testPathIgnorePatterns: [
+    "\\.snap$",
+    "<rootDir>/node_modules/"
+  ],
   globals: {
     "ts-jest": {
       babelConfig: true,
+      diagnostics: {
+        ignoreCodes: [7016, 151001]
+      },
       tsConfig: "./tsconfig.jest.json"
     }
   },
   modulePaths: [
     "<rootDir>"
-  ],
-  testPathIgnorePatterns: [
-    "\\.snap$",
-    "<rootDir>/node_modules/"
   ],
   cacheDirectory: ".jest/cache",
   transformIgnorePatterns: [
@@ -31,7 +35,7 @@ module.exports = {
       'react-native-gesture-handler',
       'react-navigation.*',
       '@react-navigation.*'
-    ].join('|')})`
+    ].join('|')})/`
   ],
   setupFiles: [
     "<rootDir>/node_modules/react-native-gesture-handler/jestSetup.js"
