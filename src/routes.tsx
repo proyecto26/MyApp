@@ -1,3 +1,4 @@
+import React from 'react'
 import { createAppContainer, createStackNavigator } from 'react-navigation'
 import { createFluidNavigator } from 'react-navigation-fluid-transitions'
 import createAnimatedSwitchNavigator from 'react-navigation-animated-switch'
@@ -38,7 +39,7 @@ const AppNavigator = createAnimatedSwitchNavigator(
   },
   {
     initialRouteName: 'Main',
-    transition: ScreenTransition
+    transition: <ScreenTransition /> as any //TODO: Remove this workaround
   }
 )
 

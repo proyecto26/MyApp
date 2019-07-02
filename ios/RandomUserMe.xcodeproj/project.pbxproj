@@ -463,9 +463,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				870639A1973A4D2996932FB2 /* libLottie.a in Frameworks */,
-				89FE83AEF4924DF5A6D990CF /* libLottieReactNative.a in Frameworks */,
-				50CD5DFF87784828865D534F /* Lottie.framework in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
@@ -483,6 +480,9 @@
 				72ADF2FEFB8946B78E2099A7 /* libRNReanimated.a in Frameworks */,
 				AF2998D67D444C0EBB8D4E96 /* libRCTRestart.a in Frameworks */,
 				13DFAC6BAF014A019F8D73F3 /* libReactNativeExceptionHandler.a in Frameworks */,
+				50CD5DFF87784828865D534F /* Lottie.framework in Frameworks */,
+				870639A1973A4D2996932FB2 /* libLottie.a in Frameworks */,
+				89FE83AEF4924DF5A6D990CF /* libLottieReactNative.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

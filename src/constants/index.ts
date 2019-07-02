@@ -14,9 +14,8 @@ export const ENV = __DEV__ ? 'NONPROD' : 'PROD'
 export const APP_NAME = Platform.OS === 'ios' ? 'MyApp-iOS' : 'MyApp-Android'
 
 export const API_URL = `https://randomapi.com/api`
-export const API_KEY = 'HDHW-OV4M-2KEE-SNWI'
-export const API_REF = 'o49jnbjh'
-export const API_TIMEOUT = 10
+export const API_KEY = '6de6abfedb24f889e0b5f675edc50deb'
+export const API_TIMEOUT = 2000
 
 export default {
   ENVIRONMENTS,
@@ -24,6 +23,5 @@ export default {
   APP_NAME,
   API_URL,
   API_KEY,
-  API_REF,
   API_TIMEOUT
 }

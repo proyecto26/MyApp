@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { Transition } from 'react-native-reanimated'
 
-class ScreenTransition extends Component<Transition> {
+class ScreenTransition extends Component {
   render() {
     return (
       <Transition.Together>
         <Transition.Out
-          type="slide-bottom"
+          type="fade"
           durationMs={400}
           interpolation="easeIn"
         />
-        <Transition.In type="fade" durationMs={500} />
+        <Transition.In type="slide-bottom" durationMs={500} />
       </Transition.Together>
     )
   }

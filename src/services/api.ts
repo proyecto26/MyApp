@@ -5,20 +5,20 @@ import {
 import {
   API_URL,
   API_KEY,
-  API_REF,
+  API_TIMEOUT
 } from '../constants'
 import {
   User
 } from '../models'
 
 const getUsers = async () : Promise<User[]> => {
-  const response = await axios.get(API_URL, {
+  const response = await axios.get(`${API_URL}/${API_KEY}`, {
     params: {
-      key: API_KEY,
-      ref: API_REF,
-    }
+      fmt: 'json',
+    },
+    timeout: API_TIMEOUT
   })
-  return get(response, 'data.results', [])
+  return get(response, 'data.results[0]', [])
 }
 
 export default {

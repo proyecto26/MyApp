@@ -11,6 +11,7 @@
 import React, {Component} from 'react'
 import { setNativeExceptionHandler } from "react-native-exception-handler"
 
+import { NavigationService } from './services'
 import AppContainer from './routes'
 import { ErrorContainer } from './containers'
 
@@ -39,7 +40,11 @@ export default class App extends Component {
     return hasError ? (
       <ErrorContainer />
     ) : (
-      <AppContainer />
+      <AppContainer
+        ref={navigatorRef => {
+          NavigationService.setTopLevelNavigator(navigatorRef);
+        }}
+      />
     )
   }
 }

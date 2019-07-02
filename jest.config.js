@@ -9,8 +9,7 @@ module.exports = {
   transform: {
     ...defaults.transform,
     "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
-    "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
-    // "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor"
   },
   testPathIgnorePatterns: [
     "\\.snap$",
@@ -39,7 +38,8 @@ module.exports = {
     ].join('|')})/`
   ],
   setupFiles: [
-    "<rootDir>/node_modules/react-native-gesture-handler/jestSetup.js"
+    "<rootDir>/node_modules/react-native/jest/setup",
+    "<rootDir>/node_modules/react-native-gesture-handler/jestSetup"
   ],
   setupFilesAfterEnv: [
     "<rootDir>/jest/setup.js"

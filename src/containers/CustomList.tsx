@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
-import { View, FlatList, Text, StyleSheet, LayoutChangeEvent } from 'react-native'
-import { Transition } from 'react-navigation-fluid-transitions'
+import {
+  View,
+  FlatList,
+  StyleSheet,
+  LayoutChangeEvent,
+  ListRenderItem
+} from 'react-native'
 
 interface Props {
   items: any[],
-  style: object | any[]
+  style: object | any[],
+  renderItem: ListRenderItem<any>
 }
 
-const CustomListContainer: React.SFC<Props> = ({ items, style }) => {
+const CustomListContainer: React.SFC<Props> = ({ items, style, renderItem }) => {
 
-  const itemWidth = 100
+  const itemWidth = 150
   const [numColumns, setNumColumns] = useState(2)
 
   const onLayout = (event: LayoutChangeEvent) => { 
@@ -30,15 +36,8 @@ const CustomListContainer: React.SFC<Props> = ({ items, style }) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ margin: 0 }}
         keyExtractor={({ id }, index) => (id || index).toString()}
-        renderItem={({ item, index }) =>
-          <View key={item.id + index} style={styles.row}>
-            <Transition appear={'top'} delay>
-              <View style={styles.textContainer}>
-                <Text style={styles.text}>jdhhd dkjdhbdhdhd ud dg dgdgdh dghd djh d</Text>
-              </View>
-            </Transition>
-          </View>
-        }
+        columnWrapperStyle={styles.row}
+        renderItem={renderItem}
       />
     </View>
   )
@@ -50,29 +49,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'red'
   },
   row: {
-    width: '100%',
-    height: 50,
-    margin: 10,
-    padding: 10,
-    backgroundColor: '#ECECEC',
-    borderColor: '#CCC',
-    borderWidth: StyleSheet.hairlineWidth,
-    shadowColor: '#EEE',
-    shadowRadius: 5,
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.4,
-    flexDirection: 'row',
-    elevation: 3,
-  },
-  textContainer: {
-    flexDirection: 'column',
-    marginLeft: 18,
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'green'
-  },
-  text: {
-    color: 'black'
+    justifyContent: "space-around"
   }
 })
 
