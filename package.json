@@ -10,11 +10,12 @@
     "android": "react-native run-android",
     "bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && npm cache clean --force",
-    "clean:android": "cd android/ && ./gradlew clean && cd .. && react-native run-android",
-    "clean:ios": "cd ios && pod cache clean --all;rm -rf ~/Library/Caches/CocoaPods; rm -rf Pods; rm -rf ~/Library/Developer/Xcode/DerivedData/*; pod deintegrate; pod setup; pod install;"
+    "clean:android": "cd android && ./gradlew clean && cd ..",
+    "clean:ios": "cd ios && pod cache clean --all;rm -rf ~/Library/Caches/CocoaPods; rm -rf Pods; rm -rf ~/Library/Developer/Xcode/DerivedData/*; pod deintegrate; pod setup; pod install; && cd .."
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "bugsnag-react-native": "^2.21.1",
     "lodash": "^4.17.11",
     "lottie-react-native": "^2.6.1",
     "prop-types": "^15.7.2",

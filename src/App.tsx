@@ -11,14 +11,12 @@
 import React, {Component} from 'react'
 import { setNativeExceptionHandler } from "react-native-exception-handler"
 
-import { NavigationService } from './services'
+import { NavigationService, LogService } from './services'
 import AppContainer from './routes'
 import { ErrorContainer } from './containers'
 
 setNativeExceptionHandler(errorMessage => {
-  if (__DEV__) {
-    console.log(`Error: ${errorMessage}`)
-  }
+  LogService.logError(new Error(`NativeError: ${errorMessage}`))
 })
 
 export default class App extends Component {
@@ -28,11 +26,11 @@ export default class App extends Component {
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    if (__DEV__) {
-      console.log(`Error: ${error.message}`)
-      console.log(info)
-    }
+    LogService.logError(error)
     this.setState({ hasError: true })
+    if (__DEV__) {
+      console.log(`ErrorInfo: ${info}`)
+    }
   }
 
   render() {
