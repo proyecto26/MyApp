@@ -8,7 +8,8 @@
  * @format
  */
 
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
+import { StatusBar } from 'react-native'
 import { setNativeExceptionHandler } from "react-native-exception-handler"
 
 import { NavigationService, LogService } from './services'
@@ -35,14 +36,19 @@ export default class App extends Component {
 
   render() {
     const { hasError } = this.state
-    return hasError ? (
-      <ErrorContainer />
-    ) : (
-      <AppContainer
-        ref={navigatorRef => {
-          NavigationService.setTopLevelNavigator(navigatorRef);
-        }}
-      />
+    return (
+      <Fragment>
+        <StatusBar barStyle="dark-content" />
+        {
+          hasError ? <ErrorContainer /> : (
+            <AppContainer
+              ref={navigatorRef => {
+                NavigationService.setTopLevelNavigator(navigatorRef);
+              }}
+            />
+          )
+        }
+      </Fragment>
     )
   }
 }

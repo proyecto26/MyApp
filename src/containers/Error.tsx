@@ -1,7 +1,7 @@
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text, Button } from 'react-native'
 import LottieView from 'lottie-react-native'
-// import RNRestart from 'react-native-restart'
+import RNRestart from 'react-native-restart'
 import { View as AnimatableView } from 'react-native-animatable'
 import R from '../res'
 
@@ -19,7 +19,7 @@ const ErrorContainer = () => {
       />
       <Text style={styles.oops}>Oops</Text>
       <AnimatableView style={styles.button} iterationDelay={3000} animation='pulse' easing='ease-out' iterationCount='infinite'>
-        {/* <Button testID='restart' color='white' title='Restart' onPress={RNRestart.Restart} /> */}
+        <Button testID='restart' color='white' title='Restart' onPress={RNRestart.Restart} />
       </AnimatableView>
     </View>
   )

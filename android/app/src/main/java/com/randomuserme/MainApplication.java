@@ -2,13 +2,9 @@ package com.randomuserme;
 
 import android.app.Application;
 
+import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
-import com.bugsnag.BugsnagReactNative;
-import com.masteratul.exceptionhandler.ReactNativeExceptionHandlerPackage;
 import com.avishayil.rnrestart.ReactNativeRestartPackage;
-import com.swmansion.reanimated.ReanimatedPackage;
-import com.airbnb.android.react.lottie.LottiePackage;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -27,15 +23,12 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            BugsnagReactNative.getPackage(),
-            new ReactNativeExceptionHandlerPackage(),
-            new ReactNativeRestartPackage(),
-            new ReanimatedPackage(),
-            new LottiePackage(),
-            new RNGestureHandlerPackage()
-      );
+      @SuppressWarnings("UnnecessaryLocalVariable")
+      List<ReactPackage> packages = new PackageList(this).getPackages();
+      // Packages that cannot be autolinked yet can be added manually here, for example:
+      // packages.add(new MyReactNativePackage());
+      packages.add(new ReactNativeRestartPackage());
+      return packages;
     }
 
     @Override
