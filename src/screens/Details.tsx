@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, Button } from 'react-native'
+import { StyleSheet, View, Text, Button, Image } from 'react-native'
 import { NavigationInjectedProps, SafeAreaView } from 'react-navigation'
 import { Transition } from 'react-navigation-fluid-transitions'
 
@@ -21,9 +21,9 @@ const DetailsScreen: React.SFC<NavigationInjectedProps> = ({ navigation }) => {
         <Text>Usuario</Text>
       </View>
       <View style={styles.content}>
-        <Transition appear='top' shared='item'>
+        <Transition appear='top' shared={email}>
           <View style={styles.card}>
-            <Text>{ email }</Text>
+            <Image style={{ flex: 1 }} resizeMode='contain' source={{ uri: 'https://picsum.photos/200' }} />
           </View>
         </Transition>
       </View>
@@ -34,10 +34,10 @@ const DetailsScreen: React.SFC<NavigationInjectedProps> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#593693'
+    backgroundColor: '#231E32'
   },
   header: {
-    backgroundColor: 'white',
+    backgroundColor: 'green',
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'flex-start',
@@ -45,23 +45,14 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   content: {
-    margin: 10
+    flex: 1,
+    backgroundColor: 'white'
   },
   card: {
+    flexDirection: 'column',
     flex: 1,
-    width: '100%',
-    height: 50,
-    margin: 10,
-    padding: 10,
-    backgroundColor: '#ECECEC',
-    borderColor: '#CCC',
-    borderWidth: StyleSheet.hairlineWidth,
-    shadowColor: '#EEE',
-    shadowRadius: 5,
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.4,
-    flexDirection: 'row',
-    elevation: 3,
+    justifyContent: 'center',
+    backgroundColor: 'white'
   }
 })
 

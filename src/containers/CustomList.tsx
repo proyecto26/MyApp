@@ -45,8 +45,7 @@ const CustomListContainer: React.SFC<Props> = ({ items, style, renderItem }) => 
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'red'
+    flex: 1
   },
   row: {
     flex: 1,

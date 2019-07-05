@@ -39,7 +39,7 @@ const AppNavigator = createAnimatedSwitchNavigator(
   },
   {
     initialRouteName: 'Main',
-    transition: <ScreenTransition /> as any //TODO: Remove this workaround
+    transition: <ScreenTransition />
   }
 )
 
