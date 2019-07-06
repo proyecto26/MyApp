@@ -9,11 +9,7 @@ import PlayButton from '../PlayButton'
 
 describe('<PlayButton />', () => {
 
-  const defaultProps = {
-    navigation: {
-      navigate: jest.fn()
-    }
-  }
+  const defaultProps = {}
 
   it('should render', () => {
     const rendered = mount(<PlayButton {...defaultProps} />)

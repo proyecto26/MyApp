@@ -1,27 +1,24 @@
-import React, { Component } from 'react'
-import { NavigationScreenProps } from 'react-navigation'
-// import { Transition } from 'react-navigation-fluid-transitions'
-// import { StyleSheet, View } from 'react-native'
+import React, { Component, Fragment } from 'react'
+import { NavigationScreenConfig, NavigationScreenOptions } from 'react-navigation'
 import { PlayButton } from '../components'
 
-
 class HomeScreen extends Component {
-  static navigationOptions = ({ navigation }: NavigationScreenProps) => {
-    return {
-      title: navigation.getParam('title', 'RandomUserMe'),
-      headerStyle: {
-        backgroundColor: '#593693',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    };
-  }
+  static navigationOptions: NavigationScreenConfig<NavigationScreenOptions> = ({ navigation }) => ({
+    title: navigation.getParam('title', 'RandomUserMe'),
+    headerStyle: {
+      backgroundColor: '#593693',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    }
+  })
 
   render() {
     return (
-      <PlayButton />
+      <Fragment>
+        <PlayButton />
+      </Fragment>
     )
   }
 }

@@ -65,6 +65,8 @@ jest.mock('react-native-reanimated', () => {
   }
 })
 
+jest.mock('NativeAnimatedHelper')
+
 const realError = console.error
 console.error = (...x) => {
   if (x[0].startsWith('Warning:')) {

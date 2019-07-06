@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Details /> renders correctly 1`] = `
+<withOrientation
+  forceInset={
+    Object {
+      "top": "always",
+    }
+  }
+  style={
+    Array [
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      },
+      Object {
+        "backgroundColor": "#231E32",
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "flex-start",
+        "backgroundColor": "green",
+        "flexDirection": "row",
+        "height": 50,
+        "width": "100%",
+      }
+    }
+  >
+    <Button
+      accessibilityLabel="Go back"
+      color="#841584"
+      onPress={[Function]}
+      title="Back"
+    />
+    <Text>
+      Usuario
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+        "flex": 1,
+      }
+    }
+  >
+    <Transition
+      appear="top"
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "white",
+            "flex": 1,
+            "flexDirection": "column",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "Image",
+            }
+          }
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        />
+      </View>
+    </Transition>
+  </View>
+</withOrientation>
+`;

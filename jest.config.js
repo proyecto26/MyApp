@@ -9,7 +9,7 @@ module.exports = {
   transform: {
     ...defaults.transform,
     "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
-    "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor"
+    "\\.(ts|tsx)$": "ts-jest"
   },
   testPathIgnorePatterns: [
     "\\.snap$",

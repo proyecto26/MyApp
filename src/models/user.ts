@@ -1,5 +1,8 @@
 export interface User {
-  name: String;
-  dateOfBirth: Date;
+  first: string;
+  last: string;
   email: string;
+  address: string;
+  created?: Date;
+  balance?: string;
 }

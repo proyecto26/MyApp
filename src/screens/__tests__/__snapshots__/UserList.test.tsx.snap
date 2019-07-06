@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserList /> renders correctly 1`] = `
+<withOrientation
+  forceInset={
+    Object {
+      "top": "always",
+    }
+  }
+  style={
+    Array [
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      },
+      Object {
+        "backgroundColor": "#231E32",
+      },
+    ]
+  }
+>
+  <CustomListContainer
+    items={
+      Array [
+        Object {
+          "address": "street 26",
+          "email": "jdnichollsc@hotmail.com",
+          "first": "Juan",
+          "last": "Nicholls",
+        },
+      ]
+    }
+    renderItem={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#231E32",
+      }
+    }
+  />
+</withOrientation>
+`;

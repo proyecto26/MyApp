@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Dimensions, TouchableOpacity } from 'react-native'
 import LottieView from 'lottie-react-native'
-import { NavigationInjectedProps, withNavigation } from 'react-navigation'
+import { NavigationService } from '../services'
 import R from '../res'
 
-class PlayButton extends Component<NavigationInjectedProps> {
+class PlayButton extends Component {
   render () {
     const { width, height } = Dimensions.get('screen')
-    const { navigation } = this.props
     return (
       <View style={styles.container}>
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => navigation.navigate('userList') }>
+          onPress={() => NavigationService.navigate('userList') }>
           <LottieView
             style={{
               width,
@@ -38,4 +37,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default withNavigation(PlayButton)
+export default PlayButton

@@ -9,21 +9,31 @@ import { CustomListContainer } from '../containers'
 import { useUserList } from '../hooks'
 import { User } from '../models'
 
-const UserListScreen = () => {
+interface RenderItem {
+  item: User,
+  index: Number
+}
 
-  const items = useUserList()
+interface Props {
+  initialList?: User[]
+}
+
+
+const UserListScreen = ({ initialList = [] } : Props) => {
+
+  const items = useUserList(initialList)
 
   const onItemPress = (data: any) => {
     NavigationService.navigate('details', { data })
   }
 
-  const renderItem: ListRenderItem<any> = ({ item, index }: { item: User, index: Number }) => {
+  const renderItem: ListRenderItem<any> = ({ item, index }: RenderItem) => {
     const details = {
       ...item,
       image: `https://picsum.photos/id/${index}/200/200`
     }
     return (
-      <TouchableHighlight key={item.email} style={styles.card} onPress={() => onItemPress(details)}>
+      <TouchableHighlight testID='UserItem' key={item.email} style={styles.card} onPress={() => onItemPress(details)}>
         <Transition shared={item.email}>
           <AnimatableView useNativeDriver delay={2000} animation="pulse" easing="ease-out" style={styles.photo}>
             <Image style={{ flex: 1 }} resizeMode='contain' source={{ uri: details.image }} />
