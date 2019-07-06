@@ -5,9 +5,13 @@ import { Transition } from 'react-navigation-fluid-transitions'
 
 import { User } from '../models'
 
+interface Data extends User {
+  image: string
+}
+
 const DetailsScreen: React.SFC<NavigationInjectedProps> = ({ navigation }) => {
 
-  const { email } = navigation.getParam('item', {}) as User
+  const { email, image } = navigation.getParam('data', {}) as Data
 
   return (
     <SafeAreaView forceInset={{top: 'always'}} style={[StyleSheet.absoluteFill, styles.container]}>
@@ -23,7 +27,7 @@ const DetailsScreen: React.SFC<NavigationInjectedProps> = ({ navigation }) => {
       <View style={styles.content}>
         <Transition appear='top' shared={email}>
           <View style={styles.card}>
-            <Image style={{ flex: 1 }} resizeMode='contain' source={{ uri: 'https://picsum.photos/200' }} />
+            <Image style={{ flex: 1 }} resizeMode='contain' source={{ uri: image }} />
           </View>
         </Transition>
       </View>

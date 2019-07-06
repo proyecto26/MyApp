@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView } from 'react-navigation'
-import { StyleSheet, TouchableHighlight, View, Image, ListRenderItem } from 'react-native'
+import { StyleSheet, TouchableHighlight, Image, ListRenderItem } from 'react-native'
 import { Transition } from 'react-navigation-fluid-transitions'
 import { View as AnimatableView } from 'react-native-animatable'
 
@@ -13,16 +13,20 @@ const UserListScreen = () => {
 
   const items = useUserList()
 
-  const onItemPress = (item: any) => {
-    NavigationService.navigate('details', { item })
+  const onItemPress = (data: any) => {
+    NavigationService.navigate('details', { data })
   }
 
-  const renderItem: ListRenderItem<any> = ({ item }: { item: User }) => {
+  const renderItem: ListRenderItem<any> = ({ item, index }: { item: User, index: Number }) => {
+    const details = {
+      ...item,
+      image: `https://picsum.photos/id/${index}/200/200`
+    }
     return (
-      <TouchableHighlight key={item.email} style={styles.card} onPress={() => onItemPress(item)}>
+      <TouchableHighlight key={item.email} style={styles.card} onPress={() => onItemPress(details)}>
         <Transition shared={item.email}>
           <AnimatableView useNativeDriver delay={2000} animation="pulse" easing="ease-out" style={styles.photo}>
-            <Image style={{ flex: 1 }} resizeMode='contain' source={{ uri: 'https://picsum.photos/200' }} />
+            <Image style={{ flex: 1 }} resizeMode='contain' source={{ uri: details.image }} />
           </AnimatableView>
         </Transition>
       </TouchableHighlight>
