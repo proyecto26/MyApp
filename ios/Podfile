@@ -30,9 +30,10 @@ target 'RandomUserMe' do
 
   pod 'RCTRestart', :path => '../node_modules/react-native-restart/ios'
 
-  pod 'RNInAppBrowser', :path => '../node_modules/react-native-inappbrowser-reborn'
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+
 
   target 'RandomUserMeTests' do
     inherit! :search_paths

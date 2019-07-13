@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, Text, Button, Image, Linking } from 'react-native'
+import { StyleSheet, View, Text, Image, Linking } from 'react-native'
 import { NavigationInjectedProps } from 'react-navigation'
 import { Transition } from 'react-navigation-fluid-transitions'
-import InAppBrowser from 'react-native-inappbrowser-reborn'
+// import InAppBrowser from 'react-native-inappbrowser-reborn'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 import { User } from '../models'
@@ -53,7 +53,7 @@ const DetailsScreen: React.SFC<NavigationInjectedProps> = ({ navigation }) => {
                 <Image style={{ height: 260 }} resizeMode='contain' source={{ uri: image }} />
               </View>
             </Transition>
-            <Button onPress={() => InAppBrowser.open('https://github.com')} title='Open Url'></Button>
+            {/* <Button onPress={() => InAppBrowser.open('https://github.com')} title='Open Url'></Button> */}
             <Text>{ LOREM_IPSUM }</Text>
           </View>
         )}
