@@ -43,7 +43,7 @@ export default class App extends Component {
           hasError ? <ErrorContainer /> : (
             <AppContainer
               ref={navigatorRef => {
-                NavigationService.setTopLevelNavigator(navigatorRef);
+                NavigationService.setTopLevelNavigator(navigatorRef)
               }}
             />
           )

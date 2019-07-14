@@ -5,14 +5,14 @@ import {
   NavigationNavigateActionPayload
 } from 'react-navigation'
 
-let _navigator : NavigationContainerComponent | null
+let _navigator : NavigationContainerComponent
 
 function setTopLevelNavigator(navigatorRef: NavigationContainerComponent | null) {
-  _navigator = navigatorRef
+  _navigator = navigatorRef || _navigator
 }
 
 function isNavigatePayload(obj: any): obj is NavigationNavigateActionPayload {
-  return obj.routeName !== undefined 
+  return obj.key || obj.routeName 
 }
 
 function navigate(routeNameOrOptions: string | NavigationNavigateActionPayload, params?: NavigationParams) {
@@ -32,7 +32,7 @@ function navigate(routeNameOrOptions: string | NavigationNavigateActionPayload, 
     options.params = params
   }
   
-  _navigator && _navigator.dispatch(
+  _navigator.dispatch(
     NavigationActions.navigate(options)
   )
 }
