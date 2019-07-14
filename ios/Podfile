@@ -28,12 +28,12 @@ target 'RandomUserMe' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'RCTRestart', :path => '../node_modules/react-native-restart/ios'
+
+
+
 
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-
-
 
   target 'RandomUserMeTests' do
     inherit! :search_paths
