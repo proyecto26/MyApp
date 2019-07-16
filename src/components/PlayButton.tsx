@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Dimensions, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, TouchableOpacity } from 'react-native'
 import LottieView from 'lottie-react-native'
 import { NavigationService } from '../services'
-import R from '../res'
+import R from 'res'
 
 class PlayButton extends Component {
   render () {
-    const { width, height } = Dimensions.get('screen')
     return (
       <View style={styles.container}>
         <TouchableOpacity
@@ -14,12 +13,11 @@ class PlayButton extends Component {
           onPress={() => NavigationService.navigate('userList') }>
           <LottieView
             style={{
-              width,
-              height,
-              maxWidth: 260
+              width: 200,
+              height: 200
             }}
             autoPlay
-            resizeMode='center'
+            resizeMode='contain'
             source={R.animations.playButton}
           />
         </TouchableOpacity>

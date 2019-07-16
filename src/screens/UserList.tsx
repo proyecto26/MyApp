@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { SafeAreaView } from 'react-navigation'
-import { StyleSheet, TouchableHighlight, Image, ListRenderItem } from 'react-native'
+import { StyleSheet, TouchableHighlight, Image, ListRenderItem, StatusBar } from 'react-native'
 import { Transition } from 'react-navigation-fluid-transitions'
 import { View as AnimatableView } from 'react-native-animatable'
 
@@ -44,13 +44,16 @@ const UserListScreen = ({ initialList = [] } : Props) => {
   }
 
   return (
-    <SafeAreaView forceInset={{top: 'always'}} style={[StyleSheet.absoluteFill, styles.container]}>
-      <CustomListContainer 
-        items={items}
-        style={styles.content}
-        renderItem={renderItem}
-      />
-    </SafeAreaView>
+    <Fragment>
+      <StatusBar barStyle='light-content' backgroundColor='black' />
+      <SafeAreaView forceInset={{top: 'always'}} style={[StyleSheet.absoluteFill, styles.container]}>
+        <CustomListContainer 
+          items={items}
+          style={styles.content}
+          renderItem={renderItem}
+        />
+      </SafeAreaView>
+    </Fragment>
   )
 }
 

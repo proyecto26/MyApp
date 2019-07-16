@@ -1,1 +1,1 @@
-declare module "*";
+declare module 'react-native-parallax-header';

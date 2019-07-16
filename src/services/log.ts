@@ -3,7 +3,7 @@ import { BUGSNAG_KEY } from '../constants'
 const bugsnag = new Client(BUGSNAG_KEY)
 
 export default {
-  logError: (err: Error) => {
+  logError: (err: Error): void => {
     bugsnag.notify(err)
   }
 }

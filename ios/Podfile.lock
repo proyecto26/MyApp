@@ -5,6 +5,8 @@ PODS:
     - React
   - BugsnagReactNative/Core (2.22.0):
     - React
+  - BVLinearGradient (2.5.4):
+    - React
   - DoubleConversion (1.1.6)
   - Folly (2018.10.22.00):
     - boost-for-react-native
@@ -104,6 +106,7 @@ PODS:
 
 DEPENDENCIES:
   - BugsnagReactNative (from `../node_modules/bugsnag-react-native`)
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -141,6 +144,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   BugsnagReactNative:
     :path: "../node_modules/bugsnag-react-native"
+  BVLinearGradient:
+    :path: "../node_modules/react-native-linear-gradient"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   Folly:
@@ -203,6 +208,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BugsnagReactNative: 56902100255c2b9e194f805535a00816442c8d7e
+  BVLinearGradient: 8cbc5155c978f2e43098818c91d206d07aae6d30
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
@@ -233,6 +239,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   yoga: 843fe25849b56131275bf3e5da2c468e96f68aff
 
-PODFILE CHECKSUM: 4292607d12ae8317e7b663b7a49b102183f5be84
+PODFILE CHECKSUM: d717ac2446c512ccd56e7e426a4682a0bed117e2
 
 COCOAPODS: 1.7.3

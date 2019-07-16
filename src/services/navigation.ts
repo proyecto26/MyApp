@@ -5,9 +5,9 @@ import {
   NavigationNavigateActionPayload
 } from 'react-navigation'
 
-let _navigator : NavigationContainerComponent
+let _navigator: NavigationContainerComponent
 
-function setTopLevelNavigator(navigatorRef: NavigationContainerComponent | null) {
+function setTopLevelNavigator(navigatorRef: NavigationContainerComponent | null): void {
   _navigator = navigatorRef || _navigator
 }
 
@@ -15,7 +15,7 @@ function isNavigatePayload(obj: any): obj is NavigationNavigateActionPayload {
   return obj.key || obj.routeName 
 }
 
-function navigate(routeNameOrOptions: string | NavigationNavigateActionPayload, params?: NavigationParams) {
+function navigate(routeNameOrOptions: string | NavigationNavigateActionPayload, params?: NavigationParams): void {
   
   let options: NavigationNavigateActionPayload = {
     routeName: ''

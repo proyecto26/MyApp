@@ -2,6 +2,29 @@
 
 exports[`<Home /> renders correctly 1`] = `
 <Fragment>
-  <PlayButton />
+  <StatusBar
+    animated={false}
+    backgroundColor="white"
+    barStyle="dark-content"
+    showHideTransition="fade"
+  />
+  <ImageBackground
+    source={
+      Object {
+        "testUri": "../../../src/res/images/background.jpg",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <PlayButton />
+  </ImageBackground>
 </Fragment>
 `;

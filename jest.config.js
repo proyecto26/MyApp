@@ -19,7 +19,7 @@ module.exports = {
     "ts-jest": {
       babelConfig: true,
       diagnostics: {
-        ignoreCodes: [7016, 151001]
+        ignoreCodes: [2307, 7016]
       },
       tsConfig: "./tsconfig.jest.json"
     }

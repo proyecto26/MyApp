@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, Button } from 'react-native'
 import LottieView from 'lottie-react-native'
 import RNRestart from 'react-native-restart'
 import { View as AnimatableView } from 'react-native-animatable'
-import R from '../res'
+import R from 'res'
 
 const ErrorContainer = () => {
   return (

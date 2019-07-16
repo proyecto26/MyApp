@@ -21,7 +21,7 @@ exports[`<PlayButton /> renders correctly 1`] = `
       enableMergePathsAndroidForKitKatAndAbove={false}
       loop={true}
       progress={0}
-      resizeMode="center"
+      resizeMode="contain"
       source={
         Object {
           "assets": Array [],
@@ -1359,9 +1359,8 @@ exports[`<PlayButton /> renders correctly 1`] = `
       speed={1}
       style={
         Object {
-          "height": 1334,
-          "maxWidth": 260,
-          "width": 750,
+          "height": 200,
+          "width": 200,
         }
       }
     />

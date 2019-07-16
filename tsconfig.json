@@ -33,7 +33,7 @@
     ],
     "typeRoots": [                        /* List of folders to include type definitions from.  */
       "./node_modules/@types",
-      "./@types"
+      "./typings"
     ],
     "allowUnreachableCode": false,        /* Do not report errors on unreachable code. */
     "allowUnusedLabels": false,           /* Do not report errors on unused labels. */

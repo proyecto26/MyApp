@@ -11,7 +11,7 @@ import {
   User
 } from '../models'
 
-const getUsers = async () : Promise<User[]> => {
+const getUsers = async (): Promise<User[]> => {
   const response = await axios.get(`${API_URL}/${API_KEY}`, {
     params: {
       fmt: 'json',
