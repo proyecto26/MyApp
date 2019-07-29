@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image, Linking } from 'react-native'
+import { StyleSheet, View, Text, Image, Linking, Button } from 'react-native'
 import { NavigationInjectedProps } from 'react-navigation'
 import { Transition } from 'react-navigation-fluid-transitions'
-// import InAppBrowser from 'react-native-inappbrowser-reborn'
+import InAppBrowser from 'react-native-inappbrowser-reborn'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import R from 'res'
 import { User } from '../models'
@@ -15,6 +15,35 @@ interface Data extends User {
 const DetailsScreen: React.SFC<NavigationInjectedProps> = ({ navigation }) => {
 
   const { email, image, first, last } = navigation.getParam('data', {}) as Data
+
+  const openUrl = () => {
+    return InAppBrowser.open('https://github.com', {
+      // iOS Properties
+      dismissButtonStyle: 'cancel',
+      preferredBarTintColor: '#453AA4',
+      preferredControlTintColor: 'white',
+      readerMode: false,
+      animated: true,
+      modalPresentationStyle: 'overFullScreen',
+      modalTransitionStyle: 'partialCurl',
+      modalEnabled: true,
+      // Android Properties
+      showTitle: true,
+      toolbarColor: '#6200EE',
+      secondaryToolbarColor: 'black',
+      enableUrlBarHiding: true,
+      enableDefaultShare: true,
+      forceCloseOnRedirection: false,
+      // Specify full animation resource identifier(package:anim/name)
+      // or only resource name(in case of animation bundled with app).
+      animations: {
+        startEnter: 'slide_in_right',
+        startExit: 'slide_out_left',
+        endEnter: 'slide_in_left',
+        endExit: 'slide_out_right'
+      }
+    })
+  }
 
   return (
     <View style={styles.container}>
@@ -46,7 +75,7 @@ const DetailsScreen: React.SFC<NavigationInjectedProps> = ({ navigation }) => {
                 <Image style={{ height: 260 }} resizeMode='contain' source={{ uri: image }} />
               </View>
             </Transition>
-            {/* <Button onPress={() => InAppBrowser.open('https://github.com')} title='Open Url'></Button> */}
+            <Button onPress={() => openUrl()} title='Open Url'></Button>
             <Text>{ R.strings.details.LOREM_IPSUM }</Text>
           </View>
         )}

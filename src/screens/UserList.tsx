@@ -1,6 +1,15 @@
 import React, { Fragment } from 'react'
 import { SafeAreaView } from 'react-navigation'
-import { StyleSheet, TouchableHighlight, Image, ListRenderItem, StatusBar } from 'react-native'
+import {
+  StyleSheet,
+  TouchableHighlight,
+  Image,
+  ListRenderItem,
+  StatusBar,
+  Button,
+  Alert,
+  View
+} from 'react-native'
 import { Transition } from 'react-navigation-fluid-transitions'
 import { View as AnimatableView } from 'react-native-animatable'
 
@@ -9,12 +18,12 @@ import { CustomListContainer } from '../containers'
 import { useUserList } from '../hooks'
 import { User } from '../models'
 
-interface RenderItem {
+type RenderItem = {
   item: User,
   index: Number
 }
 
-interface Props {
+type Props = {
   initialList?: User[]
 }
 
@@ -52,6 +61,9 @@ const UserListScreen = ({ initialList = [] } : Props) => {
           style={styles.content}
           renderItem={renderItem}
         />
+        <View style={styles.buttonBottom}>
+          <Button color='white' title='Nothing to do!' onPress={() => Alert.alert('Other animation here?')} />
+        </View>
       </SafeAreaView>
     </Fragment>
   )
@@ -89,6 +101,18 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'black'
+  },
+  buttonBottom: {
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    height: 70,
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#453AA4',
+    textAlign: 'center'
   }
 })
 
