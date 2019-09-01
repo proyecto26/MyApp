@@ -15,8 +15,9 @@ describe('<Details />', () => {
 
   const defaultProps: any = {
     navigation: {
-      getParam: () => mockData
-    }
+      goBack: jest.fn()
+    },
+    data: mockData
   }
 
   it('should render', () => {

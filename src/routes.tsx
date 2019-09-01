@@ -12,10 +12,14 @@ import {
   ScreenTransition
 } from './components'
 
+import {
+  NavigationService
+} from './services'
+
 const FluidNavigator = createFluidNavigator(
   {
     userList: { screen: UserListScreen },
-    details: { screen: DetailsScreen },
+    details: { screen: NavigationService.mapNavigationStateParamsToProps(DetailsScreen) },
   },
   {
     mode: 'modal',

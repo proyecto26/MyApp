@@ -47,6 +47,28 @@ exports[`<UserList /> renders correctly 1`] = `
         }
       }
     />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "#453AA4",
+          "bottom": 0,
+          "display": "flex",
+          "height": 70,
+          "justifyContent": "center",
+          "position": "absolute",
+          "textAlign": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <Button
+        color="white"
+        onPress={[Function]}
+        title="Nothing to do!"
+      />
+    </View>
   </withOrientation>
 </Fragment>
 `;

@@ -10,11 +10,15 @@ import { ParallaxHeader } from '../containers'
 
 interface Data extends User {
   image: string
+  email: string
+  first: string
+  last: string
 }
 
-const DetailsScreen: React.SFC<NavigationInjectedProps> = ({ navigation }) => {
-
-  const { email, image, first, last } = navigation.getParam('data', {}) as Data
+const DetailsScreen: React.FunctionComponent<NavigationInjectedProps & { data: Data }> = (
+  { data, navigation }
+) => {
+  const { email, image, first, last } = data
 
   const openUrl = () => {
     return InAppBrowser.open('https://github.com', {
