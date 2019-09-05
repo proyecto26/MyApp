@@ -15,6 +15,8 @@ import { NavigationService, LogService } from './services'
 import AppContainer from './routes'
 import { ErrorContainer } from './containers'
 
+console.disableYellowBox = true;
+
 setNativeExceptionHandler(errorMessage => {
   LogService.logError(new Error(`NativeError: ${errorMessage}`))
 })

@@ -6,10 +6,10 @@ import {
   Image,
   ListRenderItem,
   StatusBar,
-  Button,
-  Alert,
   View
 } from 'react-native'
+import { useNetInfo } from '@react-native-community/netinfo'
+import LottieView from 'lottie-react-native'
 import { Transition } from 'react-navigation-fluid-transitions'
 import { View as AnimatableView } from 'react-native-animatable'
 
@@ -27,10 +27,15 @@ type Props = {
   initialList?: User[]
 }
 
+const animations = {
+  offline: require('../animations/offline.json'),
+  online: require('../animations/online.json')
+}
 
 const UserListScreen = ({ initialList = [] } : Props) => {
 
   const items = useUserList(initialList)
+  const netInfo = useNetInfo()
 
   const onItemPress = (data: any) => {
     NavigationService.navigate('details', { data })
@@ -62,7 +67,14 @@ const UserListScreen = ({ initialList = [] } : Props) => {
           renderItem={renderItem}
         />
         <View style={styles.buttonBottom}>
-          <Button color='white' title='Nothing to do!' onPress={() => Alert.alert('Other animation here?')} />
+          <LottieView
+            autoSize
+            autoPlay
+            loop={false}
+            style={styles.netInfo}
+            resizeMode='contain'
+            source={netInfo.isInternetReachable ? animations.online : animations.offline}
+          />
         </View>
       </SafeAreaView>
     </Fragment>
@@ -103,16 +115,23 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   buttonBottom: {
+    overflow: 'hidden',
     position: 'absolute',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
-    height: 70,
+    height: 60,
     bottom: 0,
     width: '100%',
     backgroundColor: '#453AA4',
     textAlign: 'center'
+  },
+  netInfo: {
+    width: 100,
+    position: 'absolute',
+    right: 10,
+    marginTop: 0
   }
 })
 
