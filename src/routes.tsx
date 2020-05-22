@@ -13,14 +13,10 @@ import {
   ScreenTransition
 } from './components'
 
-import {
-  NavigationService
-} from './services'
-
 const FluidNavigator = createSharedElementStackNavigator(
   {
     userList: { screen: UserListScreen },
-    details: NavigationService.mapNavigationStateParamsToProps(DetailsScreen),
+    details: { screen: DetailsScreen, navigationOptions: { headerShown: false } },
   },
   {
     mode: 'modal'

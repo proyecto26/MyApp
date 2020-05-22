@@ -13,8 +13,6 @@ export default {
         preferredControlTintColor: 'white',
         readerMode: false,
         animated: true,
-        modalPresentationStyle: 'overFullScreen',
-        modalTransitionStyle: 'partialCurl',
         modalEnabled: true,
         // Android Properties
         showTitle: true,

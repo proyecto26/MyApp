@@ -12,15 +12,12 @@ import { BrowserService } from '../../services'
 
 interface Data extends User {
   image: string
-  email: string
-  first: string
-  last: string
 }
 
 const DetailsScreen = (
-  { data, navigation }: NavigationInjectedProps & { data: Data }
+  { navigation }: NavigationInjectedProps
 ) => {
-  const { email, image, first, last } = data
+  const { email, image, first, last } = navigation.getParam('data') as Data
 
   const openUrl = () => BrowserService.openUrl(image)
 
@@ -69,7 +66,7 @@ const DetailsScreen = (
 // to or from this screen. You can use the provided navigation
 // states or trigger or disable animations.
 DetailsScreen.sharedElements = (navigation: NavigationScreenProp<any>) => {
-  const { email } = navigation.getParam('data', {});
+  const { email } = navigation.getParam('data', {}) as User;
   return [ email ];
 };
 
