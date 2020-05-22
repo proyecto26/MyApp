@@ -27,7 +27,7 @@ const animations = {
   online: require('../../animations/online.json')
 }
 
-const UserListScreen: React.FC<Props> = ({ users = [] }) => {
+const UserListScreen = ({ users = [] }: Props) => {
 
   const items = useUserList(users)
   const netInfo = useNetInfo()
@@ -90,6 +90,10 @@ const UserListScreen: React.FC<Props> = ({ users = [] }) => {
       </SafeAreaView>
     </>
   )
+}
+
+UserListScreen.navigationOptions = {
+  title: 'Users'
 }
 
 export default UserListScreen
