@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { ComponentType } from 'react'
 import {
   StackActions,
   NavigationActions,
@@ -8,9 +7,7 @@ import {
   NavigationRoute,
   NavigationNavigateActionPayload,
   NavigationState,
-  NavigationScreenDetails,
   NavigationContainerComponent,
-  NavigationScreenComponent
 } from 'react-navigation'
 
 let _navigator: NavigationContainer & NavigationContainerComponent
@@ -119,24 +116,9 @@ function getActiveRouteName (navigationState: NavigationState) {
 /**
  * A Higher Order Component (HOC) to pass the params of the navigation as properties
  */
-function mapNavigationStateParamsToProps<C extends NavigationScreenComponent<any, any, any>>(
-  WrappedComponent: C
-) {
-  const hocComponent = (props: NavigationScreenDetails<any>) => {
-    const { state: { params } } = props.navigation
-    return React.createElement(WrappedComponent, { ...params, ...props })
-  }
-
-  hocComponent.propTypes = {
-    navigation: PropTypes.shape({
-      state: PropTypes.shape({
-        params: PropTypes.any.isRequired,
-      }).isRequired,
-    }).isRequired
-  }
-  hocComponent.navigationOptions = WrappedComponent.navigationOptions
-
-  return hocComponent
+const mapNavigationStateParamsToProps = (WrappedComponent: ComponentType<any>) => (props: any) => {
+  const { navigation: { state: { params } } } = props
+  return <WrappedComponent {...params} {...props} />
 }
 
 

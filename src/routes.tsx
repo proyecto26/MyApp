@@ -1,6 +1,7 @@
 import React from 'react'
-import { createAppContainer, createStackNavigator } from 'react-navigation'
-import { createFluidNavigator } from 'react-navigation-fluid-transitions'
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element'
 import createAnimatedSwitchNavigator from 'react-navigation-animated-switch'
 
 import {
@@ -16,29 +17,28 @@ import {
   NavigationService
 } from './services'
 
-const FluidNavigator = createFluidNavigator(
+const FluidNavigator = createSharedElementStackNavigator(
   {
     userList: { screen: UserListScreen },
-    details: { screen: NavigationService.mapNavigationStateParamsToProps(DetailsScreen) },
+    details: NavigationService.mapNavigationStateParamsToProps(DetailsScreen),
   },
   {
-    mode: 'modal',
-    defaultNavigationOptions: {
-      gesturesEnabled: true,
-      header: null
-    }
+    mode: 'modal'
+  },
+  {
+    debug: true
   }
 )
 
 const MainNavigator = createStackNavigator(
   {
-    home: { screen: HomeScreen },
+    home: HomeScreen,
   }
 )
 
 const AppNavigator = createAnimatedSwitchNavigator(
   {
-    Main: { screen: MainNavigator },
+    Main: MainNavigator,
     FluidNavigator,
   },
   {
