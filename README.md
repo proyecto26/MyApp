@@ -9,7 +9,7 @@
 I believe in Unicorns 🦄
 Support [me](http://www.paypal.me/jdnichollsc/2), if you do too.
 
-## Happy coding
-Made with <3
+## Happy coding 💯
+Made with ❤️
 
-<img width="150px" src="https://github.com/jdnichollsc/jdnichollsc.github.io/blob/master/assets/nicholls.png?raw=true" align="right">
+<img width="150px" src="https://avatars0.githubusercontent.com/u/28855608?s=200&v=4" align="right">
