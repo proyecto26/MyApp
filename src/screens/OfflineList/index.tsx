@@ -11,6 +11,7 @@ import { useNetInfo } from '@react-native-community/netinfo'
 import LottieView from 'lottie-react-native'
 import { SharedElement } from 'react-navigation-shared-element'
 import { View as AnimatableView } from 'react-native-animatable'
+import R from 'res'
 
 import { NavigationService } from '../../services'
 import { CustomListContainer } from '../../containers'
@@ -19,11 +20,6 @@ import { User } from '../../models'
 import { SCREENS } from '../../constants'
 import { MenuButton } from '../../components'
 import styles from './styles'
-
-const animations = {
-  offline: require('../../animations/offline.json'),
-  online: require('../../animations/online.json'),
-}
 
 const OfflineListScreen = () => {
   const items = useOfflineList('users')
@@ -76,7 +72,7 @@ const OfflineListScreen = () => {
           style={styles.netInfo}
           resizeMode="contain"
           source={
-            netInfo.isInternetReachable ? animations.online : animations.offline
+            netInfo.isInternetReachable ? R.animations.online : R.animations.offline
           }
         />
       </View>

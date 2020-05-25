@@ -9,7 +9,6 @@ export default StyleSheet.create({
   pic: {
     padding: 10,
     resizeMode: 'contain',
-    borderRadius: 60 / 2,
     borderColor: 'black',
     borderWidth: 1,
   },

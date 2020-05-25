@@ -3,16 +3,12 @@ import { SafeAreaView } from 'react-navigation'
 import { StatusBar, View } from 'react-native'
 import { useNetInfo } from '@react-native-community/netinfo'
 import LottieView from 'lottie-react-native'
+import R from 'res'
 
 import { MenuButton, UserCard } from '../../components'
 import { CustomListContainer } from '../../containers'
 import { useUserList } from '../../hooks'
 import styles from './styles'
-
-const animations = {
-  offline: require('../../animations/offline.json'),
-  online: require('../../animations/online.json'),
-}
 
 const UserListScreen = () => {
   const items = useUserList()
@@ -36,7 +32,7 @@ const UserListScreen = () => {
           style={styles.netInfo}
           resizeMode="contain"
           source={
-            netInfo.isInternetReachable ? animations.online : animations.offline
+            netInfo.isInternetReachable ? R.animations.online : R.animations.offline
           }
         />
       </View>

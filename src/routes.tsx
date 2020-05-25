@@ -36,6 +36,7 @@ const MenuNavigator = createDrawerNavigator(
     contentOptions: {
       activeTintColor: '#e91e63',
     },
+    drawerType: 'slide',
   },
 )
 
