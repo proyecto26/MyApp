@@ -25,7 +25,7 @@ function setTopLevelNavigator(navigatorRef: any): void {
  * @param {(string|object)} obj - The options of a route
  */
 function isNavigatePayload(obj: any): obj is NavigationNavigateActionPayload {
-  return obj.key || obj.routeName 
+  return obj.key || obj.routeName
 }
 
 /**
@@ -33,25 +33,25 @@ function isNavigatePayload(obj: any): obj is NavigationNavigateActionPayload {
  * @param {(string|object)} routeNameOrOptions - The name of the route or all the info of the new route
  * @param {object} params - The params of the new route
  */
-function navigate (routeNameOrOptions: string | NavigationNavigateActionPayload, params?: NavigationParams): void {
+function navigate(
+  routeNameOrOptions: string | NavigationNavigateActionPayload,
+  params?: NavigationParams,
+): void {
   let options: NavigationNavigateActionPayload = {
-    routeName: ''
+    routeName: '',
   }
   if (isNavigatePayload(routeNameOrOptions)) {
     options = routeNameOrOptions
-  }
-  else {
+  } else {
     options = {
-      routeName: routeNameOrOptions
+      routeName: routeNameOrOptions,
     }
   }
   if (params) {
     options.params = params
   }
-  
-  _navigator.dispatch(
-    NavigationActions.navigate(options)
-  )
+
+  _navigator.dispatch(NavigationActions.navigate(options))
 }
 
 /**
@@ -60,7 +60,10 @@ function navigate (routeNameOrOptions: string | NavigationNavigateActionPayload,
  * @param {object} backRoute - An optional previous route for back navigation
  * @flow
  */
-function navigateRoot (newRoute: NavigationNavigateActionPayload, backRoute?: NavigationNavigateActionPayload) {
+function navigateRoot(
+  newRoute: NavigationNavigateActionPayload,
+  backRoute?: NavigationNavigateActionPayload,
+) {
   let index = 0
   let actions = []
   if (backRoute) {
@@ -71,7 +74,7 @@ function navigateRoot (newRoute: NavigationNavigateActionPayload, backRoute?: Na
   const resetAction = StackActions.reset({
     index,
     key: null,
-    actions
+    actions,
   })
   _navigator.dispatch(resetAction)
 }
@@ -79,20 +82,19 @@ function navigateRoot (newRoute: NavigationNavigateActionPayload, backRoute?: Na
 /**
  * Navigate to a previous screen
  */
-function goBack (options?: NavigationNavigateActionPayload) {
-  _navigator.dispatch(
-    NavigationActions.back(options)
-  )
+function goBack(options?: NavigationNavigateActionPayload) {
+  _navigator.dispatch(NavigationActions.back(options))
 }
 
 /**
  * Get the active route
  * @param {object} navigationState - The state of the navigation with their routes
  */
-function getActiveRoute (
-  navigationState?: NavigationRoute<NavigationParams> | NavigationState
+function getActiveRoute(
+  navigationState?: NavigationRoute<NavigationParams> | NavigationState,
 ): NavigationRoute<NavigationParams> | null {
-  const currentNavigationState = navigationState || (_navigator && _navigator.state.nav)
+  const currentNavigationState =
+    navigationState || (_navigator && _navigator.state.nav)
   if (!currentNavigationState || !currentNavigationState.routes) {
     return null
   }
@@ -108,7 +110,7 @@ function getActiveRoute (
  * Get the name of the active route
  * @param {object} navigationState - The state of the navigation
  */
-function getActiveRouteName (navigationState: NavigationState) {
+function getActiveRouteName(navigationState: NavigationState) {
   const route = getActiveRoute(navigationState)
   return route && route.routeName
 }
@@ -116,11 +118,16 @@ function getActiveRouteName (navigationState: NavigationState) {
 /**
  * A Higher Order Component (HOC) to pass the params of the navigation as properties
  */
-const mapNavigationStateParamsToProps = (WrappedComponent: ComponentType<any>) => (props: any) => {
-  const { navigation: { state: { params } } } = props
+const mapNavigationStateParamsToProps = (
+  WrappedComponent: ComponentType<any>,
+) => (props: any) => {
+  const {
+    navigation: {
+      state: { params },
+    },
+  } = props
   return <WrappedComponent {...params} {...props} />
 }
-
 
 // add other navigation functions that you need and export them
 
@@ -131,5 +138,5 @@ export default {
   getActiveRoute,
   getActiveRouteName,
   setTopLevelNavigator,
-  mapNavigationStateParamsToProps
+  mapNavigationStateParamsToProps,
 }

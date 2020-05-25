@@ -1,23 +1,28 @@
 import 'react-native'
 import React from 'react'
-import {
-  mount,
-  shallow
-} from 'enzyme'
+import { mount, shallow } from 'enzyme'
 
 import Details from '../Details'
 
-describe('<Details />', () => {
+jest.mock('res', () => ({
+  strings: {
+    details: {
+      LOREM_IPSUM: '',
+    },
+  },
+}))
 
+describe('<Details />', () => {
   const mockData = {
-    image: 'Image'
+    image: 'Image',
   }
 
   const defaultProps: any = {
     navigation: {
-      goBack: jest.fn()
+      goBack: jest.fn(),
+      getParam: jest.fn(() => ({})),
     },
-    data: mockData
+    data: mockData,
   }
 
   it('should render', () => {

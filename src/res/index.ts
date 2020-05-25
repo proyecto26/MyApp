@@ -5,7 +5,7 @@ import animations from './animations'
 const R = {
   strings,
   images,
-  animations
+  animations,
 }
 
 export default R

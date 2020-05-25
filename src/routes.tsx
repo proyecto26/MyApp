@@ -1,46 +1,53 @@
 import React from 'react'
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
+import { createDrawerNavigator } from 'react-navigation-drawer'
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element'
 import createAnimatedSwitchNavigator from 'react-navigation-animated-switch'
 
 import {
   HomeScreen,
+  MenuScreen,
   UserListScreen,
-  DetailsScreen
+  DetailsScreen,
+  OfflineListScreen,
 } from './screens'
-import {
-  ScreenTransition
-} from './components'
+import { ScreenTransition } from './components'
 
-const FluidNavigator = createSharedElementStackNavigator(
+import { SCREENS } from './constants'
+
+const SharedElementsNavigator = createSharedElementStackNavigator(
   {
-    userList: { screen: UserListScreen },
-    details: { screen: DetailsScreen, navigationOptions: { headerShown: false } },
+    [SCREENS.USER_LIST]: UserListScreen,
+    [SCREENS.OFFLINE_LIST]: OfflineListScreen,
+    [SCREENS.DETAILS]: DetailsScreen,
   },
   {
-    mode: 'modal'
+    mode: 'modal',
+  },
+) as any
+
+const MenuNavigator = createDrawerNavigator(
+  {
+    SharedElementsNavigator,
   },
   {
-    debug: true
-  }
-)
-
-const MainNavigator = createStackNavigator(
-  {
-    home: HomeScreen,
-  }
+    contentComponent: (props) => <MenuScreen {...props} />,
+    contentOptions: {
+      activeTintColor: '#e91e63',
+    },
+  },
 )
 
 const AppNavigator = createAnimatedSwitchNavigator(
   {
-    Main: MainNavigator,
-    FluidNavigator,
+    home: createStackNavigator({ HomeScreen }),
+    MenuNavigator,
   },
   {
-    initialRouteName: 'Main',
-    transition: <ScreenTransition />
-  }
+    initialRouteName: 'home',
+    transition: <ScreenTransition />,
+  },
 )
 
 export default createAppContainer(AppNavigator)

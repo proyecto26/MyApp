@@ -1,11 +1,9 @@
-import {
-  Linking
-} from 'react-native'
+import { Linking } from 'react-native'
 import InAppBrowser from 'react-native-inappbrowser-reborn'
 
 export default {
   openUrl: async (url: string) => {
-    if (await InAppBrowser.isAvailable()){
+    if (await InAppBrowser.isAvailable()) {
       InAppBrowser.open(url, {
         // iOS Properties
         dismissButtonStyle: 'cancel',
@@ -27,11 +25,11 @@ export default {
           startEnter: 'slide_in_right',
           startExit: 'slide_out_left',
           endEnter: 'slide_in_left',
-          endExit: 'slide_out_right'
-        }
+          endExit: 'slide_out_right',
+        },
       })
     } else {
       Linking.openURL(url)
     }
-  }
+  },
 }

@@ -4,42 +4,29 @@ exports[`<UserList /> renders correctly 1`] = `
 <Fragment>
   <StatusBar
     animated={false}
-    backgroundColor="black"
-    barStyle="light-content"
+    barStyle="dark-content"
     showHideTransition="fade"
   />
   <withOrientation
     forceInset={
       Object {
-        "top": "always",
+        "bottom": "always",
       }
     }
     style={
-      Array [
-        Object {
-          "bottom": 0,
-          "left": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-        },
-        Object {
-          "backgroundColor": "#231E32",
-        },
-      ]
+      Object {
+        "backgroundColor": "#231E32",
+        "bottom": 0,
+        "left": 0,
+        "paddingBottom": 60,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
     }
   >
     <CustomListContainer
-      items={
-        Array [
-          Object {
-            "address": "street 26",
-            "email": "jdnichollsc@hotmail.com",
-            "first": "Juan",
-            "last": "Nicholls",
-          },
-        ]
-      }
+      items={Array []}
       renderItem={[Function]}
       style={
         Object {
@@ -47,28 +34,2642 @@ exports[`<UserList /> renders correctly 1`] = `
         }
       }
     />
-    <View
-      style={
+  </withOrientation>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "#453AA4",
+        "bottom": 0,
+        "display": "flex",
+        "height": 60,
+        "justifyContent": "center",
+        "overflow": "hidden",
+        "position": "absolute",
+        "textAlign": "center",
+        "width": "100%",
+      }
+    }
+  >
+    <LottieView
+      autoPlay={true}
+      autoSize={true}
+      enableMergePathsAndroidForKitKatAndAbove={false}
+      loop={false}
+      progress={0}
+      resizeMode="contain"
+      source={
         Object {
-          "alignItems": "center",
-          "alignSelf": "center",
-          "backgroundColor": "#453AA4",
-          "bottom": 0,
-          "display": "flex",
-          "height": 70,
-          "justifyContent": "center",
-          "position": "absolute",
-          "textAlign": "center",
-          "width": "100%",
+          "assets": Array [],
+          "chars": Array [
+            Object {
+              "ch": "O",
+              "data": Object {
+                "shapes": Array [
+                  Object {
+                    "cix": 2,
+                    "hd": false,
+                    "it": Array [
+                      Object {
+                        "hd": false,
+                        "ind": 0,
+                        "ix": 1,
+                        "ks": Object {
+                          "a": 0,
+                          "ix": 2,
+                          "k": Object {
+                            "c": true,
+                            "i": Array [
+                              Array [
+                                2.5,
+                                5.5,
+                              ],
+                              Array [
+                                4.866,
+                                3.034,
+                              ],
+                              Array [
+                                7.133,
+                                0,
+                              ],
+                              Array [
+                                4.9,
+                                -3.066,
+                              ],
+                              Array [
+                                2.4,
+                                -5.5,
+                              ],
+                              Array [
+                                0,
+                                -7.266,
+                              ],
+                              Array [
+                                -2.4,
+                                -5.533,
+                              ],
+                              Array [
+                                -4.9,
+                                -3.066,
+                              ],
+                              Array [
+                                -7.4,
+                                0,
+                              ],
+                              Array [
+                                -4.9,
+                                3.067,
+                              ],
+                              Array [
+                                -2.5,
+                                5.5,
+                              ],
+                              Array [
+                                0,
+                                7.4,
+                              ],
+                            ],
+                            "o": Array [
+                              Array [
+                                -2.5,
+                                -5.5,
+                              ],
+                              Array [
+                                -4.867,
+                                -3.033,
+                              ],
+                              Array [
+                                -7.467,
+                                0,
+                              ],
+                              Array [
+                                -4.9,
+                                3.067,
+                              ],
+                              Array [
+                                -2.4,
+                                5.5,
+                              ],
+                              Array [
+                                0,
+                                7.4,
+                              ],
+                              Array [
+                                2.4,
+                                5.534,
+                              ],
+                              Array [
+                                4.9,
+                                3.067,
+                              ],
+                              Array [
+                                7.133,
+                                0,
+                              ],
+                              Array [
+                                4.9,
+                                -3.066,
+                              ],
+                              Array [
+                                2.5,
+                                -5.5,
+                              ],
+                              Array [
+                                0,
+                                -7.4,
+                              ],
+                            ],
+                            "v": Array [
+                              Array [
+                                68.25,
+                                -55.15,
+                              ],
+                              Array [
+                                57.2,
+                                -67.95,
+                              ],
+                              Array [
+                                39.2,
+                                -72.5,
+                              ],
+                              Array [
+                                20.65,
+                                -67.9,
+                              ],
+                              Array [
+                                9.7,
+                                -55.05,
+                              ],
+                              Array [
+                                6.1,
+                                -35.9,
+                              ],
+                              Array [
+                                9.7,
+                                -16.5,
+                              ],
+                              Array [
+                                20.65,
+                                -3.6,
+                              ],
+                              Array [
+                                39.1,
+                                1,
+                              ],
+                              Array [
+                                57.15,
+                                -3.6,
+                              ],
+                              Array [
+                                68.25,
+                                -16.45,
+                              ],
+                              Array [
+                                72,
+                                -35.8,
+                              ],
+                            ],
+                          },
+                        },
+                        "mn": "ADBE Vector Shape - Group",
+                        "nm": "O",
+                        "ty": "sh",
+                      },
+                      Object {
+                        "hd": false,
+                        "ind": 1,
+                        "ix": 2,
+                        "ks": Object {
+                          "a": 0,
+                          "ix": 2,
+                          "k": Object {
+                            "c": true,
+                            "i": Array [
+                              Array [
+                                -3.8,
+                                5.1,
+                              ],
+                              Array [
+                                -8.134,
+                                0,
+                              ],
+                              Array [
+                                -3.734,
+                                -5.1,
+                              ],
+                              Array [
+                                0,
+                                -9,
+                              ],
+                              Array [
+                                3.766,
+                                -5.166,
+                              ],
+                              Array [
+                                8.066,
+                                0,
+                              ],
+                              Array [
+                                3.8,
+                                5.167,
+                              ],
+                              Array [
+                                0,
+                                9,
+                              ],
+                            ],
+                            "o": Array [
+                              Array [
+                                3.8,
+                                -5.1,
+                              ],
+                              Array [
+                                8.066,
+                                0,
+                              ],
+                              Array [
+                                3.733,
+                                5.1,
+                              ],
+                              Array [
+                                0,
+                                9,
+                              ],
+                              Array [
+                                -3.767,
+                                5.167,
+                              ],
+                              Array [
+                                -8.067,
+                                0,
+                              ],
+                              Array [
+                                -3.8,
+                                -5.166,
+                              ],
+                              Array [
+                                0,
+                                -9,
+                              ],
+                            ],
+                            "v": Array [
+                              Array [
+                                21.3,
+                                -56.95,
+                              ],
+                              Array [
+                                39.2,
+                                -64.6,
+                              ],
+                              Array [
+                                56.9,
+                                -56.95,
+                              ],
+                              Array [
+                                62.5,
+                                -35.8,
+                              ],
+                              Array [
+                                56.85,
+                                -14.55,
+                              ],
+                              Array [
+                                39.1,
+                                -6.8,
+                              ],
+                              Array [
+                                21.3,
+                                -14.55,
+                              ],
+                              Array [
+                                15.6,
+                                -35.8,
+                              ],
+                            ],
+                          },
+                        },
+                        "mn": "ADBE Vector Shape - Group",
+                        "nm": "O",
+                        "ty": "sh",
+                      },
+                    ],
+                    "ix": 1,
+                    "mn": "ADBE Vector Group",
+                    "nm": "O",
+                    "np": 5,
+                    "ty": "gr",
+                  },
+                ],
+              },
+              "fFamily": "Noto Sans",
+              "size": 40,
+              "style": "Regular",
+              "w": 78.1,
+            },
+            Object {
+              "ch": "n",
+              "data": Object {
+                "shapes": Array [
+                  Object {
+                    "cix": 2,
+                    "hd": false,
+                    "it": Array [
+                      Object {
+                        "hd": false,
+                        "ind": 0,
+                        "ix": 1,
+                        "ks": Object {
+                          "a": 0,
+                          "ix": 2,
+                          "k": Object {
+                            "c": true,
+                            "i": Array [
+                              Array [
+                                3.066,
+                                -1.366,
+                              ],
+                              Array [
+                                1.733,
+                                -2.8,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                -2.267,
+                                3.334,
+                              ],
+                              Array [
+                                -5.934,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                -8.6,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                3.266,
+                                3.134,
+                              ],
+                              Array [
+                                6.4,
+                                0,
+                              ],
+                            ],
+                            "o": Array [
+                              Array [
+                                -3.067,
+                                1.367,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                -6.266,
+                              ],
+                              Array [
+                                2.266,
+                                -3.333,
+                              ],
+                              Array [
+                                8,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                -6.866,
+                              ],
+                              Array [
+                                -3.267,
+                                -3.133,
+                              ],
+                              Array [
+                                -3.4,
+                                0,
+                              ],
+                            ],
+                            "v": Array [
+                              Array [
+                                24.6,
+                                -52.55,
+                              ],
+                              Array [
+                                17.4,
+                                -46.3,
+                              ],
+                              Array [
+                                16.9,
+                                -46.3,
+                              ],
+                              Array [
+                                15.6,
+                                -53.6,
+                              ],
+                              Array [
+                                8.5,
+                                -53.6,
+                              ],
+                              Array [
+                                8.5,
+                                0,
+                              ],
+                              Array [
+                                17.3,
+                                0,
+                              ],
+                              Array [
+                                17.3,
+                                -27.8,
+                              ],
+                              Array [
+                                20.7,
+                                -42.2,
+                              ],
+                              Array [
+                                33,
+                                -47.2,
+                              ],
+                              Array [
+                                45,
+                                -34.3,
+                              ],
+                              Array [
+                                45,
+                                0,
+                              ],
+                              Array [
+                                53.7,
+                                0,
+                              ],
+                              Array [
+                                53.7,
+                                -34.9,
+                              ],
+                              Array [
+                                48.8,
+                                -49.9,
+                              ],
+                              Array [
+                                34.3,
+                                -54.6,
+                              ],
+                            ],
+                          },
+                        },
+                        "mn": "ADBE Vector Shape - Group",
+                        "nm": "n",
+                        "ty": "sh",
+                      },
+                    ],
+                    "ix": 1,
+                    "mn": "ADBE Vector Group",
+                    "nm": "n",
+                    "np": 3,
+                    "ty": "gr",
+                  },
+                ],
+              },
+              "fFamily": "Noto Sans",
+              "size": 40,
+              "style": "Regular",
+              "w": 61.8,
+            },
+            Object {
+              "ch": "l",
+              "data": Object {
+                "shapes": Array [
+                  Object {
+                    "cix": 2,
+                    "hd": false,
+                    "it": Array [
+                      Object {
+                        "hd": false,
+                        "ind": 0,
+                        "ix": 1,
+                        "ks": Object {
+                          "a": 0,
+                          "ix": 2,
+                          "k": Object {
+                            "c": true,
+                            "i": Array [
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                            ],
+                            "o": Array [
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                            ],
+                            "v": Array [
+                              Array [
+                                17.3,
+                                -76,
+                              ],
+                              Array [
+                                8.5,
+                                -76,
+                              ],
+                              Array [
+                                8.5,
+                                0,
+                              ],
+                              Array [
+                                17.3,
+                                0,
+                              ],
+                            ],
+                          },
+                        },
+                        "mn": "ADBE Vector Shape - Group",
+                        "nm": "l",
+                        "ty": "sh",
+                      },
+                    ],
+                    "ix": 1,
+                    "mn": "ADBE Vector Group",
+                    "nm": "l",
+                    "np": 3,
+                    "ty": "gr",
+                  },
+                ],
+              },
+              "fFamily": "Noto Sans",
+              "size": 40,
+              "style": "Regular",
+              "w": 25.8,
+            },
+            Object {
+              "ch": "i",
+              "data": Object {
+                "shapes": Array [
+                  Object {
+                    "cix": 2,
+                    "hd": false,
+                    "it": Array [
+                      Object {
+                        "hd": false,
+                        "ind": 0,
+                        "ix": 1,
+                        "ks": Object {
+                          "a": 0,
+                          "ix": 2,
+                          "k": Object {
+                            "c": true,
+                            "i": Array [
+                              Array [
+                                1,
+                                -0.9,
+                              ],
+                              Array [
+                                0,
+                                -1.933,
+                              ],
+                              Array [
+                                -1,
+                                -0.9,
+                              ],
+                              Array [
+                                -1.467,
+                                0,
+                              ],
+                              Array [
+                                -1.034,
+                                0.9,
+                              ],
+                              Array [
+                                0,
+                                1.934,
+                              ],
+                              Array [
+                                1.033,
+                                0.9,
+                              ],
+                              Array [
+                                1.333,
+                                0,
+                              ],
+                            ],
+                            "o": Array [
+                              Array [
+                                -1,
+                                0.9,
+                              ],
+                              Array [
+                                0,
+                                1.934,
+                              ],
+                              Array [
+                                1,
+                                0.9,
+                              ],
+                              Array [
+                                1.333,
+                                0,
+                              ],
+                              Array [
+                                1.033,
+                                -0.9,
+                              ],
+                              Array [
+                                0,
+                                -1.933,
+                              ],
+                              Array [
+                                -1.034,
+                                -0.9,
+                              ],
+                              Array [
+                                -1.467,
+                                0,
+                              ],
+                            ],
+                            "v": Array [
+                              Array [
+                                9.3,
+                                -72.35,
+                              ],
+                              Array [
+                                7.8,
+                                -68.1,
+                              ],
+                              Array [
+                                9.3,
+                                -63.85,
+                              ],
+                              Array [
+                                13,
+                                -62.5,
+                              ],
+                              Array [
+                                16.55,
+                                -63.85,
+                              ],
+                              Array [
+                                18.1,
+                                -68.1,
+                              ],
+                              Array [
+                                16.55,
+                                -72.35,
+                              ],
+                              Array [
+                                13,
+                                -73.7,
+                              ],
+                            ],
+                          },
+                        },
+                        "mn": "ADBE Vector Shape - Group",
+                        "nm": "i",
+                        "ty": "sh",
+                      },
+                      Object {
+                        "hd": false,
+                        "ind": 1,
+                        "ix": 2,
+                        "ks": Object {
+                          "a": 0,
+                          "ix": 2,
+                          "k": Object {
+                            "c": true,
+                            "i": Array [
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                            ],
+                            "o": Array [
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                            ],
+                            "v": Array [
+                              Array [
+                                8.5,
+                                -53.6,
+                              ],
+                              Array [
+                                8.5,
+                                0,
+                              ],
+                              Array [
+                                17.3,
+                                0,
+                              ],
+                              Array [
+                                17.3,
+                                -53.6,
+                              ],
+                            ],
+                          },
+                        },
+                        "mn": "ADBE Vector Shape - Group",
+                        "nm": "i",
+                        "ty": "sh",
+                      },
+                    ],
+                    "ix": 1,
+                    "mn": "ADBE Vector Group",
+                    "nm": "i",
+                    "np": 5,
+                    "ty": "gr",
+                  },
+                ],
+              },
+              "fFamily": "Noto Sans",
+              "size": 40,
+              "style": "Regular",
+              "w": 25.8,
+            },
+            Object {
+              "ch": "e",
+              "data": Object {
+                "shapes": Array [
+                  Object {
+                    "cix": 2,
+                    "hd": false,
+                    "it": Array [
+                      Object {
+                        "hd": false,
+                        "ind": 0,
+                        "ix": 1,
+                        "ks": Object {
+                          "a": 0,
+                          "ix": 2,
+                          "k": Object {
+                            "c": true,
+                            "i": Array [
+                              Array [
+                                3.566,
+                                -2.266,
+                              ],
+                              Array [
+                                1.966,
+                                -4.2,
+                              ],
+                              Array [
+                                0,
+                                -5.866,
+                              ],
+                              Array [
+                                -2.167,
+                                -4.066,
+                              ],
+                              Array [
+                                -3.867,
+                                -2.066,
+                              ],
+                              Array [
+                                -5.134,
+                                0,
+                              ],
+                              Array [
+                                -2.667,
+                                0.566,
+                              ],
+                              Array [
+                                -2.734,
+                                1.2,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                2.633,
+                                -0.633,
+                              ],
+                              Array [
+                                3.4,
+                                0,
+                              ],
+                              Array [
+                                2.966,
+                                3.167,
+                              ],
+                              Array [
+                                0.133,
+                                6.067,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                1.766,
+                                3.634,
+                              ],
+                              Array [
+                                3.333,
+                                2,
+                              ],
+                              Array [
+                                4.533,
+                                0,
+                              ],
+                            ],
+                            "o": Array [
+                              Array [
+                                -3.567,
+                                2.267,
+                              ],
+                              Array [
+                                -1.967,
+                                4.2,
+                              ],
+                              Array [
+                                0,
+                                6,
+                              ],
+                              Array [
+                                2.166,
+                                4.067,
+                              ],
+                              Array [
+                                3.866,
+                                2.067,
+                              ],
+                              Array [
+                                3.666,
+                                0,
+                              ],
+                              Array [
+                                2.666,
+                                -0.566,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                -2.8,
+                                1.2,
+                              ],
+                              Array [
+                                -2.634,
+                                0.634,
+                              ],
+                              Array [
+                                -5.334,
+                                0,
+                              ],
+                              Array [
+                                -2.967,
+                                -3.166,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                -4.866,
+                              ],
+                              Array [
+                                -1.767,
+                                -3.633,
+                              ],
+                              Array [
+                                -3.334,
+                                -2,
+                              ],
+                              Array [
+                                -4.734,
+                                0,
+                              ],
+                            ],
+                            "v": Array [
+                              Array [
+                                16.75,
+                                -51.2,
+                              ],
+                              Array [
+                                8.45,
+                                -41.5,
+                              ],
+                              Array [
+                                5.5,
+                                -26.4,
+                              ],
+                              Array [
+                                8.75,
+                                -11.3,
+                              ],
+                              Array [
+                                17.8,
+                                -2.1,
+                              ],
+                              Array [
+                                31.3,
+                                1,
+                              ],
+                              Array [
+                                40.8,
+                                0.15,
+                              ],
+                              Array [
+                                48.9,
+                                -2.5,
+                              ],
+                              Array [
+                                48.9,
+                                -10.2,
+                              ],
+                              Array [
+                                40.75,
+                                -7.45,
+                              ],
+                              Array [
+                                31.7,
+                                -6.5,
+                              ],
+                              Array [
+                                19.25,
+                                -11.25,
+                              ],
+                              Array [
+                                14.6,
+                                -25.1,
+                              ],
+                              Array [
+                                51.3,
+                                -25.1,
+                              ],
+                              Array [
+                                51.3,
+                                -30.4,
+                              ],
+                              Array [
+                                48.65,
+                                -43.15,
+                              ],
+                              Array [
+                                41,
+                                -51.6,
+                              ],
+                              Array [
+                                29.2,
+                                -54.6,
+                              ],
+                            ],
+                          },
+                        },
+                        "mn": "ADBE Vector Shape - Group",
+                        "nm": "e",
+                        "ty": "sh",
+                      },
+                      Object {
+                        "hd": false,
+                        "ind": 1,
+                        "ix": 2,
+                        "ks": Object {
+                          "a": 0,
+                          "ix": 2,
+                          "k": Object {
+                            "c": true,
+                            "i": Array [
+                              Array [
+                                -2.067,
+                                -2.833,
+                              ],
+                              Array [
+                                -0.067,
+                                -4.533,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                -2.434,
+                                2.7,
+                              ],
+                              Array [
+                                -4.2,
+                                0,
+                              ],
+                            ],
+                            "o": Array [
+                              Array [
+                                2.066,
+                                2.834,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0.466,
+                                -4.8,
+                              ],
+                              Array [
+                                2.433,
+                                -2.7,
+                              ],
+                              Array [
+                                4.466,
+                                0,
+                              ],
+                            ],
+                            "v": Array [
+                              Array [
+                                38.9,
+                                -43.15,
+                              ],
+                              Array [
+                                42.1,
+                                -32.1,
+                              ],
+                              Array [
+                                14.8,
+                                -32.1,
+                              ],
+                              Array [
+                                19.15,
+                                -43.35,
+                              ],
+                              Array [
+                                29.1,
+                                -47.4,
+                              ],
+                            ],
+                          },
+                        },
+                        "mn": "ADBE Vector Shape - Group",
+                        "nm": "e",
+                        "ty": "sh",
+                      },
+                    ],
+                    "ix": 1,
+                    "mn": "ADBE Vector Group",
+                    "nm": "e",
+                    "np": 5,
+                    "ty": "gr",
+                  },
+                ],
+              },
+              "fFamily": "Noto Sans",
+              "size": 40,
+              "style": "Regular",
+              "w": 56.4,
+            },
+            Object {
+              "ch": "f",
+              "data": Object {
+                "shapes": Array [
+                  Object {
+                    "cix": 2,
+                    "hd": false,
+                    "it": Array [
+                      Object {
+                        "hd": false,
+                        "ind": 0,
+                        "ix": 1,
+                        "ks": Object {
+                          "a": 0,
+                          "ix": 2,
+                          "k": Object {
+                            "c": true,
+                            "i": Array [
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                -1.434,
+                                1.967,
+                              ],
+                              Array [
+                                -2.934,
+                                0,
+                              ],
+                              Array [
+                                -1.4,
+                                -0.333,
+                              ],
+                              Array [
+                                -1.067,
+                                -0.333,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                1.8,
+                                0.367,
+                              ],
+                              Array [
+                                2.066,
+                                0,
+                              ],
+                              Array [
+                                3.033,
+                                -3.033,
+                              ],
+                              Array [
+                                0,
+                                -6.933,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                            ],
+                            "o": Array [
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                -4.2,
+                              ],
+                              Array [
+                                1.433,
+                                -1.966,
+                              ],
+                              Array [
+                                1.466,
+                                0,
+                              ],
+                              Array [
+                                1.4,
+                                0.334,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                -1.267,
+                                -0.466,
+                              ],
+                              Array [
+                                -1.8,
+                                -0.366,
+                              ],
+                              Array [
+                                -5.534,
+                                0,
+                              ],
+                              Array [
+                                -3.034,
+                                3.034,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                              Array [
+                                0,
+                                0,
+                              ],
+                            ],
+                            "v": Array [
+                              Array [
+                                33.2,
+                                -53.6,
+                              ],
+                              Array [
+                                19.7,
+                                -53.6,
+                              ],
+                              Array [
+                                19.7,
+                                -57.1,
+                              ],
+                              Array [
+                                21.85,
+                                -66.35,
+                              ],
+                              Array [
+                                28.4,
+                                -69.3,
+                              ],
+                              Array [
+                                32.7,
+                                -68.8,
+                              ],
+                              Array [
+                                36.4,
+                                -67.8,
+                              ],
+                              Array [
+                                38.7,
+                                -74.7,
+                              ],
+                              Array [
+                                34.1,
+                                -75.95,
+                              ],
+                              Array [
+                                28.3,
+                                -76.5,
+                              ],
+                              Array [
+                                15.45,
+                                -71.95,
+                              ],
+                              Array [
+                                10.9,
+                                -57,
+                              ],
+                              Array [
+                                10.9,
+                                -53.9,
+                              ],
+                              Array [
+                                1.5,
+                                -50.9,
+                              ],
+                              Array [
+                                1.5,
+                                -46.8,
+                              ],
+                              Array [
+                                10.9,
+                                -46.8,
+                              ],
+                              Array [
+                                10.9,
+                                0,
+                              ],
+                              Array [
+                                19.7,
+                                0,
+                              ],
+                              Array [
+                                19.7,
+                                -46.8,
+                              ],
+                              Array [
+                                33.2,
+                                -46.8,
+                              ],
+                            ],
+                          },
+                        },
+                        "mn": "ADBE Vector Shape - Group",
+                        "nm": "f",
+                        "ty": "sh",
+                      },
+                    ],
+                    "ix": 1,
+                    "mn": "ADBE Vector Group",
+                    "nm": "f",
+                    "np": 3,
+                    "ty": "gr",
+                  },
+                ],
+              },
+              "fFamily": "Noto Sans",
+              "size": 40,
+              "style": "Regular",
+              "w": 34.4,
+            },
+          ],
+          "ddd": 0,
+          "fonts": Object {
+            "list": Array [
+              Object {
+                "ascent": 51.6995606012642,
+                "fFamily": "FMMalithi",
+                "fName": "FMMalithix",
+                "fStyle": "x",
+              },
+              Object {
+                "ascent": 75.9994506835938,
+                "fFamily": "Noto Sans",
+                "fName": "NotoSans-Regular",
+                "fStyle": "Regular",
+              },
+            ],
+          },
+          "fr": 29.9700012207031,
+          "h": 200,
+          "ip": 0,
+          "layers": Array [
+            Object {
+              "ao": 0,
+              "bm": 0,
+              "ddd": 0,
+              "ind": 1,
+              "ip": -11.0000004480392,
+              "ks": Object {
+                "a": Object {
+                  "a": 0,
+                  "ix": 1,
+                  "k": Array [
+                    0,
+                    0,
+                    0,
+                  ],
+                },
+                "o": Object {
+                  "a": 1,
+                  "ix": 11,
+                  "k": Array [
+                    Object {
+                      "e": Array [
+                        100,
+                      ],
+                      "i": Object {
+                        "x": Array [
+                          0.833,
+                        ],
+                        "y": Array [
+                          0.833,
+                        ],
+                      },
+                      "n": Array [
+                        "0p833_0p833_0p167_0p167",
+                      ],
+                      "o": Object {
+                        "x": Array [
+                          0.167,
+                        ],
+                        "y": Array [
+                          0.167,
+                        ],
+                      },
+                      "s": Array [
+                        0,
+                      ],
+                      "t": 26,
+                    },
+                    Object {
+                      "t": 30.0000012219251,
+                    },
+                  ],
+                },
+                "p": Object {
+                  "s": true,
+                  "x": Object {
+                    "a": 0,
+                    "ix": 3,
+                    "k": 99.905,
+                  },
+                  "y": Object {
+                    "a": 1,
+                    "ix": 4,
+                    "k": Array [
+                      Object {
+                        "e": Array [
+                          107.154,
+                        ],
+                        "i": Object {
+                          "x": Array [
+                            0.833,
+                          ],
+                          "y": Array [
+                            0.833,
+                          ],
+                        },
+                        "n": Array [
+                          "0p833_0p833_0p167_0p167",
+                        ],
+                        "o": Object {
+                          "x": Array [
+                            0.167,
+                          ],
+                          "y": Array [
+                            0.167,
+                          ],
+                        },
+                        "s": Array [
+                          134.103,
+                        ],
+                        "t": 20,
+                      },
+                      Object {
+                        "e": Array [
+                          107.154,
+                        ],
+                        "i": Object {
+                          "x": Array [
+                            0.833,
+                          ],
+                          "y": Array [
+                            0.833,
+                          ],
+                        },
+                        "n": Array [
+                          "0p833_0p833_0p167_0p167",
+                        ],
+                        "o": Object {
+                          "x": Array [
+                            0.167,
+                          ],
+                          "y": Array [
+                            0.167,
+                          ],
+                        },
+                        "s": Array [
+                          107.154,
+                        ],
+                        "t": 30,
+                      },
+                      Object {
+                        "t": 37.0000015070409,
+                      },
+                    ],
+                  },
+                },
+                "r": Object {
+                  "a": 0,
+                  "ix": 10,
+                  "k": 0,
+                },
+                "s": Object {
+                  "a": 0,
+                  "ix": 6,
+                  "k": Array [
+                    47.352,
+                    47.352,
+                    100,
+                  ],
+                },
+              },
+              "nm": "Offline",
+              "op": 918.000037390907,
+              "sr": 1,
+              "st": 18.000000733155,
+              "t": Object {
+                "a": Array [],
+                "d": Object {
+                  "k": Array [
+                    Object {
+                      "s": Object {
+                        "f": "NotoSans-Regular",
+                        "fc": Array [
+                          1,
+                          1,
+                          1,
+                        ],
+                        "j": 2,
+                        "lh": 48,
+                        "ls": 0,
+                        "s": 40,
+                        "t": "Offline",
+                        "tr": 0,
+                      },
+                      "t": 0,
+                    },
+                  ],
+                },
+                "m": Object {
+                  "a": Object {
+                    "a": 0,
+                    "ix": 2,
+                    "k": Array [
+                      0,
+                      0,
+                    ],
+                  },
+                  "g": 1,
+                },
+                "p": Object {},
+              },
+              "ty": 5,
+            },
+            Object {
+              "ao": 0,
+              "bm": 0,
+              "ddd": 0,
+              "ind": 2,
+              "ip": -11.0000004480392,
+              "ks": Object {
+                "a": Object {
+                  "a": 0,
+                  "ix": 1,
+                  "k": Array [
+                    0,
+                    0,
+                    0,
+                  ],
+                },
+                "o": Object {
+                  "a": 1,
+                  "ix": 11,
+                  "k": Array [
+                    Object {
+                      "e": Array [
+                        0,
+                      ],
+                      "i": Object {
+                        "x": Array [
+                          0.833,
+                        ],
+                        "y": Array [
+                          0.833,
+                        ],
+                      },
+                      "n": Array [
+                        "0p833_0p833_0p167_0p167",
+                      ],
+                      "o": Object {
+                        "x": Array [
+                          0.167,
+                        ],
+                        "y": Array [
+                          0.167,
+                        ],
+                      },
+                      "s": Array [
+                        100,
+                      ],
+                      "t": 18,
+                    },
+                    Object {
+                      "t": 26.0000010590017,
+                    },
+                  ],
+                },
+                "p": Object {
+                  "s": true,
+                  "x": Object {
+                    "a": 1,
+                    "ix": 3,
+                    "k": Array [
+                      Object {
+                        "e": Array [
+                          100.227,
+                        ],
+                        "i": Object {
+                          "x": Array [
+                            0.833,
+                          ],
+                          "y": Array [
+                            0.833,
+                          ],
+                        },
+                        "n": Array [
+                          "0p833_0p833_0p167_0p167",
+                        ],
+                        "o": Object {
+                          "x": Array [
+                            0.167,
+                          ],
+                          "y": Array [
+                            0.167,
+                          ],
+                        },
+                        "s": Array [
+                          100.227,
+                        ],
+                        "t": 18,
+                      },
+                      Object {
+                        "e": Array [
+                          99.905,
+                        ],
+                        "i": Object {
+                          "x": Array [
+                            0.833,
+                          ],
+                          "y": Array [
+                            0.833,
+                          ],
+                        },
+                        "n": Array [
+                          "0p833_0p833_0p167_0p167",
+                        ],
+                        "o": Object {
+                          "x": Array [
+                            0.167,
+                          ],
+                          "y": Array [
+                            0.167,
+                          ],
+                        },
+                        "s": Array [
+                          100.227,
+                        ],
+                        "t": 26,
+                      },
+                      Object {
+                        "t": 37.0000015070409,
+                      },
+                    ],
+                  },
+                  "y": Object {
+                    "a": 1,
+                    "ix": 4,
+                    "k": Array [
+                      Object {
+                        "e": Array [
+                          80.103,
+                        ],
+                        "i": Object {
+                          "x": Array [
+                            0.833,
+                          ],
+                          "y": Array [
+                            0.833,
+                          ],
+                        },
+                        "n": Array [
+                          "0p833_0p833_0p167_0p167",
+                        ],
+                        "o": Object {
+                          "x": Array [
+                            0.167,
+                          ],
+                          "y": Array [
+                            0.167,
+                          ],
+                        },
+                        "s": Array [
+                          107.103,
+                        ],
+                        "t": 18,
+                      },
+                      Object {
+                        "e": Array [
+                          80.103,
+                        ],
+                        "i": Object {
+                          "x": Array [
+                            0.833,
+                          ],
+                          "y": Array [
+                            0.833,
+                          ],
+                        },
+                        "n": Array [
+                          "0p833_0p833_0p167_0p167",
+                        ],
+                        "o": Object {
+                          "x": Array [
+                            0.167,
+                          ],
+                          "y": Array [
+                            0.167,
+                          ],
+                        },
+                        "s": Array [
+                          80.103,
+                        ],
+                        "t": 26,
+                      },
+                      Object {
+                        "t": 37.0000015070409,
+                      },
+                    ],
+                  },
+                },
+                "r": Object {
+                  "a": 0,
+                  "ix": 10,
+                  "k": 0,
+                },
+                "s": Object {
+                  "a": 0,
+                  "ix": 6,
+                  "k": Array [
+                    47.352,
+                    47.352,
+                    100,
+                  ],
+                },
+              },
+              "nm": "Online",
+              "op": 918.000037390907,
+              "sr": 1,
+              "st": 18.000000733155,
+              "t": Object {
+                "a": Array [],
+                "d": Object {
+                  "k": Array [
+                    Object {
+                      "s": Object {
+                        "f": "NotoSans-Regular",
+                        "fc": Array [
+                          1,
+                          1,
+                          1,
+                        ],
+                        "j": 2,
+                        "lh": 48,
+                        "ls": 0,
+                        "s": 40,
+                        "t": "Online",
+                        "tr": 0,
+                      },
+                      "t": 0,
+                    },
+                  ],
+                },
+                "m": Object {
+                  "a": Object {
+                    "a": 0,
+                    "ix": 2,
+                    "k": Array [
+                      0,
+                      0,
+                    ],
+                  },
+                  "g": 1,
+                },
+                "p": Object {},
+              },
+              "ty": 5,
+            },
+            Object {
+              "ao": 0,
+              "bm": 0,
+              "ddd": 0,
+              "ind": 3,
+              "ip": -11.0000004480392,
+              "ks": Object {
+                "a": Object {
+                  "a": 0,
+                  "ix": 1,
+                  "k": Array [
+                    0,
+                    0,
+                    0,
+                  ],
+                },
+                "o": Object {
+                  "a": 0,
+                  "ix": 11,
+                  "k": 100,
+                },
+                "p": Object {
+                  "a": 0,
+                  "ix": 2,
+                  "k": Array [
+                    100,
+                    100,
+                    0,
+                  ],
+                },
+                "r": Object {
+                  "a": 0,
+                  "ix": 10,
+                  "k": 0,
+                },
+                "s": Object {
+                  "a": 0,
+                  "ix": 6,
+                  "k": Array [
+                    100,
+                    100,
+                    100,
+                  ],
+                },
+              },
+              "nm": "<empty text layer>",
+              "op": 918.000037390907,
+              "sr": 1,
+              "st": 18.000000733155,
+              "t": Object {
+                "a": Array [],
+                "d": Object {
+                  "k": Array [
+                    Object {
+                      "s": Object {
+                        "f": "FMMalithix",
+                        "fc": Array [
+                          0.168,
+                          0.168,
+                          0.168,
+                        ],
+                        "j": 2,
+                        "lh": 60,
+                        "ls": 0,
+                        "s": 50,
+                        "t": "",
+                        "tr": 0,
+                      },
+                      "t": 0,
+                    },
+                  ],
+                },
+                "m": Object {
+                  "a": Object {
+                    "a": 0,
+                    "ix": 2,
+                    "k": Array [
+                      0,
+                      0,
+                    ],
+                  },
+                  "g": 1,
+                },
+                "p": Object {},
+              },
+              "ty": 5,
+            },
+            Object {
+              "ao": 0,
+              "bm": 0,
+              "ddd": 0,
+              "ef": Array [
+                Object {
+                  "ef": Array [
+                    Object {
+                      "ix": 1,
+                      "mn": "ADBE Drop Shadow-0001",
+                      "nm": "Shadow Color",
+                      "ty": 2,
+                      "v": Object {
+                        "a": 0,
+                        "ix": 1,
+                        "k": Array [
+                          0,
+                          0,
+                          0,
+                          1,
+                        ],
+                      },
+                    },
+                    Object {
+                      "ix": 2,
+                      "mn": "ADBE Drop Shadow-0002",
+                      "nm": "Opacity",
+                      "ty": 0,
+                      "v": Object {
+                        "a": 0,
+                        "ix": 2,
+                        "k": 99.5,
+                      },
+                    },
+                    Object {
+                      "ix": 3,
+                      "mn": "ADBE Drop Shadow-0003",
+                      "nm": "Direction",
+                      "ty": 0,
+                      "v": Object {
+                        "a": 0,
+                        "ix": 3,
+                        "k": 135,
+                      },
+                    },
+                    Object {
+                      "ix": 4,
+                      "mn": "ADBE Drop Shadow-0004",
+                      "nm": "Distance",
+                      "ty": 0,
+                      "v": Object {
+                        "a": 0,
+                        "ix": 4,
+                        "k": 1.798,
+                      },
+                    },
+                    Object {
+                      "ix": 5,
+                      "mn": "ADBE Drop Shadow-0005",
+                      "nm": "Softness",
+                      "ty": 0,
+                      "v": Object {
+                        "a": 0,
+                        "ix": 5,
+                        "k": 21.536,
+                      },
+                    },
+                    Object {
+                      "ix": 6,
+                      "mn": "ADBE Drop Shadow-0006",
+                      "nm": "Shadow Only",
+                      "ty": 7,
+                      "v": Object {
+                        "a": 0,
+                        "ix": 6,
+                        "k": 0,
+                      },
+                    },
+                  ],
+                  "en": 1,
+                  "ix": 1,
+                  "mn": "ADBE Drop Shadow",
+                  "nm": "Drop Shadow",
+                  "np": 8,
+                  "ty": 25,
+                },
+              ],
+              "ind": 4,
+              "ip": -11.0000004480392,
+              "ks": Object {
+                "a": Object {
+                  "a": 0,
+                  "ix": 1,
+                  "k": Array [
+                    0,
+                    0,
+                    0,
+                  ],
+                },
+                "o": Object {
+                  "a": 0,
+                  "ix": 11,
+                  "k": 100,
+                },
+                "p": Object {
+                  "s": true,
+                  "x": Object {
+                    "a": 1,
+                    "ix": 3,
+                    "k": Array [
+                      Object {
+                        "e": Array [
+                          216.5,
+                        ],
+                        "i": Object {
+                          "x": Array [
+                            0,
+                          ],
+                          "y": Array [
+                            0.999,
+                          ],
+                        },
+                        "n": Array [
+                          "0_0p999_0p167_0p167",
+                        ],
+                        "o": Object {
+                          "x": Array [
+                            0.167,
+                          ],
+                          "y": Array [
+                            0.167,
+                          ],
+                        },
+                        "s": Array [
+                          98.5,
+                        ],
+                        "t": 18,
+                      },
+                      Object {
+                        "t": 30.0000012219251,
+                      },
+                    ],
+                  },
+                  "y": Object {
+                    "a": 0,
+                    "ix": 4,
+                    "k": 100.183,
+                  },
+                },
+                "r": Object {
+                  "a": 0,
+                  "ix": 10,
+                  "k": 0,
+                },
+                "s": Object {
+                  "a": 0,
+                  "ix": 6,
+                  "k": Array [
+                    100,
+                    100,
+                    100,
+                  ],
+                },
+              },
+              "nm": "Shape Layer 2",
+              "op": 918.000037390907,
+              "shapes": Array [
+                Object {
+                  "cix": 2,
+                  "hd": false,
+                  "it": Array [
+                    Object {
+                      "d": 1,
+                      "hd": false,
+                      "mn": "ADBE Vector Shape - Ellipse",
+                      "nm": "Ellipse Path 1",
+                      "p": Object {
+                        "a": 0,
+                        "ix": 3,
+                        "k": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "s": Object {
+                        "a": 0,
+                        "ix": 2,
+                        "k": Array [
+                          26.475,
+                          26.475,
+                        ],
+                      },
+                      "ty": "el",
+                    },
+                    Object {
+                      "c": Object {
+                        "a": 0,
+                        "ix": 3,
+                        "k": Array [
+                          0.648973651961,
+                          0.648973651961,
+                          0.648973651961,
+                          1,
+                        ],
+                      },
+                      "hd": true,
+                      "lc": 1,
+                      "lj": 1,
+                      "ml": 4,
+                      "ml2": Object {
+                        "a": 0,
+                        "ix": 8,
+                        "k": 4,
+                      },
+                      "mn": "ADBE Vector Graphic - Stroke",
+                      "nm": "Stroke 1",
+                      "o": Object {
+                        "a": 0,
+                        "ix": 4,
+                        "k": 100,
+                      },
+                      "ty": "st",
+                      "w": Object {
+                        "a": 0,
+                        "ix": 5,
+                        "k": 2,
+                      },
+                    },
+                    Object {
+                      "c": Object {
+                        "a": 0,
+                        "ix": 4,
+                        "k": Array [
+                          1,
+                          1,
+                          1,
+                          1,
+                        ],
+                      },
+                      "hd": false,
+                      "mn": "ADBE Vector Graphic - Fill",
+                      "nm": "Fill 1",
+                      "o": Object {
+                        "a": 0,
+                        "ix": 5,
+                        "k": 100,
+                      },
+                      "r": 1,
+                      "ty": "fl",
+                    },
+                    Object {
+                      "a": Object {
+                        "a": 0,
+                        "ix": 1,
+                        "k": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "nm": "Transform",
+                      "o": Object {
+                        "a": 0,
+                        "ix": 7,
+                        "k": 100,
+                      },
+                      "p": Object {
+                        "a": 0,
+                        "ix": 2,
+                        "k": Array [
+                          -57.255,
+                          -0.183,
+                        ],
+                      },
+                      "r": Object {
+                        "a": 0,
+                        "ix": 6,
+                        "k": 0,
+                      },
+                      "s": Object {
+                        "a": 0,
+                        "ix": 3,
+                        "k": Array [
+                          112.404,
+                          112.404,
+                        ],
+                      },
+                      "sa": Object {
+                        "a": 0,
+                        "ix": 5,
+                        "k": 0,
+                      },
+                      "sk": Object {
+                        "a": 0,
+                        "ix": 4,
+                        "k": 0,
+                      },
+                      "ty": "tr",
+                    },
+                  ],
+                  "ix": 1,
+                  "mn": "ADBE Vector Group",
+                  "nm": "Ellipse 1",
+                  "np": 3,
+                  "ty": "gr",
+                },
+              ],
+              "sr": 1,
+              "st": 18.000000733155,
+              "ty": 4,
+            },
+            Object {
+              "ao": 0,
+              "bm": 0,
+              "ddd": 0,
+              "ind": 5,
+              "ip": -11.0000004480392,
+              "ks": Object {
+                "a": Object {
+                  "a": 0,
+                  "ix": 1,
+                  "k": Array [
+                    0,
+                    0,
+                    0,
+                  ],
+                },
+                "o": Object {
+                  "a": 0,
+                  "ix": 11,
+                  "k": 100,
+                },
+                "p": Object {
+                  "a": 0,
+                  "ix": 2,
+                  "k": Array [
+                    100.717,
+                    98.959,
+                    0,
+                  ],
+                },
+                "r": Object {
+                  "a": 0,
+                  "ix": 10,
+                  "k": 0,
+                },
+                "s": Object {
+                  "a": 0,
+                  "ix": 6,
+                  "k": Array [
+                    100,
+                    100,
+                    100,
+                  ],
+                },
+              },
+              "nm": "Shape Layer 1",
+              "op": 918.000037390907,
+              "shapes": Array [
+                Object {
+                  "cix": 2,
+                  "hd": false,
+                  "it": Array [
+                    Object {
+                      "d": 1,
+                      "hd": false,
+                      "mn": "ADBE Vector Shape - Rect",
+                      "nm": "Rectangle Path 1",
+                      "p": Object {
+                        "a": 0,
+                        "ix": 3,
+                        "k": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "r": Object {
+                        "a": 0,
+                        "ix": 4,
+                        "k": 20,
+                      },
+                      "s": Object {
+                        "a": 0,
+                        "ix": 2,
+                        "k": Array [
+                          156.863,
+                          38.035,
+                        ],
+                      },
+                      "ty": "rc",
+                    },
+                    Object {
+                      "c": Object {
+                        "a": 0,
+                        "ix": 3,
+                        "k": Array [
+                          1,
+                          1,
+                          1,
+                          1,
+                        ],
+                      },
+                      "hd": false,
+                      "lc": 1,
+                      "lj": 1,
+                      "ml": 4,
+                      "ml2": Object {
+                        "a": 0,
+                        "ix": 8,
+                        "k": 4,
+                      },
+                      "mn": "ADBE Vector Graphic - Stroke",
+                      "nm": "Stroke 1",
+                      "o": Object {
+                        "a": 0,
+                        "ix": 4,
+                        "k": 100,
+                      },
+                      "ty": "st",
+                      "w": Object {
+                        "a": 0,
+                        "ix": 5,
+                        "k": 2,
+                      },
+                    },
+                    Object {
+                      "c": Object {
+                        "a": 1,
+                        "ix": 4,
+                        "k": Array [
+                          Object {
+                            "e": Array [
+                              0.738112747669,
+                              0,
+                              0,
+                              1,
+                            ],
+                            "i": Object {
+                              "x": Array [
+                                0.833,
+                              ],
+                              "y": Array [
+                                0.833,
+                              ],
+                            },
+                            "n": Array [
+                              "0p833_0p833_0p167_0p167",
+                            ],
+                            "o": Object {
+                              "x": Array [
+                                0.167,
+                              ],
+                              "y": Array [
+                                0.167,
+                              ],
+                            },
+                            "s": Array [
+                              0.006648469716,
+                              0.738112747669,
+                              0,
+                              1,
+                            ],
+                            "t": 18,
+                          },
+                          Object {
+                            "t": 30.0000012219251,
+                          },
+                        ],
+                      },
+                      "hd": false,
+                      "mn": "ADBE Vector Graphic - Fill",
+                      "nm": "Fill 1",
+                      "o": Object {
+                        "a": 0,
+                        "ix": 5,
+                        "k": 100,
+                      },
+                      "r": 1,
+                      "ty": "fl",
+                    },
+                    Object {
+                      "a": Object {
+                        "a": 0,
+                        "ix": 1,
+                        "k": Array [
+                          0,
+                          0,
+                        ],
+                      },
+                      "nm": "Transform",
+                      "o": Object {
+                        "a": 0,
+                        "ix": 7,
+                        "k": 100,
+                      },
+                      "p": Object {
+                        "a": 0,
+                        "ix": 2,
+                        "k": Array [
+                          -0.717,
+                          1.041,
+                        ],
+                      },
+                      "r": Object {
+                        "a": 0,
+                        "ix": 6,
+                        "k": 0,
+                      },
+                      "s": Object {
+                        "a": 0,
+                        "ix": 3,
+                        "k": Array [
+                          100,
+                          100,
+                        ],
+                      },
+                      "sa": Object {
+                        "a": 0,
+                        "ix": 5,
+                        "k": 0,
+                      },
+                      "sk": Object {
+                        "a": 0,
+                        "ix": 4,
+                        "k": 0,
+                      },
+                      "ty": "tr",
+                    },
+                  ],
+                  "ix": 1,
+                  "mn": "ADBE Vector Group",
+                  "nm": "Rectangle 1",
+                  "np": 3,
+                  "ty": "gr",
+                },
+              ],
+              "sr": 1,
+              "st": 18.000000733155,
+              "ty": 4,
+            },
+            Object {
+              "ao": 0,
+              "bm": 0,
+              "ddd": 0,
+              "ind": 6,
+              "ip": -11.0000004480392,
+              "ks": Object {
+                "a": Object {
+                  "a": 0,
+                  "ix": 1,
+                  "k": Array [
+                    100,
+                    100,
+                    0,
+                  ],
+                },
+                "o": Object {
+                  "a": 0,
+                  "ix": 11,
+                  "k": 100,
+                },
+                "p": Object {
+                  "a": 0,
+                  "ix": 2,
+                  "k": Array [
+                    100,
+                    100,
+                    0,
+                  ],
+                },
+                "r": Object {
+                  "a": 0,
+                  "ix": 10,
+                  "k": 0,
+                },
+                "s": Object {
+                  "a": 0,
+                  "ix": 6,
+                  "k": Array [
+                    100,
+                    100,
+                    100,
+                  ],
+                },
+              },
+              "nm": "White Solid background",
+              "op": 918.000037390907,
+              "sc": "#453AA4",
+              "sh": 200,
+              "sr": 1,
+              "st": 18.000000733155,
+              "sw": 200,
+              "ty": 1,
+            },
+          ],
+          "markers": Array [],
+          "nm": "Comp 1",
+          "op": 55.0000022401959,
+          "v": "5.3.4",
+          "w": 200,
         }
       }
-    >
-      <Button
-        color="white"
-        onPress={[Function]}
-        title="Nothing to do!"
-      />
-    </View>
-  </withOrientation>
+      speed={1}
+      style={
+        Object {
+          "marginTop": 0,
+          "position": "absolute",
+          "right": 10,
+          "width": 100,
+        }
+      }
+    />
+  </View>
 </Fragment>
 `;

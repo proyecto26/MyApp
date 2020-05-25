@@ -1,5 +1,5 @@
-const mockedModule = jest.mock('react-native-exception-handler');
+const mockedModule = jest.mock('react-native-exception-handler')
 
 mockedModule.setNativeExceptionHandler = jest.fn()
 
-module.exports = mockedModule;
+module.exports = mockedModule

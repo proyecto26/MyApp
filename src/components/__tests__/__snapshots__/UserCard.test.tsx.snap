@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserCard /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "height": 200,
+      "justifyContent": "center",
+      "margin": 10,
+      "position": "relative",
+      "width": "100%",
+    }
+  }
+>
+  <ForwardRef
+    onPress={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#ECECEC",
+        "borderColor": "#CCC",
+        "borderRadius": 5,
+        "borderWidth": 0.5,
+        "elevation": 3,
+        "flex": 1,
+        "flexDirection": "row",
+        "padding": 10,
+        "shadowColor": "#EEE",
+        "shadowOffset": Object {
+          "height": 5,
+          "width": 0,
+        },
+        "shadowOpacity": 0.4,
+        "shadowRadius": 5,
+      }
+    }
+    testID="UserItem"
+  >
+    <withAnimatable(View)
+      animation="pulse"
+      delay={2000}
+      direction="normal"
+      easing="ease-out"
+      iterationCount={1}
+      iterationDelay={0}
+      onAnimationBegin={[MockFunction]}
+      onAnimationEnd={[MockFunction]}
+      onTransitionBegin={[MockFunction]}
+      onTransitionEnd={[MockFunction]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+      useNativeDriver={true}
+    >
+      <SharedElement
+        id="123"
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": undefined,
+            }
+          }
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        />
+      </SharedElement>
+    </withAnimatable(View)>
+  </ForwardRef>
+  <ForwardRef
+    disabled={true}
+    onPress={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 20,
+        "bottom": 10,
+        "display": "flex",
+        "height": 40,
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": 40,
+        "zIndex": 2,
+      }
+    }
+  >
+    <Icon
+      allowFontScaling={false}
+      color="black"
+      name="cloud-done"
+      size={30}
+    />
+  </ForwardRef>
+</View>
+`;

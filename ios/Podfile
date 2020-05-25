@@ -8,11 +8,13 @@ def add_flipper_pods!(versions = {})
   versions['Flipper-Glog'] ||= '0.3.6'
   versions['Flipper-PeerTalk'] ||= '~> 0.0.4'
   versions['Flipper-RSocket'] ||= '~> 1.0'
+
   pod 'FlipperKit', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitLayoutPlugin', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/SKIOSNetworkPlugin', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitUserDefaultsPlugin', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitReactPlugin', versions['Flipper'], :configuration => 'Debug'
+
   # List all transitive dependencies for FlipperKit pods
   # to avoid them being linked in Release builds
   pod 'Flipper', versions['Flipper'], :configuration => 'Debug'
@@ -30,6 +32,7 @@ def add_flipper_pods!(versions = {})
   pod 'FlipperKit/FlipperKitLayoutTextSearchable', versions['Flipper'], :configuration => 'Debug'
   pod 'FlipperKit/FlipperKitNetworkPlugin', versions['Flipper'], :configuration => 'Debug'
 end
+
 # Post Install processing for Flipper
 def flipper_post_install(installer)
   installer.pods_project.targets.each do |target|
@@ -41,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'RandomUserMe' do
-    # Pods for RandomUserMe
+target 'MyApp' do
+  # Pods for MyApp
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -76,8 +79,8 @@ target 'RandomUserMe' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  target 'RandomUserMeTests' do
-    inherit! :search_paths
+  target 'MyAppTests' do
+    inherit! :complete
     # Pods for testing
   end
 
@@ -93,12 +96,11 @@ target 'RandomUserMe' do
   end
 end
 
-target 'RandomUserMe-tvOS' do
-  # Pods for RandomUserMe-tvOS
+target 'MyApp-tvOS' do
+  # Pods for MyApp-tvOS
 
-  target 'RandomUserMe-tvOSTests' do
+  target 'MyApp-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
-
 end

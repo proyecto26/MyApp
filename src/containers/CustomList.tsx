@@ -4,28 +4,31 @@ import {
   FlatList,
   StyleSheet,
   LayoutChangeEvent,
-  ListRenderItem
+  ListRenderItem,
 } from 'react-native'
 
 interface Props {
-  items: any[],
-  style: object | any[],
+  items: any[]
+  style: object | any[]
   renderItem: ListRenderItem<any>
 }
 
-const CustomListContainer: React.SFC<Props> = ({ items, style, renderItem }) => {
-
+const CustomListContainer: React.SFC<Props> = ({
+  items,
+  style,
+  renderItem,
+}) => {
   const itemWidth = 150
   const [numColumns, setNumColumns] = useState(2)
 
-  const onLayout = (event: LayoutChangeEvent) => { 
+  const handleLayout = (event: LayoutChangeEvent) => {
     const { width } = event.nativeEvent.layout
-    const numColumns = Math.floor(width / itemWidth)
-    setNumColumns(numColumns > 2 ? numColumns : 2)
+    const columns = Math.floor(width / itemWidth)
+    setNumColumns(columns > 2 ? columns : 2)
   }
 
   return (
-    <View style={[styles.container, style]} onLayout={onLayout}>
+    <View style={[styles.container, style]} onLayout={handleLayout}>
       <FlatList
         data={items}
         horizontal={false}
@@ -34,7 +37,7 @@ const CustomListContainer: React.SFC<Props> = ({ items, style, renderItem }) => 
         alwaysBounceVertical={true}
         directionalLockEnabled={true}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ margin: 0 }}
+        contentContainerStyle={styles.content}
         keyExtractor={({ id }, index) => (id || index).toString()}
         columnWrapperStyle={styles.row}
         renderItem={renderItem}
@@ -45,12 +48,15 @@ const CustomListContainer: React.SFC<Props> = ({ items, style, renderItem }) => 
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+  },
+  content: {
+    margin: 0,
   },
   row: {
     flex: 1,
-    justifyContent: "space-around"
-  }
+    justifyContent: 'space-around',
+  },
 })
 
 export default CustomListContainer

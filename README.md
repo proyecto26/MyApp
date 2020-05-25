@@ -1,5 +1,6 @@
-# RandomUser.Me
-A React Native client wrapper for http://randomuser.me with React Native
+<p align="center">
+  <img width="460" src="img/myapp.png">
+</p>
 
 ## Credits 👍
 * **React Native Template TypeScript:** [👾 Clean and minimalist React Native template for a quick start with TypeScript.](https://github.com/react-native-community/react-native-template-typescript)

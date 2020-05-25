@@ -1,23 +1,21 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, TouchableOpacity } from 'react-native'
 import LottieView from 'lottie-react-native'
-import { NavigationService } from '../services'
 import R from 'res'
+import { NavigationService } from '../services'
+import { SCREENS } from '../constants'
 
 class PlayButton extends Component {
-  render () {
+  render() {
     return (
       <View style={styles.container}>
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => NavigationService.navigate('userList') }>
+          onPress={() => NavigationService.navigate(SCREENS.USER_LIST)}>
           <LottieView
-            style={{
-              width: 200,
-              height: 200
-            }}
+            style={styles.button}
             autoPlay
-            resizeMode='contain'
+            resizeMode="contain"
             source={R.animations.playButton}
           />
         </TouchableOpacity>
@@ -32,7 +30,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+  button: {
+    width: 200,
+    height: 200,
+  },
 })
 
 export default PlayButton

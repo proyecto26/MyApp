@@ -5,5 +5,5 @@ const bugsnag = new Client(BUGSNAG_KEY)
 export default {
   logError: (err: Error): void => {
     bugsnag.notify(err)
-  }
+  },
 }

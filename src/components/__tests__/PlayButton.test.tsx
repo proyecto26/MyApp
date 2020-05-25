@@ -1,14 +1,10 @@
 import 'react-native'
 import React from 'react'
-import {
-  mount,
-  shallow
-} from 'enzyme'
+import { mount, shallow } from 'enzyme'
 
 import PlayButton from '../PlayButton'
 
 describe('<PlayButton />', () => {
-
   const defaultProps = {}
 
   it('should render', () => {

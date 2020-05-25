@@ -11,7 +11,7 @@ exports[`<PlayButton /> renders correctly 1`] = `
     }
   }
 >
-  <TouchableOpacity
+  <ForwardRef
     activeOpacity={1}
     onPress={[Function]}
   >
@@ -1364,6 +1364,6 @@ exports[`<PlayButton /> renders correctly 1`] = `
         }
       }
     />
-  </TouchableOpacity>
+  </ForwardRef>
 </View>
 `;

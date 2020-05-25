@@ -9,17 +9,24 @@ const ErrorContainer = () => {
   return (
     <View style={styles.container}>
       <LottieView
-        style={{
-          width: '100%',
-          height: 260,
-        }}
+        style={styles.header}
         autoPlay
-        resizeMode='cover'
+        resizeMode="cover"
         source={R.animations.error}
       />
       <Text style={styles.oops}>Oops</Text>
-      <AnimatableView style={styles.button} iterationDelay={3000} animation='pulse' easing='ease-out' iterationCount='infinite'>
-        <Button testID='restart' color='white' title='Restart' onPress={RNRestart.Restart} />
+      <AnimatableView
+        style={styles.button}
+        iterationDelay={3000}
+        animation="pulse"
+        easing="ease-out"
+        iterationCount="infinite">
+        <Button
+          testID="restart"
+          color="white"
+          title="Restart"
+          onPress={RNRestart.Restart}
+        />
       </AnimatableView>
     </View>
   )
@@ -29,18 +36,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  header: {
+    width: '100%',
+    height: 260,
   },
   oops: {
     fontSize: 20,
-    padding: 10
+    padding: 10,
   },
   button: {
     backgroundColor: 'black',
     width: '100%',
     maxWidth: 200,
-    marginTop: 30
-  }
+    marginTop: 30,
+  },
 })
 
 export default ErrorContainer

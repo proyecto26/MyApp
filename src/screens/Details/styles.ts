@@ -1,11 +1,9 @@
-import {
-  StyleSheet
-} from 'react-native'
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#231E32'
+    backgroundColor: '#231E32',
   },
   header: {
     backgroundColor: 'green',
@@ -13,7 +11,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'flex-start',
     height: 50,
-    width: '100%'
+    width: '100%',
   },
   content: {
     flex: 1,
@@ -26,6 +24,9 @@ export default StyleSheet.create({
     flexDirection: 'column',
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'white'
-  }
+    backgroundColor: 'white',
+  },
+  photo: {
+    height: 260,
+  },
 })
