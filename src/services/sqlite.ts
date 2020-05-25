@@ -14,7 +14,8 @@ export class SQLiteService {
         {
           name: this.databaseName,
           location: 'default',
-          createFromLocation: 1,
+          //TODO: Importing a pre-populated database.
+          //createFromLocation: 1,
         },
         () => null,
         () => null,
@@ -57,7 +58,11 @@ export class SQLiteService {
 
   async getItems(query: string, params?: any) {
     const response = await this.executeSql(query, params)
-    return response.rows.raw()
+    let items = []
+    for (var i = 0; i < response.rows.length; i++) {
+      items.push(response.rows.item(i))
+    }
+    return items
   }
 }
 

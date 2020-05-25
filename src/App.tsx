@@ -9,7 +9,6 @@
  */
 
 import React, { Component } from 'react'
-import { enableScreens } from 'react-native-screens'
 import { setNativeExceptionHandler } from 'react-native-exception-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
@@ -18,7 +17,6 @@ import AppContainer from './routes'
 import { ErrorContainer } from './containers'
 
 console.disableYellowBox = true
-enableScreens()
 
 setNativeExceptionHandler((errorMessage) => {
   LogService.logError(new Error(`NativeError: ${errorMessage}`))
@@ -37,7 +35,7 @@ export default class App extends Component {
     LogService.logError(error)
     this.setState({ hasError: true })
     if (__DEV__) {
-      console.log(`ErrorInfo: ${info}`)
+      console.error(`ErrorInfo: ${info}`)
     }
   }
 

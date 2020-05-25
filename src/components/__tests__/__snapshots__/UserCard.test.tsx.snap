@@ -91,7 +91,7 @@ exports[`<UserCard /> renders correctly 1`] = `
         "backgroundColor": "white",
         "borderRadius": 20,
         "bottom": 10,
-        "display": "flex",
+        "elevation": 4,
         "height": 40,
         "justifyContent": "center",
         "position": "absolute",

@@ -37,8 +37,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   downloadButton: {
+    elevation: 4,
     position: 'absolute',
-    display: 'flex',
     bottom: 10,
     justifyContent: 'center',
     alignItems: 'center',
