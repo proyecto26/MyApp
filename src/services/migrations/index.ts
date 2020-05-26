@@ -2,6 +2,7 @@ import SQLiteService from '../sqlite'
 import LogService from '../log'
 import migrationCreateTables from './createTables'
 import { Migration } from './migration'
+import { mapSeries } from '../promise'
 
 const TABLE_MIGRATION = 'migrations'
 
@@ -27,7 +28,7 @@ export const runMigrations = async () => {
     `SELECT * FROM ${TABLE_MIGRATION};`,
   )
 
-  await Promise.all(
+  await mapSeries(
     migrations.map((newMigration) => {
       if (!migration.some(({ id }) => newMigration.id === id)) {
         return applyMigration(newMigration)
