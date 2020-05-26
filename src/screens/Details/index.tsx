@@ -66,8 +66,8 @@ DetailsScreen.navigationOptions = { headerShown: false }
 // to or from this screen. You can use the provided navigation
 // states or trigger or disable animations.
 DetailsScreen.sharedElements = (navigation: NavigationScreenProp<any>) => {
-  const { email } = navigation.getParam('data', {}) as User
-  return [email]
+  const { id } = navigation.getParam('data', {}) as User
+  return [id]
 }
 
 export default DetailsScreen

@@ -61,7 +61,7 @@ const MenuScreen = (props: DrawerContentComponentProps) => {
       <View style={[styles.header, styles.item]}>
         <Image
           width={60}
-          borderRadius={60/2}
+          borderRadius={60 / 2}
           source={{ uri: 'https://proyecto26.com/img/logo.png' }}
           style={styles.pic}
         />

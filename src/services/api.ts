@@ -10,14 +10,11 @@ const getUsers = async (): Promise<User[]> => {
     },
     timeout: API_TIMEOUT,
   })
-  return map<User, User>(
-    get(response, 'data.results[0]', []),
-    (u, i) => ({
-      ...u,
-      id: String(i),
-      photo: `https://picsum.photos/id/${i}/200/200`,
-    })
-  )
+  return map<User, User>(get(response, 'data.results[0]', []), (u, i) => ({
+    ...u,
+    id: String(i),
+    photo: `https://picsum.photos/id/${i}/200/200`,
+  }))
 }
 
 export default {

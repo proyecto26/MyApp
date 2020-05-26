@@ -72,7 +72,9 @@ const OfflineListScreen = () => {
           style={styles.netInfo}
           resizeMode="contain"
           source={
-            netInfo.isInternetReachable ? R.animations.online : R.animations.offline
+            netInfo.isInternetReachable
+              ? R.animations.online
+              : R.animations.offline
           }
         />
       </View>

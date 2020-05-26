@@ -1,4 +1,5 @@
 import { SQLiteDatabase, openDatabase } from 'react-native-sqlite-storage'
+import LogService from './log'
 
 export class SQLiteService {
   private readonly databaseName: string = 'my.db'
@@ -18,7 +19,7 @@ export class SQLiteService {
           //createFromLocation: 1,
         },
         () => null,
-        () => null,
+        (error: any) => LogService.logError(error),
       )
     }
     return this.database
@@ -58,11 +59,7 @@ export class SQLiteService {
 
   async getItems(query: string, params?: any) {
     const response = await this.executeSql(query, params)
-    let items = []
-    for (var i = 0; i < response.rows.length; i++) {
-      items.push(response.rows.item(i))
-    }
-    return items
+    return response.rows.raw()
   }
 }
 

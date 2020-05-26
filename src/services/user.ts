@@ -3,8 +3,7 @@ import SQLiteService from './sqlite'
 
 const getUser = async (id: string) => {
   const query = 'SELECT * FROM users u WHERE u.id=?;'
-  const user = await SQLiteService.getFirstItem(query, [id])
-  return user
+  return SQLiteService.getFirstItem(query, [id])
 }
 
 const addUser = (user: User) => {

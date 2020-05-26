@@ -29,7 +29,7 @@ const UserCard = (user: User) => {
     <View style={styles.item}>
       <TouchableOpacity
         testID="UserItem"
-        key={user.email}
+        key={user.id}
         style={styles.card}
         onPress={() => onItemPress(user)}>
         <AnimatableView

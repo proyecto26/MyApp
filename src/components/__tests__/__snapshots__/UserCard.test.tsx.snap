@@ -15,6 +15,7 @@ exports[`<UserCard /> renders correctly 1`] = `
   }
 >
   <ForwardRef
+    key="123"
     onPress={[Function]}
     style={
       Object {
