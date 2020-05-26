@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { get } from 'lodash'
+import { get, map } from 'lodash'
 import { API_URL, API_KEY, API_TIMEOUT } from '../constants'
 import { User } from '../models'
 
@@ -10,11 +10,14 @@ const getUsers = async (): Promise<User[]> => {
     },
     timeout: API_TIMEOUT,
   })
-  return get(response, 'data.results[0]', []).map((u: User, i: number) => ({
-    ...u,
-    id: u.email,
-    photo: `https://picsum.photos/id/${i}/200/200`,
-  }))
+  return map<User, User>(
+    get(response, 'data.results[0]', []),
+    (u, i) => ({
+      ...u,
+      id: String(i),
+      photo: `https://picsum.photos/id/${i}/200/200`,
+    })
+  )
 }
 
 export default {
