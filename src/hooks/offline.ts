@@ -1,13 +1,20 @@
 import { useState, useEffect } from 'react'
-import { SQLiteService } from '../services'
+import { Database } from '../services'
 
-export const useOfflineList = function (collection: string): Array<any> {
+export const useOfflineCollection = function (collection: string): Array<any> {
   const [items, setItems] = useState<Array<any>>([])
   useEffect(
-    function (): any {
-      SQLiteService.getItems(`SELECT * FROM ${collection}`).then((list) =>
-        setItems(list),
-      )
+    function () {
+      const subscription = Database.collections
+        .get(collection)
+        .query()
+        .observe()
+        .subscribe((records) => {
+          setItems(records.map((i) => i._raw))
+        })
+      return function () {
+        subscription.unsubscribe()
+      }
     },
     [collection],
   )

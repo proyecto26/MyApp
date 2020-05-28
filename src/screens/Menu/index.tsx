@@ -18,10 +18,10 @@ type MenuItemProps = {
 
 const items: MenuItemProps[] = [
   {
-    label: 'User list',
+    label: 'Photo list',
     icon: 'supervisor-account',
     onPress: () =>
-      NavigationService.navigateRoot({ routeName: SCREENS.USER_LIST }),
+      NavigationService.navigateRoot({ routeName: SCREENS.PHOTO_LIST }),
   },
   {
     label: 'Offline list',

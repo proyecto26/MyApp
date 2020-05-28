@@ -1,12 +1,13 @@
 module.exports = {
   dependencies: {
-    'react-native-sqlite-storage': {
+    '@nozbe/watermelondb': {
       platforms: {
+        ios: null,
         android: {
-          sourceDir:
-            '../node_modules/react-native-sqlite-storage/platforms/android-native',
-          packageImportPath: 'import io.liteglue.SQLitePluginPackage;',
-          packageInstance: 'new SQLitePluginPackage()',
+          sourceDir: '../node_modules/@nozbe/watermelondb/native/android',
+          packageImportPath:
+            'import com.nozbe.watermelondb.WatermelonDBPackage;',
+          packageInstance: 'new WatermelonDBPackage()',
         },
       },
     },

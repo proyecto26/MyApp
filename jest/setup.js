@@ -55,6 +55,24 @@ jest.mock('react-native-animatable')
 
 jest.mock('react-native-parallax-header')
 
+jest.mock('@nozbe/watermelondb', () => ({
+  appSchema: jest.fn(),
+  tableSchema: jest.fn(),
+  Database: jest.fn(() => ({
+    collections: {
+      get: jest.fn(),
+    },
+    action: jest.fn(),
+  })),
+  Model: jest.fn(),
+}))
+
+jest.mock('@nozbe/watermelondb/decorators', () => ({
+  field: jest.fn(),
+}))
+
+jest.mock('@nozbe/watermelondb/adapters/sqlite')
+
 jest.mock('react-native-screens', () => {
   const RealComponent = jest.requireActual('react-native-screens')
   RealComponent.enableScreens = function () {}

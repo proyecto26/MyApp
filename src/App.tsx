@@ -11,8 +11,9 @@
 import React, { Component } from 'react'
 import { setNativeExceptionHandler } from 'react-native-exception-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import DatabaseProvider from '@nozbe/watermelondb/DatabaseProvider'
 
-import { NavigationService, LogService, runMigrations } from './services'
+import { NavigationService, LogService, Database } from './services'
 import AppContainer from './routes'
 import { ErrorContainer } from './containers'
 
@@ -22,13 +23,9 @@ setNativeExceptionHandler((errorMessage) => {
   LogService.logError(new Error(`NativeError: ${errorMessage}`))
 })
 
-export default class App extends Component {
+class App extends Component {
   state = {
     hasError: false,
-  }
-
-  async componentDidMount() {
-    await runMigrations()
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
@@ -44,13 +41,17 @@ export default class App extends Component {
     return hasError ? (
       <ErrorContainer />
     ) : (
-      <SafeAreaProvider>
-        <AppContainer
-          ref={(navigatorRef) => {
-            NavigationService.setTopLevelNavigator(navigatorRef)
-          }}
-        />
-      </SafeAreaProvider>
+      <DatabaseProvider database={Database}>
+        <SafeAreaProvider>
+          <AppContainer
+            ref={(navigatorRef) => {
+              NavigationService.setTopLevelNavigator(navigatorRef)
+            }}
+          />
+        </SafeAreaProvider>
+      </DatabaseProvider>
     )
   }
 }
+
+export default App

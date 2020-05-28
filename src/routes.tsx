@@ -8,7 +8,7 @@ import createAnimatedSwitchNavigator from 'react-navigation-animated-switch'
 import {
   HomeScreen,
   MenuScreen,
-  UserListScreen,
+  PhotoListScreen,
   DetailsScreen,
   OfflineListScreen,
 } from './screens'
@@ -18,7 +18,7 @@ import { SCREENS } from './constants'
 
 const SharedElementsNavigator = createSharedElementStackNavigator(
   {
-    [SCREENS.USER_LIST]: UserListScreen,
+    [SCREENS.PHOTO_LIST]: PhotoListScreen,
     [SCREENS.OFFLINE_LIST]: OfflineListScreen,
     [SCREENS.DETAILS]: DetailsScreen,
   },

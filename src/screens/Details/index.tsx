@@ -6,13 +6,13 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import R from 'res'
 
 import styles from './styles'
-import { User } from '../../models'
+import { Photo } from '../../models'
 import { ParallaxHeader } from '../../containers'
 import { BrowserService } from '../../services'
 
 const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
-  const userInfo = navigation.getParam('data') as User
-  const { id, email, photo, first, last } = userInfo
+  const photoInfo = navigation.getParam('data') as Photo
+  const { id, email, photo, first, last } = photoInfo
   const openUrl = () => photo && BrowserService.openUrl(photo)
 
   return (
@@ -49,7 +49,7 @@ const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
                 />
               </View>
             </SharedElement>
-            <Button onPress={() => openUrl()} title="Open Url" />
+            <Button onPress={openUrl} title="Open Url" />
             <Text>{R.strings.details.LOREM_IPSUM}</Text>
           </View>
         )}
@@ -66,7 +66,7 @@ DetailsScreen.navigationOptions = { headerShown: false }
 // to or from this screen. You can use the provided navigation
 // states or trigger or disable animations.
 DetailsScreen.sharedElements = (navigation: NavigationScreenProp<any>) => {
-  const { id } = navigation.getParam('data', {}) as User
+  const { id } = navigation.getParam('data', {}) as Photo
   return [id]
 }
 

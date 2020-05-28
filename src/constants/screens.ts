@@ -1,6 +1,6 @@
 export enum SCREENS {
   HOME = 'home',
   DETAILS = 'details',
-  USER_LIST = 'userList',
+  PHOTO_LIST = 'userList',
   OFFLINE_LIST = 'offlineList',
 }

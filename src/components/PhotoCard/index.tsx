@@ -5,50 +5,52 @@ import { View as AnimatableView } from 'react-native-animatable'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 import { SCREENS } from '../../constants'
-import { User } from '../../models'
-import { NavigationService, UserService } from '../../services'
+import { Photo } from '../../models'
+import { NavigationService, PhotoService } from '../../services'
 import styles from './styles'
 
-export const onItemPress = (user: User) => {
-  NavigationService.navigate(SCREENS.DETAILS, { data: user })
+export function onItemPress(photo: Photo) {
+  NavigationService.navigate(SCREENS.DETAILS, { data: photo })
 }
 
-const UserCard = (user: User) => {
+const PhotoCard = (photo: Photo) => {
   const [downloaded, setDownload] = useState(true)
 
-  const saveUser = async (data: User) => {
-    await UserService.addUser(data)
+  const savePhoto = async (data: Photo) => {
+    await PhotoService.addPhoto(data)
     setDownload(true)
   }
 
   useEffect(() => {
-    UserService.getUser(user.id).then((u) => setDownload(!!u))
-  }, [user.id])
+    PhotoService.getPhoto(photo.id).then((u) => {
+      setDownload(!!u)
+    })
+  }, [photo.id])
 
   return (
     <View style={styles.item}>
       <TouchableOpacity
-        testID="UserItem"
-        key={user.id}
+        testID="PhotoItem"
+        key={photo.id}
         style={styles.card}
-        onPress={() => onItemPress(user)}>
+        onPress={() => onItemPress(photo)}>
         <AnimatableView
           useNativeDriver
           delay={2000}
           animation="pulse"
           easing="ease-out"
           style={styles.content}>
-          <SharedElement id={user.id} style={styles.fullSize}>
+          <SharedElement id={photo.id} style={styles.fullSize}>
             <Image
               style={styles.fullSize}
               resizeMode="contain"
-              source={{ uri: user.photo }}
+              source={{ uri: photo.photo }}
             />
           </SharedElement>
         </AnimatableView>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => saveUser(user)}
+        onPress={() => savePhoto(photo)}
         style={styles.downloadButton}
         disabled={downloaded}>
         <Icon
@@ -61,4 +63,4 @@ const UserCard = (user: User) => {
   )
 }
 
-export default UserCard
+export default PhotoCard

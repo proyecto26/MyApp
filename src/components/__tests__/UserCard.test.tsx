@@ -2,39 +2,39 @@ import 'react-native'
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 
-import UserCard from '../UserCard'
+import PhotoCard from '../PhotoCard'
 import { NavigationService } from '../../services'
 
 jest.mock('../../services', () => ({
-  UserService: {
-    getUser: jest.fn(() => Promise.resolve('mockedUser')),
-    addUser: jest.fn(() => Promise.resolve()),
+  PhotoService: {
+    getPhoto: jest.fn(() => Promise.resolve('mockedPhoto')),
+    addPhoto: jest.fn(() => Promise.resolve()),
   },
   NavigationService: {
     navigate: jest.fn(),
   },
 }))
 
-describe('<UserCard />', () => {
+describe('<PhotoCard />', () => {
   const defaultProps = {
     id: '123',
   } as any
 
   it('should render', () => {
-    const rendered = mount(<UserCard {...defaultProps} />)
+    const rendered = mount(<PhotoCard {...defaultProps} />)
     expect(rendered).toBeTruthy()
   })
 
   it('renders correctly', () => {
-    expect(shallow(<UserCard {...defaultProps} />)).toMatchSnapshot()
+    expect(shallow(<PhotoCard {...defaultProps} />)).toMatchSnapshot()
   })
 
   describe('When the card is pressed', () => {
     const user = { id: 123 } as any
 
     it('should redirect to the Details screen', () => {
-      const wrapper = mount(<UserCard {...user} />)
-      wrapper.find({ testID: 'UserItem' }).first().prop('onPress')()
+      const wrapper = mount(<PhotoCard {...user} />)
+      wrapper.find({ testID: 'PhotoItem' }).first().prop('onPress')()
 
       expect(NavigationService.navigate).toHaveBeenCalled()
     })

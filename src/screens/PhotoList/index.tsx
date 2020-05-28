@@ -5,13 +5,13 @@ import { useNetInfo } from '@react-native-community/netinfo'
 import LottieView from 'lottie-react-native'
 import R from 'res'
 
-import { MenuButton, UserCard } from '../../components'
+import { MenuButton, PhotoCard } from '../../components'
 import { CustomListContainer } from '../../containers'
-import { useUserList } from '../../hooks'
+import { usePhotoList } from '../../hooks'
 import styles from './styles'
 
-const UserListScreen = () => {
-  const items = useUserList()
+const PhotoListScreen = () => {
+  const items = usePhotoList()
   const netInfo = useNetInfo()
 
   return (
@@ -21,7 +21,7 @@ const UserListScreen = () => {
         <CustomListContainer
           items={items}
           style={styles.content}
-          renderItem={({ item }) => <UserCard {...item} />}
+          renderItem={({ item }) => <PhotoCard {...item} />}
         />
       </SafeAreaView>
       <View style={styles.footer}>
@@ -42,11 +42,11 @@ const UserListScreen = () => {
   )
 }
 
-UserListScreen.navigationOptions = (props: any) => {
+PhotoListScreen.navigationOptions = (props: any) => {
   return {
-    title: 'Users',
+    title: 'Photos',
     headerLeft: () => <MenuButton {...props} />,
   }
 }
 
-export default UserListScreen
+export default PhotoListScreen

@@ -1,22 +1,22 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
-import UserList from '../UserList'
+import PhotoList from '../PhotoList'
 
 jest.mock('../../hooks', () => ({
-  useUserList: jest.fn(() => []),
+  usePhotoList: jest.fn(() => []),
 }))
 
-describe('<UserList />', () => {
+describe('<PhotoList />', () => {
   const defaultProps = {
     navigation: jest.fn(),
   } as any
 
   it('should render', () => {
-    const rendered = mount(<UserList {...defaultProps} />)
+    const rendered = mount(<PhotoList {...defaultProps} />)
     expect(rendered).toBeTruthy()
   })
 
   it('renders correctly', () => {
-    expect(shallow(<UserList {...defaultProps} />)).toMatchSnapshot()
+    expect(shallow(<PhotoList {...defaultProps} />)).toMatchSnapshot()
   })
 })

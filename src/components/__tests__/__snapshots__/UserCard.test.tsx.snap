@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UserCard /> renders correctly 1`] = `
+exports[`<PhotoCard /> renders correctly 1`] = `
 <View
   style={
     Object {
@@ -36,7 +36,7 @@ exports[`<UserCard /> renders correctly 1`] = `
         "shadowRadius": 5,
       }
     }
-    testID="UserItem"
+    testID="PhotoItem"
   >
     <withAnimatable(View)
       animation="pulse"

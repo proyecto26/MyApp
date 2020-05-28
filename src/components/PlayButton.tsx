@@ -11,7 +11,7 @@ class PlayButton extends Component {
       <View style={styles.container}>
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => NavigationService.navigate(SCREENS.USER_LIST)}>
+          onPress={() => NavigationService.navigate(SCREENS.PHOTO_LIST)}>
           <LottieView
             style={styles.button}
             autoPlay

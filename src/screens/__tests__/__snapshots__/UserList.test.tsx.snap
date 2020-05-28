@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UserList /> renders correctly 1`] = `
+exports[`<PhotoList /> renders correctly 1`] = `
 <Fragment>
   <StatusBar
     animated={false}
