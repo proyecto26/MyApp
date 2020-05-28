@@ -3,7 +3,7 @@ import { COLUMNS as PhotoColumns } from './photo'
 import { COLLECTIONS } from '../constants'
 
 export default appSchema({
-  version: 1,
+  version: 2,
   tables: [
     tableSchema({
       name: COLLECTIONS.PHOTOS,

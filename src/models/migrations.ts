@@ -1,18 +1,18 @@
 import {
   schemaMigrations,
-  createTable,
+  addColumns,
 } from '@nozbe/watermelondb/Schema/migrations'
-import { COLUMNS as PhotoColumns } from './photo'
 import { COLLECTIONS } from '../constants'
 
 export default schemaMigrations({
   migrations: [
+    // TODO: Add migrations always! <3
     {
-      toVersion: 1,
+      toVersion: 2,
       steps: [
-        createTable({
-          name: COLLECTIONS.PHOTOS,
-          columns: PhotoColumns,
+        addColumns({
+          table: COLLECTIONS.PHOTOS,
+          columns: [{ name: 'address2', type: 'string', isOptional: true }],
         }),
       ],
     },
