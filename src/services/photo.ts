@@ -1,7 +1,8 @@
 import { Photo } from '../models'
 import database from './database'
+import { COLLECTIONS } from '../constants'
 
-const photosCollection = database.collections.get<Photo>('photos')
+const photosCollection = database.collections.get<Photo>(COLLECTIONS.PHOTOS)
 
 const getPhoto = async (id: string) => {
   try {

@@ -1,8 +1,9 @@
-import { Model } from '@nozbe/watermelondb'
+import { Model, ColumnSchema } from '@nozbe/watermelondb'
 import { field } from '@nozbe/watermelondb/decorators'
+import { COLLECTIONS } from '../constants'
 
 export default class Photo extends Model {
-  static table = 'photos'
+  static table = COLLECTIONS.PHOTOS
 
   @field('first') first?: string
   @field('last') last?: string
@@ -12,3 +13,13 @@ export default class Photo extends Model {
   @field('balance') balance?: string
   @field('photo') photo?: string
 }
+
+export const COLUMNS: ColumnSchema[] = [
+  { name: 'email', type: 'string', isIndexed: true },
+  { name: 'first', type: 'string' },
+  { name: 'last', type: 'string' },
+  { name: 'address', type: 'string', isOptional: true },
+  { name: 'created', type: 'string' },
+  { name: 'balance', type: 'string' },
+  { name: 'photo', type: 'string', isOptional: true },
+]

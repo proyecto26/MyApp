@@ -17,6 +17,7 @@ export const API_TIMEOUT = 2000
 export const BUGSNAG_KEY = '05ff8570b88f5993959ecc8323d7163e'
 
 export * from './screens'
+export * from './database'
 
 export default {
   ENVIRONMENTS,

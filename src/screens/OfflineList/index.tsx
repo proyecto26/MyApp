@@ -18,7 +18,7 @@ import { NavigationService, PhotoService } from '../../services'
 import { CustomListContainer } from '../../containers'
 import { useOfflineCollection } from '../../hooks'
 import { Photo } from '../../models'
-import { SCREENS } from '../../constants'
+import { SCREENS, COLLECTIONS } from '../../constants'
 import { MenuButton } from '../../components'
 import styles from './styles'
 
@@ -59,7 +59,7 @@ const renderItem: ListRenderItem<Photo> = ({ item }) => {
 }
 
 const OfflineListScreen = () => {
-  const items = useOfflineCollection('photos')
+  const items = useOfflineCollection(COLLECTIONS.PHOTOS)
   const netInfo = useNetInfo()
 
   return (
