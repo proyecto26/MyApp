@@ -9,7 +9,7 @@ import { User } from '../../models'
 import { NavigationService, UserService } from '../../services'
 import styles from './styles'
 
-export const onItemPress = (user: User) => {
+export function onItemPress(user: User) {
   NavigationService.navigate(SCREENS.DETAILS, { data: user })
 }
 

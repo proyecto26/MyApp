@@ -11,26 +11,24 @@ import { useNetInfo } from '@react-native-community/netinfo'
 import LottieView from 'lottie-react-native'
 import { SharedElement } from 'react-navigation-shared-element'
 import { View as AnimatableView } from 'react-native-animatable'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import R from 'res'
 
-import { NavigationService } from '../../services'
+import { NavigationService, UserService } from '../../services'
 import { CustomListContainer } from '../../containers'
 import { useOfflineList } from '../../hooks'
 import { User } from '../../models'
-import { SCREENS } from '../../constants'
+import { SCREENS, COLLECTIONS } from '../../constants'
 import { MenuButton } from '../../components'
 import styles from './styles'
 
-const OfflineListScreen = () => {
-  const items = useOfflineList('users')
-  const netInfo = useNetInfo()
+export function onItemPress(data: User) {
+  NavigationService.navigate(SCREENS.DETAILS, { data })
+}
 
-  const onItemPress = (data: User) => {
-    NavigationService.navigate(SCREENS.DETAILS, { data })
-  }
-
-  const renderItem: ListRenderItem<User> = ({ item }) => {
-    return (
+const renderItem: ListRenderItem<User> = ({ item }) => {
+  return (
+    <View style={styles.item}>
       <TouchableOpacity
         testID="OfflineItem"
         key={item.email}
@@ -51,8 +49,18 @@ const OfflineListScreen = () => {
           </SharedElement>
         </AnimatableView>
       </TouchableOpacity>
-    )
-  }
+      <TouchableOpacity
+        onPress={() => UserService.deleteUser(item.id)}
+        style={styles.deleteButton}>
+        <Icon name="delete" size={30} color="black" />
+      </TouchableOpacity>
+    </View>
+  )
+}
+
+const OfflineListScreen = () => {
+  const items = useOfflineList(COLLECTIONS.USERS)
+  const netInfo = useNetInfo()
 
   return (
     <>
