@@ -12,9 +12,7 @@ export const useOfflineCollection = function (collection: string): Array<any> {
         .subscribe((records) => {
           setItems(records.map((i) => i._raw))
         })
-      return function () {
-        subscription.unsubscribe()
-      }
+      return subscription.unsubscribe
     },
     [collection],
   )
