@@ -13,11 +13,7 @@ interface Props {
   renderItem: ListRenderItem<any>
 }
 
-const CustomListContainer: React.SFC<Props> = ({
-  items,
-  style,
-  renderItem,
-}) => {
+const CustomListContainer: React.FC<Props> = ({ items, style, renderItem }) => {
   const itemWidth = 150
   const [numColumns, setNumColumns] = useState(2)
 

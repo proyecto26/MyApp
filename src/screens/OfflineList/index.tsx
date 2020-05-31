@@ -1,12 +1,6 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { SafeAreaView, NavigationInjectedProps } from 'react-navigation'
-import {
-  TouchableOpacity,
-  Image,
-  ListRenderItem,
-  StatusBar,
-  View,
-} from 'react-native'
+import { TouchableOpacity, Image, StatusBar, View } from 'react-native'
 import { useNetInfo } from '@react-native-community/netinfo'
 import LottieView from 'lottie-react-native'
 import { SharedElement } from 'react-navigation-shared-element'
@@ -26,7 +20,12 @@ export function onItemPress(data: User) {
   NavigationService.navigate(SCREENS.DETAILS, { data })
 }
 
-const renderItem: ListRenderItem<User> = ({ item }) => {
+export function renderItem(item: User, forceUpdate: Function) {
+  const deleteUser = () => {
+    UserService.deleteUser(item.id)
+    forceUpdate()
+  }
+
   return (
     <View style={styles.item}>
       <TouchableOpacity
@@ -50,7 +49,8 @@ const renderItem: ListRenderItem<User> = ({ item }) => {
         </AnimatableView>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => UserService.deleteUser(item.id)}
+        testID="DeleteItem"
+        onPress={deleteUser}
         style={styles.deleteButton}>
         <Icon name="delete" size={30} color="black" />
       </TouchableOpacity>
@@ -59,7 +59,8 @@ const renderItem: ListRenderItem<User> = ({ item }) => {
 }
 
 const OfflineListScreen = () => {
-  const items = useOfflineList(COLLECTIONS.USERS)
+  const [state, forceUpdate] = useReducer((x) => x + 1, 0)
+  const items = useOfflineList(COLLECTIONS.USERS, state)
   const netInfo = useNetInfo()
 
   return (
@@ -69,7 +70,7 @@ const OfflineListScreen = () => {
         <CustomListContainer
           items={items}
           style={styles.content}
-          renderItem={renderItem}
+          renderItem={({ item }) => renderItem(item, forceUpdate)}
         />
       </SafeAreaView>
       <View style={styles.footer}>
