@@ -13,9 +13,10 @@ import { setNativeExceptionHandler } from 'react-native-exception-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import DatabaseProvider from '@nozbe/watermelondb/DatabaseProvider'
 
-import { NavigationService, LogService, Database } from './services'
+import { NavigationService, LogService } from './services'
 import AppContainer from './routes'
 import { ErrorContainer } from './containers'
+import database from './services/database'
 
 console.disableYellowBox = true
 
@@ -41,7 +42,7 @@ class App extends Component {
     return hasError ? (
       <ErrorContainer />
     ) : (
-      <DatabaseProvider database={Database}>
+      <DatabaseProvider database={database}>
         <SafeAreaProvider>
           <AppContainer
             ref={(navigatorRef) => {

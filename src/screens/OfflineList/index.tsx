@@ -59,7 +59,7 @@ const renderItem: ListRenderItem<Photo> = ({ item }) => {
 }
 
 const OfflineListScreen = () => {
-  const items = useOfflineCollection(COLLECTIONS.PHOTOS)
+  const items = useOfflineCollection<Photo>(COLLECTIONS.PHOTOS)
   const netInfo = useNetInfo()
 
   return (

@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
-import { Database } from '../services'
+import { DatabaseService } from '../services'
 
-export const useOfflineCollection = function (collection: string): Array<any> {
-  const [items, setItems] = useState<Array<any>>([])
+export const useOfflineCollection = function <T>(collection: string): Array<T> {
+  const [items, setItems] = useState<Array<T>>([])
   useEffect(
     function () {
-      const subscription = Database.collections
+      const subscription = DatabaseService.collections
         .get(collection)
         .query()
         .observe()
         .subscribe((records) => {
-          setItems(records.map((i) => i._raw))
+          setItems(records.map((i) => i._raw as any))
         })
       return subscription.unsubscribe
     },

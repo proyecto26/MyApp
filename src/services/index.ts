@@ -4,4 +4,4 @@ export { default as LogService } from './log'
 export { default as BrowserService } from './browser'
 export { default as PhotoService } from './photo'
 
-export { default as Database } from './database'
+export { default as DatabaseService } from './database'

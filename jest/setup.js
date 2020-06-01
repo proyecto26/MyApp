@@ -70,6 +70,7 @@ jest.mock('@nozbe/watermelondb', () => ({
 jest.mock('@nozbe/watermelondb/Schema/migrations', () => ({
   schemaMigrations: jest.fn(),
   createTable: jest.fn(),
+  addColumns: jest.fn(),
 }))
 
 jest.mock('@nozbe/watermelondb/decorators', () => ({
