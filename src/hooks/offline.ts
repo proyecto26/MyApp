@@ -18,7 +18,7 @@ export const useOfflineCollection = function <T>(
         })
       return () => subscription.unsubscribe()
     },
-    [collection, conditions],
+    [collection, ...conditions],
   )
 
   return items
