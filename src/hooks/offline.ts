@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { Condition } from '@nozbe/watermelondb/QueryDescription'
 import { DatabaseService } from '../services'
 
+const initialConditions = []
+
 export const useOfflineCollection = function <T>(
   collection: string,
-  conditions: Array<Condition> = [],
+  conditions: Array<Condition> = initialConditions,
 ): Array<T> {
   const [items, setItems] = useState<Array<T>>([])
   useEffect(
@@ -18,7 +20,7 @@ export const useOfflineCollection = function <T>(
         })
       return () => subscription.unsubscribe()
     },
-    [collection, ...conditions],
+    [collection, conditions],
   )
 
   return items
