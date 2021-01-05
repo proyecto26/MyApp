@@ -18,7 +18,7 @@
     "@react-native-community/hooks": "^2.5.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/netinfo": "^5.9.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bugsnag-react-native": "^2.23.8",
     "lodash": "^4.17.15",
     "lottie-ios": "3.1.8",
