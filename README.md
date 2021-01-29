@@ -12,7 +12,7 @@
       </a>
     </td>
     <td>
-      <a href="https://github.com/proyecto26/MyApp/tree/feature/database-watermelondb">
+      <a href="https://github.com/proyecto26/MyApp/tree/develop">
         <img src="img/watermelondb.png" width="300">
       </a>
     </td>
