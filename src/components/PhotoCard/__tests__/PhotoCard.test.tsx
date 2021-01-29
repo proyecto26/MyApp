@@ -2,10 +2,11 @@ import 'react-native'
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 
-import PhotoCard from '../PhotoCard'
-import { NavigationService } from '../../services'
+import { NavigationService } from '../../../services'
+import { SCREENS } from '../../../constants'
+import PhotoCard from '..'
 
-jest.mock('../../services', () => ({
+jest.mock('../../../services', () => ({
   PhotoService: {
     getPhoto: jest.fn(() => Promise.resolve('mockedPhoto')),
     addPhoto: jest.fn(() => Promise.resolve()),
@@ -36,7 +37,7 @@ describe('<PhotoCard />', () => {
       const wrapper = mount(<PhotoCard {...user} />)
       wrapper.find({ testID: 'PhotoItem' }).first().prop('onPress')()
 
-      expect(NavigationService.navigate).toHaveBeenCalled()
+      expect(NavigationService.navigate).toHaveBeenCalledWith(SCREENS.DETAILS, expect.anything())
     })
   })
 })

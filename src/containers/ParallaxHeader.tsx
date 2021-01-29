@@ -1,6 +1,15 @@
 import React from 'react'
-import { View, Platform, StyleSheet, Dimensions } from 'react-native'
-import { get } from 'lodash'
+import {
+  View,
+  ViewProps,
+  TextProps,
+  ImageProps,
+  ScrollViewProps,
+  Platform,
+  StyleSheet,
+  Dimensions
+} from 'react-native'
+import get from 'lodash/get'
 import ReactNativeParallaxHeader from 'react-native-parallax-header'
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window')
@@ -11,32 +20,36 @@ const NAV_BAR_HEIGHT = HEADER_HEIGHT - STATUS_BAR_HEIGHT
 
 interface Props {
   title?: string
-  headerMinHeight?: Number
-  headerMaxHeight?: Number
-  extraScrollHeight?: Number
+  headerMinHeight?: number
+  headerMaxHeight?: number
+  extraScrollHeight?: number
   navbarColor?: string
-  titleStyle?: any
-  backgroundImage?: any
-  backgroundImageScale?: Number
-  renderNavBar?: any
-  renderLeft?: React.ElementType
-  renderBody?: React.ElementType
-  renderRight?: React.ElementType
-  renderContent?: any
-  containerStyle?: any
-  contentContainerStyle?: any
-  innerContainerStyle?: any
-  onScrollBeginDrag?: Function
-  onScrollEndDrag?: Function
+  titleStyle?: TextProps['style']
+  backgroundImage?: ImageProps['source']
+  backgroundImageScale?: number
+  renderNavBar?: () => JSX.Element
+  renderLeft?: () => JSX.Element
+  renderBody?: () => JSX.Element
+  renderRight?: () => JSX.Element
+  renderContent?: () => JSX.Element
+  containerStyle?: ViewProps['style']
+  innerContainerStyle?: ViewProps['style']
+  contentContainerStyle?: ScrollViewProps['contentContainerStyle']
+  onScrollBeginDrag?: () => void
+  onScrollEndDrag?: () => void
 }
 
-const renderNavBar = (Left?: any, Body?: any, Right?: any) => (
+const renderNavBar = (
+  renderLeft?: () => JSX.Element,
+  renderBody?: () => JSX.Element,
+  renderRight?: () => JSX.Element
+) => (
   <View style={styles.navContainer}>
     <View style={styles.statusBar} />
     <View style={styles.navBar}>
-      {Left && Left()}
-      {Body && Body()}
-      {Right && Right()}
+      {renderLeft && renderLeft()}
+      {renderBody && renderBody()}
+      {renderRight && renderRight()}
     </View>
   </View>
 )
@@ -54,7 +67,7 @@ const ParallaxHeader = (props: Props) => {
       backgroundImage={props.backgroundImage}
       backgroundImageScale={get(props, 'backgroundImageScale', 1)}
       renderNavBar={() =>
-        get(props, 'renderNavBar', renderNavBar)(
+        props.renderNavBar || renderNavBar(
           props.renderLeft,
           props.renderBody,
           props.renderRight,

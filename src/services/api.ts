@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { get, map } from 'lodash'
+import get from 'lodash/get'
+import map from 'lodash/map'
 import { API_URL, API_KEY, API_TIMEOUT } from '../constants'
 import { Photo } from '../models'
 

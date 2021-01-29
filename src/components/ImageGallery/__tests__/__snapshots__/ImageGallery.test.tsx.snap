@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImageGallery /> renders correctly 1`] = `
+<Component
+  animationType="slide"
+  hardwareAccelerated={false}
+  supportedOrientations={
+    Array [
+      "landscape",
+      "portrait",
+    ]
+  }
+  visible={true}
+>
+  <ForwardRef(Themed.Header)
+    centerComponent={
+      Object {
+        "style": Object {
+          "color": "#FFF",
+          "fontSize": 20,
+          "textAlignVertical": "center",
+        },
+        "text": "1 of 2",
+      }
+    }
+    containerStyle={
+      Array [
+        Object {
+          "justifyContent": "space-around",
+        },
+        Object {
+          "height": 50,
+          "paddingTop": 0,
+        },
+      ]
+    }
+    leftComponent={
+      <ForwardRef(Themed.Button)
+        accessibilityLabel="imageGalleryClose"
+        accessible={true}
+        icon={
+          <Icon
+            allowFontScaling={false}
+            color="#000"
+            name="arrow-back-ios"
+            size={26}
+          />
+        }
+        onPress={[MockFunction]}
+        testID="imageGalleryCloseID"
+      />
+    }
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "flex-end",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexGrow": 1,
+        }
+      }
+    >
+      <FlatList
+        contentContainerStyle={
+          Object {
+            "alignItems": "center",
+          }
+        }
+        data={
+          Array [
+            Object {
+              "id": 1,
+              "src": "123",
+            },
+            Object {
+              "id": 2,
+              "src": "123",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        horizontal={true}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onEndReachedThreshold={2}
+        onMomentumScrollEnd={[Function]}
+        pagingEnabled={true}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        showsHorizontalScrollIndicator={false}
+        updateCellsBatchingPeriod={50}
+        windowSize={21}
+      />
+    </View>
+  </View>
+</Component>
+`;

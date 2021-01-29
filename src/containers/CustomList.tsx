@@ -33,14 +33,14 @@ const CustomListContainer: React.SFC<Props> = ({
         data={items}
         horizontal={false}
         numColumns={numColumns}
-        key={`CustomList_${numColumns}`}
         alwaysBounceVertical={true}
         directionalLockEnabled={true}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
-        keyExtractor={({ id }, index) => (id || index).toString()}
         columnWrapperStyle={styles.row}
         renderItem={renderItem}
+        key={`CustomList_${numColumns}`}
+        keyExtractor={({ id }, index) => (id || index).toString()}
       />
     </View>
   )

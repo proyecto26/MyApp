@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ImageViewer /> renders correctly 1`] = `
+<ImageViewer
+  clickDistance={10}
+  cropHeight={1334}
+  cropWidth={750}
+  doubleClickInterval={175}
+  enableCenterFocus={true}
+  enableDoubleClickZoom={true}
+  enableSwipeDown={false}
+  horizontalOuterRangeOffset={[Function]}
+  imageHeight={1334}
+  imageWidth={750}
+  layoutChange={[Function]}
+  longPressTime={800}
+  maxOverflow={100}
+  maxScale={10}
+  minScale={1}
+  onClick={[Function]}
+  onDoubleClick={[Function]}
+  onDragLeft={[Function]}
+  onLongPress={[Function]}
+  onMove={[Function]}
+  onPanResponderTerminationRequest={[Function]}
+  onStartShouldSetPanResponder={[Function]}
+  onSwipeDown={[Function]}
+  panToMove={true}
+  pinchToZoom={true}
+  responderRelease={[Function]}
+  style={Object {}}
+  swipeDownThreshold={230}
+  useHardwareTextureAndroid={true}
+  useNativeDriver={false}
+>
+  <View
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flex": 1,
+        "height": "100%",
+        "width": "100%",
+      }
+    }
+  >
+    <Image
+      height={1334}
+      resizeMode="contain"
+      source={
+        Object {
+          "uri": "something",
+        }
+      }
+      style={
+        Object {
+          "flex": 1,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+      width={750}
+    />
+  </View>
+</ImageViewer>
+`;

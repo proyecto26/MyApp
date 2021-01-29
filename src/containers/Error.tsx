@@ -25,7 +25,7 @@ const ErrorContainer = () => {
           testID="restart"
           color="white"
           title="Restart"
-          onPress={RNRestart.Restart}
+          onPress={() => RNRestart.Restart()}
         />
       </AnimatableView>
     </View>

@@ -29,4 +29,19 @@ export default StyleSheet.create({
   photo: {
     height: 260,
   },
+  imageGalleryFooter: {
+    padding: 10,
+    height: 100,
+    flexDirection: 'row'
+  },
+  imageGalleryButtonContainer: {
+    borderWidth: 2,
+    borderColor: 'black',
+    margin: 5,
+    padding: 5
+  },
+  imageGalleryButton: {
+    padding: 10,
+    backgroundColor: 'gray'
+  }
 })

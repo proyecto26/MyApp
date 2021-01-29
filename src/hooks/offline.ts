@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react'
 import { Condition } from '@nozbe/watermelondb/QueryDescription'
-import { DatabaseService } from '../services'
+import { getDatabase } from '../services'
 
-const initialConditions = []
+const initialConditions: Array<Condition> = []
 
 export const useOfflineCollection = function <T>(
   collection: string,
-  conditions: Array<Condition> = initialConditions,
+  conditions = initialConditions,
 ): Array<T> {
   const [items, setItems] = useState<Array<T>>([])
   useEffect(
     function () {
-      const subscription = DatabaseService.collections
+      const database = getDatabase()
+      const subscription = database.collections
         .get(collection)
         .query(...conditions)
         .observe()

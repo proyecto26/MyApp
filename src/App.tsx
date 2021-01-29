@@ -11,14 +11,11 @@
 import React, { Component } from 'react'
 import { setNativeExceptionHandler } from 'react-native-exception-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import DatabaseProvider from '@nozbe/watermelondb/DatabaseProvider'
 
 import { NavigationService, LogService } from './services'
 import AppContainer from './routes'
 import { ErrorContainer } from './containers'
-import database from './services/database'
-
-console.disableYellowBox = true
+import { withDatabaseProvider } from './hocs'
 
 setNativeExceptionHandler((errorMessage) => {
   LogService.logError(new Error(`NativeError: ${errorMessage}`))
@@ -42,17 +39,15 @@ class App extends Component {
     return hasError ? (
       <ErrorContainer />
     ) : (
-      <DatabaseProvider database={database}>
-        <SafeAreaProvider>
-          <AppContainer
-            ref={(navigatorRef) => {
-              NavigationService.setTopLevelNavigator(navigatorRef)
-            }}
-          />
-        </SafeAreaProvider>
-      </DatabaseProvider>
+      <SafeAreaProvider>
+        <AppContainer
+          ref={(navigatorRef) => {
+            NavigationService.setTopLevelNavigator(navigatorRef)
+          }}
+        />
+      </SafeAreaProvider>
     )
   }
 }
 
-export default App
+export default withDatabaseProvider(App)

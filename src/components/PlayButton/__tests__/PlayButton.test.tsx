@@ -2,7 +2,7 @@ import 'react-native'
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 
-import PlayButton from '../PlayButton'
+import PlayButton from '..'
 
 describe('<PlayButton />', () => {
   const defaultProps = {}

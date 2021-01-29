@@ -1,1 +1,3 @@
-export class Client {}
+export class Client {
+  notify = jest.fn()
+}

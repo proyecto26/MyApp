@@ -1,20 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Details /> renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#231E32",
-      "flex": 1,
+<Fragment>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#231E32",
+        "flex": 1,
+      }
     }
-  }
->
-  <ParallaxHeader
-    headerMaxHeight={150}
-    renderContent={[Function]}
-    renderLeft={[Function]}
-    renderRight={[Function]}
-    title="undefined, undefined"
+  >
+    <ParallaxHeader
+      headerMaxHeight={150}
+      renderContent={[Function]}
+      renderLeft={[Function]}
+      renderRight={[Function]}
+      title="undefined, undefined"
+    />
+  </View>
+  <ImageGallery
+    images={Array []}
+    isVisible={false}
+    onClosePress={[Function]}
+    renderFooter={[Function]}
   />
-</View>
+</Fragment>
 `;
