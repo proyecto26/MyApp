@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
   StyleSheet,
   Modal,
@@ -17,13 +17,17 @@ type ImageProps = {
   imageSourceName?: string
 }
 
+type Image = Record<string, string | number>
+
 export type ImageGalleryProps = ImageProps & {
-  images: Array<{ [key: string]: string | number }>,
+  images: Array<Image>,
   isVisible: boolean,
   onClosePress: () => void,
   viewerProps?: Partial<ImageViewerProps>,
   renderFooter?: (bottom: number) => JSX.Element
 }
+
+const MAX_SCALE_TO_ENABLE_SCROLL = 1
 
 const ImageGallery = ({
   isVisible,
@@ -34,7 +38,9 @@ const ImageGallery = ({
   imageKeyName = 'key',
   imageSourceName = 'src'
 }: ImageGalleryProps) => {
+  const listRef = useRef<FlatList<Image>>(null)
   const [index, setIndex] = useState(0)
+  const [scrollEnabled, setScrollEnabled] = useState(true)
   const { top, bottom } = useSafeAreaInsets()
   const onScrollEnd = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const { contentOffset, layoutMeasurement } = e.nativeEvent
@@ -45,6 +51,10 @@ const ImageGallery = ({
       setIndex(0)
     }
   }, [isVisible])
+
+  useEffect(() => {
+    setScrollEnabled(true)
+  }, [images])
   return (
     <Modal
       visible={isVisible}
@@ -72,19 +82,36 @@ const ImageGallery = ({
       <View style={styles.container}>
         <View style={styles.content}>
           <FlatList
+            ref={listRef}
             horizontal
             pagingEnabled
+            scrollEnabled={scrollEnabled}
+            scrollEventThrottle={200}
+            nestedScrollEnabled={scrollEnabled}
             showsHorizontalScrollIndicator={false}
             onMomentumScrollEnd={onScrollEnd}
             data={images}
-            renderItem={({ item }) => (
+            renderItem={({ item, index }) => (
               <ImageViewer
                 {...viewerProps}
                 source={{ uri: String(item[imageSourceName]) }}
+                onZoom={(scale) => {
+                  const enableScroll = scale <= MAX_SCALE_TO_ENABLE_SCROLL
+                  if (!enableScroll && listRef.current) {
+                    listRef.current.scrollToIndex({index})
+                  }
+                  setScrollEnabled(enableScroll)
+                }}
               />
             )}
             keyExtractor={(item, index) => String(item[imageKeyName] || index)}
             contentContainerStyle={styles.viewer}
+            onStartShouldSetResponder={(e) => {
+              return e.nativeEvent.touches.length === 1 && scrollEnabled
+            }}
+            onMoveShouldSetResponder={(e) => {
+              return e.nativeEvent.touches.length === 1 && scrollEnabled
+            }}
           />
         </View>
         {renderFooter && (

@@ -6,7 +6,7 @@ exports[`<ImageViewer /> renders correctly 1`] = `
   cropHeight={1334}
   cropWidth={750}
   doubleClickInterval={175}
-  enableCenterFocus={true}
+  enableCenterFocus={false}
   enableDoubleClickZoom={true}
   enableSwipeDown={false}
   horizontalOuterRangeOffset={[Function]}
@@ -15,7 +15,7 @@ exports[`<ImageViewer /> renders correctly 1`] = `
   layoutChange={[Function]}
   longPressTime={800}
   maxOverflow={100}
-  maxScale={10}
+  maxScale={7}
   minScale={1}
   onClick={[Function]}
   onDoubleClick={[Function]}
@@ -31,7 +31,7 @@ exports[`<ImageViewer /> renders correctly 1`] = `
   style={Object {}}
   swipeDownThreshold={230}
   useHardwareTextureAndroid={true}
-  useNativeDriver={false}
+  useNativeDriver={true}
 >
   <View
     onStartShouldSetResponder={[Function]}
