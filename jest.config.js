@@ -9,7 +9,7 @@ module.exports = {
   transform: {
     ...tsjPreset.transform,
     '^.+\\.(js)$': '<rootDir>/node_modules/babel-jest',
-    '\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   testPathIgnorePatterns: ['\\.snap$', '<rootDir>/node_modules/'],
   globals: {
@@ -18,7 +18,7 @@ module.exports = {
       diagnostics: {
         ignoreCodes: [2307, 7016],
       },
-      tsConfig: './tsconfig.jest.json',
+      tsconfig: './tsconfig.jest.json',
     },
   },
   modulePaths: ['<rootDir>'],

@@ -6,7 +6,7 @@ import ImageViewer, { ImageViewerProps } from '..'
 
 describe('<ImageViewer />', () => {
   const defaultProps: ImageViewerProps = {
-    source: { uri: 'something' }
+    source: { uri: 'something' },
   }
 
   it('should render', () => {

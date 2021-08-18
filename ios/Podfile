@@ -6,18 +6,29 @@ platform :ios, '10.0'
 target 'MyApp' do
   config = use_native_modules!
 
-  use_react_native!(:path => config["reactNativePath"])
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # to enable hermes on iOS, change `false` to `true` and then install pods
+    :hermes_enabled => false
+  )
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  # If you're using autolinking, this line might not be needed
+  # pod 'WatermelonDB', :path => '../node_modules/@nozbe/watermelondb'
+  # NOTE: Do not remove, needed to keep WatermelonDB compiling:
+  pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi', :modular_headers => true
+
+  # NOTE: This is required as of v0.23
+  pod 'simdjson', path: '../node_modules/@nozbe/simdjson'
   # Permissions
   permissions_path = '../node_modules/react-native-permissions/ios'
-  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
-  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways.podspec"
-  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse.podspec"
-  pod 'Permission-MediaLibrary', :path => "#{permissions_path}/MediaLibrary.podspec"
-  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone.podspec"
-  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
-  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary.podspec"
-  pod 'Permission-SpeechRecognition', :path => "#{permissions_path}/SpeechRecognition.podspec"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  pod 'Permission-MediaLibrary', :path => "#{permissions_path}/MediaLibrary"
+  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone"
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications"
+  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
+  pod 'Permission-SpeechRecognition', :path => "#{permissions_path}/SpeechRecognition"
 
   target 'MyAppTests' do
     inherit! :complete
@@ -27,18 +38,15 @@ target 'MyApp' do
   # Enables Flipper.
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
-  # you should disable these next few lines.
-  use_flipper!
+  # you should disable the next line.
+  use_flipper!()
+
   post_install do |installer|
-    flipper_post_install(installer)
-  end
-end
-
-target 'MyApp-tvOS' do
-  # Pods for MyApp-tvOS
-
-  target 'MyApp-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
+    react_native_post_install(installer)
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+      end
+    end
   end
 end

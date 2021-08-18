@@ -22,7 +22,7 @@ const PhotoCard = (photo: Photo) => {
   }
 
   useEffect(() => {
-    PhotoService.getPhoto(photo.id).then((u) => {
+    PhotoService.getPhoto(photo.id).then(u => {
       setDownload(!!u)
     })
   }, [photo.id])

@@ -55,6 +55,7 @@ exports[`<PhotoList /> renders correctly 1`] = `
     <LottieView
       autoPlay={true}
       autoSize={true}
+      cacheComposition={true}
       enableMergePathsAndroidForKitKatAndAbove={false}
       loop={false}
       progress={0}

@@ -37,7 +37,10 @@ describe('<PhotoCard />', () => {
       const wrapper = mount(<PhotoCard {...user} />)
       wrapper.find({ testID: 'PhotoItem' }).first().prop('onPress')()
 
-      expect(NavigationService.navigate).toHaveBeenCalledWith(SCREENS.DETAILS, expect.anything())
+      expect(NavigationService.navigate).toHaveBeenCalledWith(
+        SCREENS.DETAILS,
+        expect.anything(),
+      )
     })
   })
 })

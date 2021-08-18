@@ -32,7 +32,7 @@ const MenuNavigator = createDrawerNavigator(
     SharedElementsNavigator,
   },
   {
-    contentComponent: (props) => <MenuScreen {...props} />,
+    contentComponent: props => <MenuScreen {...props} />,
     contentOptions: {
       activeTintColor: '#e91e63',
     },

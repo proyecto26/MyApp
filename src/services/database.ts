@@ -1,5 +1,7 @@
 import { Database } from '@nozbe/watermelondb'
-import SQLiteAdapter, { SQLiteAdapterOptions } from '@nozbe/watermelondb/adapters/sqlite'
+import SQLiteAdapter, {
+  SQLiteAdapterOptions,
+} from '@nozbe/watermelondb/adapters/sqlite'
 
 import schema from '../models/schema'
 import migrations from '../models/migrations'
@@ -10,12 +12,12 @@ let database: Database
 /**
  * Get Singleton instance of the Database
  */
-export function getDatabase (): Database {
+export function getDatabase(): Database {
   if (!database) {
     // First, create the adapter to the underlying database:
     const adapterConfig: SQLiteAdapterOptions = {
       schema,
-      migrations
+      migrations,
     }
     const adapter = new SQLiteAdapter(adapterConfig)
 
@@ -23,7 +25,6 @@ export function getDatabase (): Database {
     database = new Database({
       adapter,
       modelClasses: [Photo],
-      actionsEnabled: true,
     })
   }
   return database

@@ -32,16 +32,16 @@ export default StyleSheet.create({
   imageGalleryFooter: {
     padding: 10,
     height: 100,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   imageGalleryButtonContainer: {
     borderWidth: 2,
     borderColor: 'black',
     margin: 5,
-    padding: 5
+    padding: 5,
   },
   imageGalleryButton: {
     padding: 10,
-    backgroundColor: 'gray'
-  }
+    backgroundColor: 'gray',
+  },
 })

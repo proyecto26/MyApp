@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ImageGallery /> renders correctly 1`] = `
-<Component
+<Modal
   animationType="slide"
   hardwareAccelerated={false}
   supportedOrientations={
@@ -12,7 +12,7 @@ exports[`<ImageGallery /> renders correctly 1`] = `
   }
   visible={true}
 >
-  <ForwardRef(Themed.Header)
+  <Themed.Header
     centerComponent={
       Object {
         "style": Object {
@@ -35,7 +35,7 @@ exports[`<ImageGallery /> renders correctly 1`] = `
       ]
     }
     leftComponent={
-      <ForwardRef(Themed.Button)
+      <Themed.Button
         accessibilityLabel="imageGalleryClose"
         accessible={true}
         icon={
@@ -108,5 +108,5 @@ exports[`<ImageGallery /> renders correctly 1`] = `
       />
     </View>
   </View>
-</Component>
+</Modal>
 `;

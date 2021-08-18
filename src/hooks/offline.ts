@@ -16,8 +16,8 @@ export const useOfflineCollection = function <T>(
         .get(collection)
         .query(...conditions)
         .observe()
-        .subscribe((records) => {
-          setItems(records.map((i) => i._raw as any))
+        .subscribe(records => {
+          setItems(records.map(i => i._raw as any))
         })
       return () => subscription.unsubscribe()
     },

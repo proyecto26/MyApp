@@ -18,6 +18,7 @@ exports[`<PlayButton /> renders correctly 1`] = `
     <LottieView
       autoPlay={true}
       autoSize={false}
+      cacheComposition={true}
       enableMergePathsAndroidForKitKatAndAbove={false}
       loop={true}
       progress={0}

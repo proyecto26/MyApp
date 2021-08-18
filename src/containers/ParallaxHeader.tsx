@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import {
   View,
   ViewProps,
@@ -7,7 +7,7 @@ import {
   ScrollViewProps,
   Platform,
   StyleSheet,
-  Dimensions
+  Dimensions,
 } from 'react-native'
 import get from 'lodash/get'
 import ReactNativeParallaxHeader from 'react-native-parallax-header'
@@ -27,11 +27,11 @@ interface Props {
   titleStyle?: TextProps['style']
   backgroundImage?: ImageProps['source']
   backgroundImageScale?: number
-  renderNavBar?: () => JSX.Element
-  renderLeft?: () => JSX.Element
-  renderBody?: () => JSX.Element
-  renderRight?: () => JSX.Element
-  renderContent?: () => JSX.Element
+  renderNavBar?: () => ReactNode
+  renderLeft?: () => ReactNode
+  renderBody?: () => ReactNode
+  renderRight?: () => ReactNode
+  renderContent?: () => ReactNode
   containerStyle?: ViewProps['style']
   innerContainerStyle?: ViewProps['style']
   contentContainerStyle?: ScrollViewProps['contentContainerStyle']
@@ -40,9 +40,9 @@ interface Props {
 }
 
 const renderNavBar = (
-  renderLeft?: () => JSX.Element,
-  renderBody?: () => JSX.Element,
-  renderRight?: () => JSX.Element
+  renderLeft?: () => ReactNode,
+  renderBody?: () => ReactNode,
+  renderRight?: () => ReactNode,
 ) => (
   <View style={styles.navContainer}>
     <View style={styles.statusBar} />
@@ -67,11 +67,8 @@ const ParallaxHeader = (props: Props) => {
       backgroundImage={props.backgroundImage}
       backgroundImageScale={get(props, 'backgroundImageScale', 1)}
       renderNavBar={() =>
-        props.renderNavBar || renderNavBar(
-          props.renderLeft,
-          props.renderBody,
-          props.renderRight,
-        )
+        props.renderNavBar ||
+        renderNavBar(props.renderLeft, props.renderBody, props.renderRight)
       }
       renderContent={props.renderContent}
       containerStyle={get(props, 'containerStyle', styles.container)}

@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { StyleSheet, View, TouchableOpacity } from 'react-native'
 import LottieView from 'lottie-react-native'
 import R from 'res'
 import { NavigationService } from '../../services'
 import { SCREENS } from '../../constants'
-
 
 const PlayButton: React.FC = () => (
   <View style={styles.container}>

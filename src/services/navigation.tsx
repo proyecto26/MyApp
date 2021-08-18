@@ -118,16 +118,15 @@ function getActiveRouteName(navigationState: NavigationState) {
 /**
  * A Higher Order Component (HOC) to pass the params of the navigation as properties
  */
-const mapNavigationStateParamsToProps = (
-  WrappedComponent: ComponentType<any>,
-) => (props: any) => {
-  const {
-    navigation: {
-      state: { params },
-    },
-  } = props
-  return <WrappedComponent {...params} {...props} />
-}
+const mapNavigationStateParamsToProps =
+  (WrappedComponent: ComponentType<any>) => (props: any) => {
+    const {
+      navigation: {
+        state: { params },
+      },
+    } = props
+    return <WrappedComponent {...params} {...props} />
+  }
 
 // add other navigation functions that you need and export them
 

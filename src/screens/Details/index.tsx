@@ -6,7 +6,7 @@ import {
   Image,
   Linking,
   Button,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native'
 import { NavigationInjectedProps, NavigationScreenProp } from 'react-navigation'
 import { SharedElement } from 'react-navigation-shared-element'
@@ -22,7 +22,7 @@ import { BrowserService } from '../../services'
 import { ImageGallery } from '../../components'
 
 type GalleryImage = {
-  id: string,
+  id: string
   src: string
 }
 
@@ -35,13 +35,13 @@ const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
 
   const loadImages = () => {
     const baseIndex = Math.floor(Math.random() * 100)
-    const images = [...new Array(5).keys()].map((i) => {
+    const newImages = [...new Array(5).keys()].map(i => {
       return {
         id: `image_${i}`,
-        src: `https://picsum.photos/id/${i + baseIndex}/400/400`
+        src: `https://picsum.photos/id/${i + baseIndex}/400/400`,
       }
     })
-    setImages(images)
+    setImages(newImages)
   }
 
   useEffect(() => {
@@ -98,8 +98,7 @@ const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
         renderFooter={() => (
           <ScrollView
             horizontal
-            contentContainerStyle={styles.imageGalleryFooter}
-          >
+            contentContainerStyle={styles.imageGalleryFooter}>
             {range(0, 10).map(() => (
               <Avatar
                 onPress={loadImages}

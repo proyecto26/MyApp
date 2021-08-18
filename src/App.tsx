@@ -17,7 +17,7 @@ import AppContainer from './routes'
 import { ErrorContainer } from './containers'
 import { withDatabaseProvider } from './hocs'
 
-setNativeExceptionHandler((errorMessage) => {
+setNativeExceptionHandler(errorMessage => {
   LogService.logError(new Error(`NativeError: ${errorMessage}`))
 })
 
@@ -41,7 +41,7 @@ class App extends Component {
     ) : (
       <SafeAreaProvider>
         <AppContainer
-          ref={(navigatorRef) => {
+          ref={navigatorRef => {
             NavigationService.setTopLevelNavigator(navigatorRef)
           }}
         />

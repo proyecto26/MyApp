@@ -4,19 +4,20 @@ import { mount, shallow } from 'enzyme'
 
 import ImageGallery, { ImageGalleryProps } from '..'
 
-const makeShallowWrapper = (props: ImageGalleryProps) => shallow(
-  <ImageGallery {...props} />
-)
+const makeShallowWrapper = (props: ImageGalleryProps) =>
+  shallow(<ImageGallery {...props} />)
 
-const makeMountWrapper = (props: ImageGalleryProps) => mount(
-  <ImageGallery {...props} />
-)
+const makeMountWrapper = (props: ImageGalleryProps) =>
+  mount(<ImageGallery {...props} />)
 
 describe('<ImageGallery />', () => {
   const defaultProps: ImageGalleryProps = {
     isVisible: true,
-    images: [{ id: 1, src: '123' }, { id: 2, src: '123' }],
-    onClosePress: jest.fn()
+    images: [
+      { id: 1, src: '123' },
+      { id: 2, src: '123' },
+    ],
+    onClosePress: jest.fn(),
   }
 
   it('should render', () => {

@@ -2,7 +2,8 @@ import { Photo } from '../models'
 import { getDatabase } from './database'
 import { COLLECTIONS } from '../constants'
 
-const getPhotosCollection = () => getDatabase().collections.get<Photo>(COLLECTIONS.PHOTOS)
+const getPhotosCollection = () =>
+  getDatabase().collections.get<Photo>(COLLECTIONS.PHOTOS)
 
 const getPhoto = async (id: string) => {
   try {
@@ -16,8 +17,8 @@ const getPhoto = async (id: string) => {
 const getPhotos = (): Promise<Photo[]> => getPhotosCollection().query().fetch()
 
 const addPhoto = async (newPhoto: Photo) => {
-  await getDatabase().action(async () => {
-    await getPhotosCollection().create((photo) => {
+  await getDatabase().write(async () => {
+    await getPhotosCollection().create(photo => {
       photo._raw.id = newPhoto.id
       for (const key in newPhoto) {
         if (newPhoto.hasOwnProperty(key)) {
@@ -29,7 +30,7 @@ const addPhoto = async (newPhoto: Photo) => {
 }
 
 const deletePhoto = async (id: string) => {
-  await getDatabase().action(async () => {
+  await getDatabase().write(async () => {
     const photo = await getPhotosCollection().find(id)
     await photo.markAsDeleted() // syncable
     await photo.destroyPermanently() // permanent

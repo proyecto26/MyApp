@@ -73,7 +73,7 @@ const MenuScreen = (props: DrawerContentComponentProps) => {
         </View>
       </View>
       <ScrollView>
-        {items.map((item) => (
+        {items.map(item => (
           <MenuItem {...item} key={item.label} />
         ))}
       </ScrollView>
