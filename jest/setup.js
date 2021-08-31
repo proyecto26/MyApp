@@ -1,6 +1,5 @@
 import 'react-native'
 import 'jest-enzyme'
-// import 'react-native-mock-render/mock'
 import Enzyme from 'enzyme'
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17'
 
@@ -48,9 +47,7 @@ const jsdom = new JSDOM('<!doctype html><html><body></body></html>', {
   url: 'http://localhost',
 })
 
-const {
-  window: { document },
-} = jsdom
+const { window } = jsdom
 
 function copyProps(src, target) {
   Object.defineProperties(target, {
@@ -62,8 +59,8 @@ function copyProps(src, target) {
 global.__TEST__ = true
 global.fetch = require('jest-fetch-mock')
 global.fetchMock = global.fetch
-global.document = document
-global.window = document.defaultView
+global.document = window.document
+global.window = window
 global.navigator = {
   userAgent: 'node.js',
 }

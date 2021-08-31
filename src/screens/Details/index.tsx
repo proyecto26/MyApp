@@ -99,8 +99,9 @@ const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
           <ScrollView
             horizontal
             contentContainerStyle={styles.imageGalleryFooter}>
-            {range(0, 10).map(() => (
+            {range(0, 10).map((_, i) => (
               <Avatar
+                key={`avatar_${i}`}
                 onPress={loadImages}
                 rounded
                 icon={{ name: 'home', color: '#000' }}
