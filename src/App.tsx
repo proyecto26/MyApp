@@ -16,6 +16,7 @@ import { NavigationService, LogService } from './services'
 import AppContainer from './routes'
 import { ErrorContainer } from './containers'
 import { withDatabaseProvider } from './hocs'
+import { StoreProvider } from './store'
 
 setNativeExceptionHandler(errorMessage => {
   LogService.logError(new Error(`NativeError: ${errorMessage}`))
@@ -36,16 +37,20 @@ class App extends Component {
 
   render() {
     const { hasError } = this.state
-    return hasError ? (
-      <ErrorContainer />
-    ) : (
-      <SafeAreaProvider>
-        <AppContainer
-          ref={navigatorRef => {
-            NavigationService.setTopLevelNavigator(navigatorRef)
-          }}
-        />
-      </SafeAreaProvider>
+    return (
+      <StoreProvider>
+        <SafeAreaProvider>
+          {hasError ? (
+            <ErrorContainer />
+          ) : (
+            <AppContainer
+              ref={navigatorRef => {
+                NavigationService.setTopLevelNavigator(navigatorRef)
+              }}
+            />
+          )}
+        </SafeAreaProvider>
+      </StoreProvider>
     )
   }
 }
