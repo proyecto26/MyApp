@@ -15,8 +15,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { NavigationService, LogService, runMigrations } from './services'
 import AppContainer from './routes'
 import { ErrorContainer } from './containers'
-
-console.disableYellowBox = true
+import { StoreProvider } from './store'
 
 setNativeExceptionHandler((errorMessage) => {
   LogService.logError(new Error(`NativeError: ${errorMessage}`))
@@ -41,16 +40,20 @@ export default class App extends Component {
 
   render() {
     const { hasError } = this.state
-    return hasError ? (
-      <ErrorContainer />
-    ) : (
-      <SafeAreaProvider>
-        <AppContainer
-          ref={(navigatorRef) => {
-            NavigationService.setTopLevelNavigator(navigatorRef)
-          }}
-        />
-      </SafeAreaProvider>
+    return (
+      <StoreProvider>
+        <SafeAreaProvider>
+          {hasError ? (
+            <ErrorContainer />
+          ) : (
+            <AppContainer
+              ref={(navigatorRef) => {
+                NavigationService.setTopLevelNavigator(navigatorRef)
+              }}
+            />
+          )}
+        </SafeAreaProvider>
+      </StoreProvider>
     )
   }
 }
